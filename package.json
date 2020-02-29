@@ -51,7 +51,6 @@
     "prettier": "prettier --parser typescript --single-quote --trailing-comma --write \"./**/*.tsx\""
   },
   "devDependencies": {
-    "@types/bignumber.js": "^5.0.0",
     "@types/classnames": "^2.2.4",
     "@types/google-protobuf": "^3.2.7",
     "@types/lodash.debounce": "^4.0.4",
@@ -65,7 +64,6 @@
     "@types/react-router-dom": "^4.2.7",
     "@types/react-share": "^2.1.0",
     "@types/react-tooltip": "^3.3.5",
-    "@types/web3": "^1.0.2",
     "env-cmd": "^8.0.2",
     "mkdirp": "^0.5.1",
     "prettier": "1.13.7",

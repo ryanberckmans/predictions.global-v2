@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactTooltip from "react-tooltip";
+import ReactTooltip from "react-tooltip";
 import BigNumber from 'bignumber.js';
 import AugurFeeWindow, {FeeWindow} from 'augur-fee-window-infos';
 import {Currency, ethToGwei, gweiToEth} from '../Currency';

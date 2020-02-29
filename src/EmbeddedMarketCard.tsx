@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactTooltip from "react-tooltip";
+import ReactTooltip from "react-tooltip";
 import {Market, MarketsSummary} from "./generated/markets_pb";
 import OneMarketSummary from "./OneMarketSummary";
 import * as moment from "moment";

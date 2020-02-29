@@ -4,7 +4,7 @@ import moment from 'moment';
 import * as React from 'react';
 // @ts-ignore for HashLink which has no TypeScript types
 import { HashLink } from 'react-router-hash-link';
-import * as ReactTooltip from 'react-tooltip';
+import ReactTooltip from 'react-tooltip';
 import './App.css';
 import { Dropdown } from './Components/Dropdown';
 import Footer from './Components/Footer';

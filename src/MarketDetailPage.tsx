@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import moment from 'moment';
 import * as React from 'react';
 import { Redirect, RouteComponentProps } from 'react-router';
-import * as ReactTooltip from "react-tooltip";
+import ReactTooltip from "react-tooltip";
 import AllOutcomesSummary from './AllOutcomesSummary';
 import { Currency, getSavedCurrencyPreference } from "./Currency";
 import { ExchangeRates, getExchangeRatesFromMarketsSummary, makePriceFromEthAmount } from './ExchangeRates';
