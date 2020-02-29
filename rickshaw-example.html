@@ -1,0 +1,204 @@
+<!doctype>
+<head>
+	<link type="text/css" rel="stylesheet" href="https://tech.shutterstock.com/rickshaw/src/css/graph.css">
+	<link type="text/css" rel="stylesheet" href="https://tech.shutterstock.com/rickshaw/src/css/detail.css">
+	<link type="text/css" rel="stylesheet" href="https://tech.shutterstock.com/rickshaw/src/css/legend.css">
+	<link type="text/css" rel="stylesheet" href="https://tech.shutterstock.com/rickshaw/examples/css/extensions.css">
+	<script src="https://tech.shutterstock.com/rickshaw/vendor/d3.v3.js"></script>
+	<script src="https://tech.shutterstock.com/rickshaw/rickshaw.js"></script>
+	<style>
+		body {
+
+		}
+		#chartContainer {
+			position: relative;
+			width: 61vw;
+			height: 39vh;
+			background-color: rgb(21, 35, 44);
+		}
+		#chart {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			border: none !important;
+		}
+		#chart2 {
+			position: absolute;
+			top: 0;
+			right: -4%;
+			z-index: 1;
+			border: none !important;
+		}
+		.x_tick {
+			color: white;
+		}
+	</style>
+</head>
+<body>
+
+<div id="content">
+	<a href="https://www.predictit.org/markets/13/Prez-Election" target="pg_pi">
+		<div id="chartContainer">
+			<div id="chart"></div>
+			<div id="chart2"></div>
+		</div>
+	</a>
+</div>
+
+<script>
+
+var tv = 250;
+
+// instantiate our graph!
+var graph = new Rickshaw.Graph( Object.assign({
+	element: document.getElementById("chart"),
+	// width: 900,
+	// height: 500,
+	renderer: 'line',
+	min: 0, // y-axis min value, ie. $0
+	max: 1, // y-axis max value, $1
+	interpolation: 'step-after', // line smoothing / interpolation method, square steps from point to point, https://github.com/mbostock/d3/wiki/SVG-Shapes#wiki-line_interpolate
+	series: new Rickshaw.Series.FixedDuration([{ name: 'oneBuy' }], {
+		// these are args for https://github.com/shutterstock/rickshaw/blob/master/src/js/Rickshaw.Color.Palette.js
+		scheme: [
+			'red',
+			'red',
+		],
+	}, {
+		timeInterval: tv,
+		maxDataPoints: 480,
+		timeBase: new Date().getTime() / 1000,
+	})
+}, getChartElementWidthAndHeight()));
+
+var hoverDetail = new Rickshaw.Graph.HoverDetail({
+  graph: graph,
+  // xFormatter: function(x) { return x + "seconds" },
+  // yFormatter: function(y) { return Math.floor(y) + " percent" }
+});
+
+var time = new Rickshaw.Fixtures.Time.Local();
+var unit = time.unit('minute');
+
+var xAxis = new Rickshaw.Graph.Axis.Time({
+  graph: graph,
+	timeFixture: new Rickshaw.Fixtures.Time.Local(),
+	timeUnit: {
+		name: 'minute',
+		seconds: 60,
+		formatter: formatAMPM,
+	},
+});
+xAxis.render();
+
+// https://stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format
+function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return strTime;
+}
+
+// This clientWidth/clientHeight + resize handler + use of vw/vh in CSS shows how we can dynamically resize a chart to a containing box, and that containing box can be a function of viewport size.
+function getChartElementWidthAndHeight() {
+	const el = document.getElementById("chart");
+	const d = {
+		width: el.clientWidth,
+		height: el.clientHeight,
+	};
+	console.log(d);
+	return d;
+}
+
+var resize = function() {
+	graph.configure(getChartElementWidthAndHeight());
+	graph.render();
+	console.log(graph);
+}
+window.addEventListener('resize', resize);
+graph.render();
+
+// add some data every so often
+
+var i = 0;
+let prevOneBuy = Math.random();
+let prevOneSell = Math.min(0.999, prevOneBuy + 0.01);
+var iv = setInterval( function() {
+	const oneBuyWillUpdate = Math.random() < 0.2;
+	const oneSellWillUpdate = Math.random() < 0.2;
+	const oneBuy = oneBuyWillUpdate ? Math.max(0, prevOneBuy + Math.random() * 0.12 - 0.06) : prevOneBuy;
+	prevOneBuy = oneBuy;
+	const oneSell = oneSellWillUpdate ? Math.min(0.999, oneBuy + Math.random() * 0.10 + 0.01): prevOneSell;
+	prevOneSell = oneSell;
+	if (oneBuyWillUpdate) {
+		updateLastPrice(oneBuy);
+	}
+	else if (oneSellWillUpdate) {
+		updateLastPrice(oneSell);
+	}
+	var data = {
+		oneBuy,
+		oneSell,
+		// two: Math.random(),
+		// three: Math.random(),
+	};
+
+	// var randInt = Math.floor(Math.random()*100);
+	// data.two = (Math.sin(i++ / 40) + 4) * (randInt + 400);
+	// data.three = randInt + 300;
+
+	graph.series.addData(data);
+	graph.render();
+
+}, tv * 2.0 / 3 ); // here we set our period to a different duration than the FixedDuration timeInterval in the chart, this shows that we can stream data in whenever we want but the chart will update only on a fixed duration
+
+// Last trade price chart2
+function getChart2ElementWidthAndHeight() {
+	const wh = getChartElementWidthAndHeight();
+	return {
+		height: wh.height,
+		width: wh.width * 0.08,
+	};
+}
+
+var graph2 = new Rickshaw.Graph(Object.assign({
+  element: document.getElementById("chart2"),
+  renderer: 'scatterplot',
+	min: 0, // y-axis min value, ie. $0
+	max: 1, // y-axis max value, $1
+  series: [
+    { // this first series is a hack to set the X axis domain from [0,11] which causes the subsequent series' x values of 6 to be in the middle of the X axis domain, which has the effect of rendering the last trade price dot on the right margin of the price chart
+      color: "#ffffff",
+      data: [{ x: 0, y: -5}, { x: 71, y: -5}],
+    }, {
+      color: 'red',
+      data: [{ x: 36, y: 0.5}],
+    }
+  ]
+}, getChart2ElementWidthAndHeight()));
+
+function updateLastPrice(newLastPrice) {
+	graph2.series[1].data = [{ x: 36, y: newLastPrice}];
+	graph2.render();
+}
+
+new Rickshaw.Graph.HoverDetail({ graph: graph2 });
+
+var resize2 = function() {
+	const wh = getChart2ElementWidthAndHeight()
+	graph2.configure(getChart2ElementWidthAndHeight());
+	graph2.renderer.dotSize = Math.max(6, Math.round(wh.height * 0.04));
+	graph2.render();
+	console.log(graph2);
+}
+window.addEventListener('resize', resize2);
+
+resize2();
+
+</script>
+
+</body>
