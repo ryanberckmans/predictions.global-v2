@@ -54,7 +54,6 @@
     "@types/bignumber.js": "^5.0.0",
     "@types/classnames": "^2.2.4",
     "@types/google-protobuf": "^3.2.7",
-    "@types/jest": "^23.1.2",
     "@types/lodash.debounce": "^4.0.4",
     "@types/mkdirp": "^0.5.2",
     "@types/node": "^10.3.6",
