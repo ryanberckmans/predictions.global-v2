@@ -185,19 +185,19 @@ export class Routes extends React.Component<any, RoutesState> {
   };
 
   private fetchVeilMarkets = async () => {
-    try {
-      const resp = await fetch(new Request("https://api.veil.co/api/v1/market_ids", {
-        mode: "cors", // mode cors assumes dataURI has a different origin; once dataURI is served from CDN (instead of directly from google storage bucket) we'll want to update this code.
-      }))
-
-      if (!resp.ok) {
-        throw Error(resp.statusText);
-      }
-
-      const json: { data: Array<[string, string]> } = await resp.json();
-      this.setState({ veilMarkets: json.data });
-    } catch(e) {
-      throw e;
-    }
+    // try {
+    //   const resp = await fetch(new Request("https://api.veil.co/api/v1/market_ids", {
+    //     mode: "cors", // mode cors assumes dataURI has a different origin; once dataURI is served from CDN (instead of directly from google storage bucket) we'll want to update this code.
+    //   }))
+    //
+    //   if (!resp.ok) {
+    //     throw Error(resp.statusText);
+    //   }
+    //
+    //   const json: { data: Array<[string, string]> } = await resp.json();
+    //   this.setState({ veilMarkets: json.data });
+    // } catch(e) {
+    //   throw e;
+    // }
   }
 }
