@@ -1,5 +1,6 @@
 <!doctype>
 <head>
+	<title>PI</title>
 	<link type="text/css" rel="stylesheet" href="https://tech.shutterstock.com/rickshaw/src/css/graph.css">
 	<link type="text/css" rel="stylesheet" href="https://tech.shutterstock.com/rickshaw/src/css/detail.css">
 	<link type="text/css" rel="stylesheet" href="https://tech.shutterstock.com/rickshaw/src/css/legend.css">
@@ -8,19 +9,22 @@
 	<script src="https://tech.shutterstock.com/rickshaw/rickshaw.js"></script>
 	<style>
 		body {
-
+			margin: 0;
 		}
 		#chartContainer {
 			position: relative;
-			width: 61vw;
-			height: 39vh;
+			width: 61vh; /* note that width: 39vh (v height) supports rotating the chart by 90 degrees */
+			height: 50vw;  /* note that height: 39vh (v width) supports rotating the chart by 90 degrees */
 			background-color: rgb(21, 35, 44);
+			transform-origin: bottom left;
+			transform: rotate(90deg) translateX(-50vw); /* WARNING this 39vw must equal same value as `height: 39vw` above */
 		}
 		#chart {
 			position: relative;
 			width: 100%;
 			height: 100%;
 			border: none !important;
+			z-index: 0;
 		}
 		#chart2 {
 			position: absolute;
@@ -29,8 +33,26 @@
 			z-index: 1;
 			border: none !important;
 		}
-		.x_tick {
+		#chartLegend img {
+			transform: rotate(90deg);
+		}
+		#chartLegend {
+			writing-mode: vertical-rl;
+			text-orientation: sideways;
+			position: absolute;
+			bottom: 1%;
+			left: 1%;
+			z-index: 2;
+			transform: rotate(180deg);
+		}
+		.detail .active {
+			transform-origin: left center;
+			transform: rotate(-90deg) translateY(-57%) translateX(9%);
+		}
+		.x_tick .title {
+			bottom: unset !important; /* unsetting bottom has the effect of pushing the X axis time labels to the top of the chart, ie. to the right of the chart after rotation, this is because rickshaw css already sets position absolute, top 0, bottom 0, so when we unset bottom what's left is "position: absolute, top: 0" */
 			color: white;
+			transform: rotate(-90deg) translateX(-44%);
 		}
 	</style>
 </head>
@@ -41,6 +63,18 @@
 		<div id="chartContainer">
 			<div id="chart"></div>
 			<div id="chart2"></div>
+			<div id="chartLegend">
+				<img src="https://az620379.vo.msecnd.net/images/Contracts/small_a23d6bdd-d901-476f-b0d9-6d5d5b8c02c0.jpg" style="height: 0.8em"/>
+				<span style="color: red;">2020 Democratic nominee? Sanders</span>
+				<br />
+
+				<img src="https://az620379.vo.msecnd.net/images/Contracts/small_4c64890a-503c-454c-b02e-732319f1459f.jpg" style="height: 0.8em"/>
+				<span style="color: blue;">2020 Democratic nominee? Biden</span>
+				<br />
+
+				<img src="https://az620379.vo.msecnd.net/images/Contracts/small_322243ef-da30-4199-aef3-7bdf8175fbe4.jpg" style="height: 0.8em"/>
+				<span style="color: yellow;">2020 Democratic nominee? Warren</span>
+			</div>
 		</div>
 	</a>
 </div>
@@ -63,6 +97,10 @@ var graph = new Rickshaw.Graph( Object.assign({
 		scheme: [
 			'red',
 			'red',
+			'blue',
+			'blue',
+			'yellow',
+			'yellow',
 		],
 	}, {
 		timeInterval: tv,
@@ -74,8 +112,10 @@ var graph = new Rickshaw.Graph( Object.assign({
 var hoverDetail = new Rickshaw.Graph.HoverDetail({
   graph: graph,
   // xFormatter: function(x) { return x + "seconds" },
-  // yFormatter: function(y) { return Math.floor(y) + " percent" }
+  yFormatter: (y) => `${Math.round(y * 100)}¢`,
 });
+// Override formatter https://github.com/shutterstock/rickshaw/blob/master/src/js/Rickshaw.Graph.HoverDetail.js#L34
+hoverDetail.formatter = (series, x, y, formattedX, formattedY, d) => `${series.name}&nbsp;${formattedY}`;
 
 var time = new Rickshaw.Fixtures.Time.Local();
 var unit = time.unit('minute');
@@ -122,11 +162,13 @@ var resize = function() {
 window.addEventListener('resize', resize);
 graph.render();
 
-// add some data every so often
-
-var i = 0;
 let prevOneBuy = Math.random();
 let prevOneSell = Math.min(0.999, prevOneBuy + 0.01);
+let prevTwoBuy = Math.random();
+let prevTwoSell = Math.min(0.999, prevTwoBuy + 0.01);
+let prevThreeBuy = Math.random();
+let prevThreeSell = Math.min(0.999, prevThreeBuy + 0.01);
+
 var iv = setInterval( function() {
 	const oneBuyWillUpdate = Math.random() < 0.2;
 	const oneSellWillUpdate = Math.random() < 0.2;
@@ -135,25 +177,48 @@ var iv = setInterval( function() {
 	const oneSell = oneSellWillUpdate ? Math.min(0.999, oneBuy + Math.random() * 0.10 + 0.01): prevOneSell;
 	prevOneSell = oneSell;
 	if (oneBuyWillUpdate) {
-		updateLastPrice(oneBuy);
+		updateLastPrice(1, oneBuy);
 	}
 	else if (oneSellWillUpdate) {
-		updateLastPrice(oneSell);
+		updateLastPrice(1, oneSell);
 	}
+
+	const twoBuyWillUpdate = Math.random() < 0.2;
+	const twoSellWillUpdate = Math.random() < 0.2;
+	const twoBuy = twoBuyWillUpdate ? Math.max(0, prevTwoBuy + Math.random() * 0.12 - 0.06) : prevTwoBuy;
+	prevTwoBuy = twoBuy;
+	const twoSell = twoSellWillUpdate ? Math.min(0.999, twoBuy + Math.random() * 0.10 + 0.01): prevTwoSell;
+	prevTwoSell = twoSell;
+	if (twoBuyWillUpdate) {
+		updateLastPrice(2, twoBuy);
+	}
+	else if (twoSellWillUpdate) {
+		updateLastPrice(2, twoSell);
+	}
+
+	const threeBuyWillUpdate = Math.random() < 0.2;
+	const threeSellWillUpdate = Math.random() < 0.2;
+	const threeBuy = threeBuyWillUpdate ? Math.max(0, prevThreeBuy + Math.random() * 0.12 - 0.06) : prevThreeBuy;
+	prevThreeBuy = threeBuy;
+	const threeSell = threeSellWillUpdate ? Math.min(0.999, threeBuy + Math.random() * 0.10 + 0.01): prevThreeSell;
+	prevThreeSell = threeSell;
+	if (threeBuyWillUpdate) {
+		updateLastPrice(3, threeBuy);
+	}
+	else if (threeSellWillUpdate) {
+		updateLastPrice(3, threeSell);
+	}
+
 	var data = {
 		oneBuy,
 		oneSell,
-		// two: Math.random(),
-		// three: Math.random(),
+		twoBuy,
+		twoSell,
+		threeBuy,
+		threeSell,
 	};
-
-	// var randInt = Math.floor(Math.random()*100);
-	// data.two = (Math.sin(i++ / 40) + 4) * (randInt + 400);
-	// data.three = randInt + 300;
-
 	graph.series.addData(data);
 	graph.render();
-
 }, tv * 2.0 / 3 ); // here we set our period to a different duration than the FixedDuration timeInterval in the chart, this shows that we can stream data in whenever we want but the chart will update only on a fixed duration
 
 // Last trade price chart2
@@ -174,24 +239,46 @@ var graph2 = new Rickshaw.Graph(Object.assign({
     { // this first series is a hack to set the X axis domain from [0,11] which causes the subsequent series' x values of 6 to be in the middle of the X axis domain, which has the effect of rendering the last trade price dot on the right margin of the price chart
       color: "#ffffff",
       data: [{ x: 0, y: -5}, { x: 71, y: -5}],
-    }, {
+    },
+		{
+			name: 'one',
       color: 'red',
       data: [{ x: 36, y: 0.5}],
-    }
+    },
+		{
+			name: 'two',
+      color: 'blue',
+      data: [{ x: 36, y: 0.5}],
+    },
+		{
+			name: 'three',
+      color: 'yellow',
+      data: [{ x: 36, y: 0.5}],
+    },
   ]
 }, getChart2ElementWidthAndHeight()));
 
-function updateLastPrice(newLastPrice) {
-	graph2.series[1].data = [{ x: 36, y: newLastPrice}];
+function updateLastPrice(i, newLastPrice) {
+	graph2.series[i].data = [{ x: 36, y: newLastPrice}];
 	graph2.render();
 }
 
-new Rickshaw.Graph.HoverDetail({ graph: graph2 });
+// Cache nowUTCString once per second, otherwise hoverDetail2.xFormatter will recompute it each render. In React we can pass nowUTCString to multiple chart components.
+var nowUTCString = new Date().toUTCString();
+setInterval(() => nowUTCString = new Date().toUTCString(), 1000);
+
+var hoverDetail2 = new Rickshaw.Graph.HoverDetail({
+  graph: graph2,
+  xFormatter: (x) => nowUTCString,
+  yFormatter: (y) => `${Math.round(y * 100)}¢`,
+});
+// Override formatter https://github.com/shutterstock/rickshaw/blob/master/src/js/Rickshaw.Graph.HoverDetail.js#L34
+hoverDetail2.formatter = (series, x, y, formattedX, formattedY, d) => `${series.name} last &nbsp;${formattedY}`;
 
 var resize2 = function() {
 	const wh = getChart2ElementWidthAndHeight()
 	graph2.configure(getChart2ElementWidthAndHeight());
-	graph2.renderer.dotSize = Math.max(6, Math.round(wh.height * 0.04));
+	graph2.renderer.dotSize = Math.max(6, Math.round(wh.width * 0.04)); // NOTE this is wh.width instead of wh.height because we rotate the chart by 90 degrees
 	graph2.render();
 	console.log(graph2);
 }
