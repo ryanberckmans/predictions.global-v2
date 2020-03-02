@@ -186,34 +186,34 @@ export const Dashboard: React.SFC<{}> = (props) => {
           name="description"
           content="Dashboard for PredictIt and Augur Prediction Markets. PredictIt and Augur prediction market discusion, prices, trading volume, bid ask, and charts." />
       </Helmet>
-      {mkChart(chart2Markets, historySeconds)}
       {mkChart(chart2Markets, historySeconds * 100)}
-      {mkChart(chart3Markets, historySeconds)}
+      {mkChart(chart2Markets, historySeconds)}
       {mkChart(chart3Markets, historySeconds * 100)}
-      {mkChart(chart4Markets, historySeconds)}
+      {mkChart(chart3Markets, historySeconds)}
       {mkChart(chart4Markets, historySeconds * 100)}
-      {mkChart(chart5Markets, historySeconds)}
+      {mkChart(chart4Markets, historySeconds)}
       {mkChart(chart5Markets, historySeconds * 100)}
-      {mkChart(chart6Markets, historySeconds)}
+      {mkChart(chart5Markets, historySeconds)}
       {mkChart(chart6Markets, historySeconds * 100)}
-      {mkChart(chart7Markets, historySeconds)}
+      {mkChart(chart6Markets, historySeconds)}
       {mkChart(chart7Markets, historySeconds * 100)}
-      {mkChart(chart8Markets, historySeconds)}
+      {mkChart(chart7Markets, historySeconds)}
       {mkChart(chart8Markets, historySeconds * 100)}
-      {mkChart(chart9Markets, historySeconds)}
+      {mkChart(chart8Markets, historySeconds)}
       {mkChart(chart9Markets, historySeconds * 100)}
-      {mkChart(chart10Markets, historySeconds)}
+      {mkChart(chart9Markets, historySeconds)}
       {mkChart(chart10Markets, historySeconds * 100)}
-      {mkChart(chart11Markets, historySeconds)}
+      {mkChart(chart10Markets, historySeconds)}
       {mkChart(chart11Markets, historySeconds * 100)}
-      {mkChart(chart12Markets, historySeconds)}
+      {mkChart(chart11Markets, historySeconds)}
       {mkChart(chart12Markets, historySeconds * 100)}
-      {mkChart(chart13Markets, historySeconds)}
+      {mkChart(chart12Markets, historySeconds)}
       {mkChart(chart13Markets, historySeconds * 100)}
-      {mkChart(chart1Markets, historySeconds)}
+      {mkChart(chart13Markets, historySeconds)}
       {mkChart(chart1Markets, historySeconds * 100)}
-      {mkChart(chart1Pt5Markets, historySeconds)}
+      {mkChart(chart1Markets, historySeconds)}
       {mkChart(chart1Pt5Markets, historySeconds * 100)}
+      {mkChart(chart1Pt5Markets, historySeconds)}
       {/*mkChart(chart1Markets, 600)*/}
       {/*mkChart(chart2Markets, 600)*/}
     </div>
