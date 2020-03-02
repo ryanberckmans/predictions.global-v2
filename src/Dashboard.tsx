@@ -8,7 +8,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
   const historySeconds: number = (() => {
     const raw = queryString.parse((props as any).location.search).historySeconds;
     const raw2 = typeof raw === 'string' ? parseInt(raw, 10) : NaN;
-    return isNaN(raw2) ? 60 : raw2;
+    return isNaN(raw2) ? 72 : raw2;
   })();
 
   const [markets, setMarkets] = useState(undefined as undefined | Markets);
@@ -169,7 +169,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
 
   function mkChart(ms: Markets | undefined, desiredSecondsOfHistory: number) {
     return (
-      <div className="column is-4" style={{ padding: "0.4rem" }}>
+      <div className="column is-6" style={{ padding: "0.4rem" }}>
         {ms && <RealTimePriceChart
           markets={ms}
           desiredSecondsOfHistory={desiredSecondsOfHistory}
@@ -187,19 +187,33 @@ export const Dashboard: React.SFC<{}> = (props) => {
           content="Dashboard for PredictIt and Augur Prediction Markets. PredictIt and Augur prediction market discusion, prices, trading volume, bid ask, and charts." />
       </Helmet>
       {mkChart(chart2Markets, historySeconds)}
+      {mkChart(chart2Markets, historySeconds * 100)}
       {mkChart(chart3Markets, historySeconds)}
+      {mkChart(chart3Markets, historySeconds * 100)}
       {mkChart(chart4Markets, historySeconds)}
+      {mkChart(chart4Markets, historySeconds * 100)}
       {mkChart(chart5Markets, historySeconds)}
+      {mkChart(chart5Markets, historySeconds * 100)}
       {mkChart(chart6Markets, historySeconds)}
+      {mkChart(chart6Markets, historySeconds * 100)}
       {mkChart(chart7Markets, historySeconds)}
+      {mkChart(chart7Markets, historySeconds * 100)}
       {mkChart(chart8Markets, historySeconds)}
+      {mkChart(chart8Markets, historySeconds * 100)}
       {mkChart(chart9Markets, historySeconds)}
+      {mkChart(chart9Markets, historySeconds * 100)}
       {mkChart(chart10Markets, historySeconds)}
+      {mkChart(chart10Markets, historySeconds * 100)}
       {mkChart(chart11Markets, historySeconds)}
+      {mkChart(chart11Markets, historySeconds * 100)}
       {mkChart(chart12Markets, historySeconds)}
+      {mkChart(chart12Markets, historySeconds * 100)}
       {mkChart(chart13Markets, historySeconds)}
+      {mkChart(chart13Markets, historySeconds * 100)}
       {mkChart(chart1Markets, historySeconds)}
+      {mkChart(chart1Markets, historySeconds * 100)}
       {mkChart(chart1Pt5Markets, historySeconds)}
+      {mkChart(chart1Pt5Markets, historySeconds * 100)}
       {/*mkChart(chart1Markets, 600)*/}
       {/*mkChart(chart2Markets, 600)*/}
     </div>
