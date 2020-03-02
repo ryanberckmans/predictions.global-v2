@@ -21,3 +21,6 @@ yarn-debug.log*
 yarn-error.log*
 /src/**/*.css
 /src/generated
+
+# firebase
+.firebase/
