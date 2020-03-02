@@ -37,7 +37,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         13871: true, // Bloomberg
         13491: true, // HRC
         7730: true, // Warren
-        7734: true, // Klobuchar
+        // 7734: true, // Klobuchar
       },
     }));
     setChart1Pt5Markets(getSubsetOfMarkets(ms, {
@@ -54,7 +54,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17775: true, // Biden
         19009: true, // Bloomberg
         17780: true, // Warren
-        17781: true, // Klobuchar
+        // 17781: true, // Klobuchar
       },
     }));
     setChart3Markets(getSubsetOfMarkets(ms, {
@@ -63,7 +63,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17866: true, // Biden
         19022: true, // Bloomberg
         17871: true, // Warren
-        17872: true, // Klobuchar
+        // 17872: true, // Klobuchar
       },
     }));
     setChart4Markets(getSubsetOfMarkets(ms, {
@@ -72,7 +72,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17112: true, // Biden
         19028: true, // Bloomberg
         17117: true, // Warren
-        17118: true, // Klobuchar
+        // 17118: true, // Klobuchar
       },
     }));
     setChart5Markets(getSubsetOfMarkets(ms, {
@@ -81,7 +81,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17801: true, // Biden
         19017: true, // Bloomberg
         17806: true, // Warren
-        17807: true, // Klobuchar
+        // 17807: true, // Klobuchar
       },
     }));
     setChart6Markets(getSubsetOfMarkets(ms, {
@@ -90,7 +90,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17905: true, // Biden
         19025: true, // Bloomberg
         17910: true, // Warren
-        17911: true, // Klobuchar
+        // 17911: true, // Klobuchar
       },
     }));
     setChart7Markets(getSubsetOfMarkets(ms, {
@@ -99,7 +99,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17918: true, // Biden
         19026: true, // Bloomberg
         17923: true, // Warren
-        17924: true, // Klobuchar
+        // 17924: true, // Klobuchar
       },
     }));
     setChart8Markets(getSubsetOfMarkets(ms, {
@@ -108,7 +108,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17892: true, // Biden
         19024: true, // Bloomberg
         17897: true, // Warren
-        17898: true, // Klobuchar
+        // 17898: true, // Klobuchar
       },
     }));
     setChart9Markets(getSubsetOfMarkets(ms, {
@@ -126,7 +126,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17853: true, // Biden
         19021: true, // Bloomberg
         17858: true, // Warren
-        17859: true, // Klobuchar
+        // 17859: true, // Klobuchar
       },
     }));
     setChart11Markets(getSubsetOfMarkets(ms, {
@@ -135,7 +135,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17840: true, // Biden
         19020: true, // Bloomberg
         17845: true, // Warren
-        17846: true, // Klobuchar
+        // 17846: true, // Klobuchar
       },
     }));
     setChart12Markets(getSubsetOfMarkets(ms, {
@@ -144,7 +144,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17827: true, // Biden
         19019: true, // Bloomberg
         17832: true, // Warren
-        17833: true, // Klobuchar
+        // 17833: true, // Klobuchar
       },
     }));
     setChart13Markets(getSubsetOfMarkets(ms, {
@@ -153,7 +153,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17814: true, // Biden
         19018: true, // Bloomberg
         17819: true, // Warren
-        17820: true, // Klobuchar
+        // 17820: true, // Klobuchar
       },
     }));
     // setChart4Markets(getSubsetOfMarkets(ms, {
