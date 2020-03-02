@@ -32,6 +32,7 @@ export interface Markets {
 
 export interface Market {
   name: string;
+  imageUrl: string;
   url: string;
   outcomesById: { [outcomeId: string]: Outcome },
 }
@@ -74,6 +75,8 @@ interface LegendItemProps {
 
 const LegendItem: React.SFC<LegendItemProps> = ({ market, colorWheel }) => {
   return (<>
+    <img src={market.imageUrl} />
+    &nbsp;
     <span className="marketName">{market.name}</span>
     {Object.keys(market.outcomesById).map(outcomeId => {
       const outcome = market.outcomesById[outcomeId];

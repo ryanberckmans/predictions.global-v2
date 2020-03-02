@@ -147,6 +147,7 @@ export function getMarkets(): Markets {
     const m = piMarketsById[id];
     const m2: Market = {
       name: m.shortName,
+      imageUrl: m.image,
       url: m.url,
       outcomesById: getOutcomes(id),
     };
