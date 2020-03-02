@@ -146,7 +146,6 @@ export class Routes extends React.Component<any, RoutesState> {
       currencySelectionObserverOwner={this.state.currencySelectionObserverOwner}
     />;
 
-    const dashboard = () => <Dashboard />;
     return (
       <Router>
         <div>
@@ -164,7 +163,7 @@ export class Routes extends React.Component<any, RoutesState> {
                 <Route exact={true} path="/augur-public-ethereum-nodes" render={renderPublicEthereumNodes} />
                 <Route exact={true} path="/augur-reporter-fee-window-rep-profit-calculator" render={renderAugurFeeWindows} />
                 <Route exact={true} path="/faq" render={renderFAQ} />
-                <Route exact={true} path="/dashboard" render={dashboard} />
+                <Route exact={true} path="/dashboard" component={Dashboard} />
                 <Route exact={true} path="/" render={renderHome} />
               </Switch>
             </VeilMarketsContext.Provider>
