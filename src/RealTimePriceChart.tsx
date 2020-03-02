@@ -152,10 +152,15 @@ function getColorWheel(colorScheme: string[]): () => string {
   };
 }
 
-const timeInterval = 1000; // milliseconds, lower is better, but lower affects render performance and graphs will drift from real time
-
 // useChart is a hook to encapsulate our use of Rickshaw. Right now the useEffect will instantiate a Chart.domNode and requires the client to mount this domNode while this function has an interval that checks if the domNode has been mounted. TODO another, faster, simpler, less brittle approach might be to create the dom node here, and not use refs, and create the rickshaw graph on an unmounted dom node, and then return the whole thing fully constructed.
 function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefined {
+  const timeIntervalMillis: number = (() => { // milliseconds, lower is better, but lower affects render performance and graphs will drift from real time. Render performance because of how long each render takes, but also the total number of data points on the graph
+    if (desiredSecondsOfHistory < 121) {
+      return 1000;
+    }
+    return 10000;
+  })();
+
   // console.log("useChart");
   const marketIds = Object.keys(ms.marketsById);
   if (marketIds.length < 1) {
@@ -247,7 +252,7 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
       return sis;
     }, []);
 
-    const maxDataPoints = Math.round(desiredSecondsOfHistory * 1000 / timeInterval);
+    const maxDataPoints = Math.round(desiredSecondsOfHistory * 1000 / timeIntervalMillis);
     const graph = new Rickshaw.Graph(Object.assign({
       element: chartDiv,
       renderer: 'line',
@@ -258,7 +263,7 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
         // these are args for https://github.com/shutterstock/rickshaw/blob/master/src/js/Rickshaw.Color.Palette.js
         scheme: globalColorScheme,
       }, {
-          timeInterval,
+          timeInterval: timeIntervalMillis,
           maxDataPoints,
           timeBase: new Date().getTime() / 1000,
         })
@@ -271,12 +276,19 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
     // Override formatter https://github.com/shutterstock/rickshaw/blob/master/src/js/Rickshaw.Graph.HoverDetail.js#L34
     hoverDetail.formatter = (series2: any, _x: any, _y: any, _formattedX: any, formattedY: any, _d: any) => `${series2.name}&nbsp;${formattedY}`;
 
+    // xAxisTickPeriodSeconds is the number of seconds between each x axis tick. We determine this value dynamically so as to show a pleasing and useful number of ticks regardless of x axis timescale.
+    const xAxisTickPeriodSeconds: number = (() => {
+      const simultaneousTicks = 4; // number of ticks that should show simultaneously on the chart
+      const tickPeriod = Math.floor(desiredSecondsOfHistory/simultaneousTicks);
+      const tickPeriodRoundedUpToNearestMinute = tickPeriod - (tickPeriod % 60) + 60;
+      return Math.max(60, tickPeriodRoundedUpToNearestMinute); // no more often than one tick per 60 seconds
+    })();
     const xAxis = new Rickshaw.Graph.Axis.Time({
       graph,
       timeFixture: new Rickshaw.Fixtures.Time.Local(),
       timeUnit: {
-        name: 'minute',
-        seconds: 60,
+        name: 'custom',
+        seconds: xAxisTickPeriodSeconds,
         formatter: formatAMPM,
       },
     });
@@ -294,19 +306,19 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
       graph2.render();
     }
     // Using setInterval accumulates O(# of times rendered) drift with respect to real passage of time. This technique reduces the drift to a constant amount. https://stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
-    let expectedRenderTime = Date.now() + timeInterval;
+    let expectedRenderTime = Date.now() + timeIntervalMillis;
     let graphRenderInterval = window.setTimeout(function step() {
       const now = Date.now();
       const delta = now - expectedRenderTime;
       render();
-      expectedRenderTime += timeInterval;
-      const nextInterval = Math.max(0, timeInterval - delta);
+      expectedRenderTime += timeIntervalMillis;
+      const nextInterval = Math.max(0, timeIntervalMillis - delta);
       // We'll see delta monotonically increase if the browser can't render our charts fast enough to keep up with the render loop timing. A fix here is to increase timeInterval.
       if (delta > 1000) {
         // console.log("now", now, "expected", expectedRenderTime, "delta", delta);
       }
       graphRenderInterval = window.setTimeout(step, nextInterval);
-    }, timeInterval); // WARNING the timeInterval for the re-render must be the same as the timeInterval passed to the graph
+    }, timeIntervalMillis); // WARNING the timeInterval for the re-render must be the same as the timeInterval passed to the graph
 
     const updatePrices = (outcomeId: string, newPrices: OutcomePrices) => {
       // console.log("graph getting live data", newPrices);
