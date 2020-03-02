@@ -5,10 +5,13 @@
     "tslint-config-prettier"
   ],
   "rules": {
+    "curly": false,
     "interface-name": false,
     "max-classes-per-file": false,
     "no-console": false,
-    "ordered-imports": false
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "variable-name": false
   },
   "linterOptions": {
     "exclude": [
