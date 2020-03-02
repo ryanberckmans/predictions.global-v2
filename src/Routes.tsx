@@ -8,13 +8,14 @@ import { LoadingHTML } from './Components/Loading';
 import { makeObserverOwner, ObserverOwner } from './Components/observer';
 import ScrollToTop from './Components/ScrollToTop';
 import { Currency, getSavedCurrencyPreference, saveCurrencyPreference } from './Currency';
+import { Dashboard } from './Dashboard';
 import { EmbeddedMarketCard } from './EmbeddedMarketCard';
+import FAQ from './FAQ';
 import { MarketsSummary } from "./generated/markets_pb";
 import { MarketDetailPage, marketDetailPageURLPrefix, URLParams } from './MarketDetailPage';
 import { makeMarketSortFunctions, MarketSortFunctions } from './MarketSort';
 import PublicEthereumNodes from './PublicEthereumNodes';
 import { indexRelatedMarkets, RelatedMarketsIndex } from './RelatedMarkets';
-import FAQ from './FAQ';
 import VeilMarketsContext from "./VeilMarketsContext";
 
 const marketsSummaryIntervalDelay = 1000;
@@ -26,13 +27,13 @@ async function fetchMarketsSummary(dataURI: string): Promise<MarketsSummary> {
       mode: "cors", // mode cors assumes dataURI has a different origin; once dataURI is served from CDN (instead of directly from google storage bucket) we'll want to update this code.
     }))
 
-      if (!resp.ok) {
-        throw Error(resp.statusText);
-      }
+    if (!resp.ok) {
+      throw Error(resp.statusText);
+    }
 
     const ab = await resp.arrayBuffer();
     return MarketsSummary.deserializeBinary(new Uint8Array(ab));
-  } catch(e) {
+  } catch (e) {
     // tslint:disable-next-line
     console.error(e);
     throw e;
@@ -110,14 +111,14 @@ export class Routes extends React.Component<any, RoutesState> {
 
   public render(): JSX.Element {
     // TODO not every route requires the main MarketsSummary to be loaded. Need to refactor data loading so that LoadingHTML is only shown for data required for that specific page.
-    const { marketSortFunctions, marketsSummary, relatedMarketsIndex} = this.state;
+    const { marketSortFunctions, marketsSummary, relatedMarketsIndex } = this.state;
     if (marketSortFunctions === undefined || marketsSummary === undefined || relatedMarketsIndex === undefined) {
-      return <LoadingHTML/>;
+      return <LoadingHTML />;
     }
 
     const renderHome = (props: object) => (
       <Home currencySelectionObserverOwner={this.state.currencySelectionObserverOwner}
-            ms={marketsSummary} marketSortFunctions={marketSortFunctions} {...(props as RouteComponentProps<any>)} />);
+        ms={marketsSummary} marketSortFunctions={marketSortFunctions} {...(props as RouteComponentProps<any>)} />);
     const renderEmbeddedMarketCard = (props: object) => (
       <EmbeddedMarketCard marketsSummary={marketsSummary} {...(props as RouteComponentProps<any>)} />);
     const renderPublicEthereumNodes = () => <PublicEthereumNodes
@@ -138,31 +139,33 @@ export class Routes extends React.Component<any, RoutesState> {
     const AsyncAugurFeeWindow = Loadable({
       loader: () => import('./AugurFeeWindowInfo/AugurFeeWindowInfo'),
       loading() {
-        return <LoadingHTML/>;
+        return <LoadingHTML />;
       }
     });
     const renderAugurFeeWindows = () => <AsyncAugurFeeWindow ms={marketsSummary}
-                                                             currencySelectionObserverOwner={this.state.currencySelectionObserverOwner}
+      currencySelectionObserverOwner={this.state.currencySelectionObserverOwner}
     />;
 
+    const dashboard = () => <Dashboard />;
     return (
       <Router>
         <div>
           <Helmet>
             <title>Augur Prediction Market Data &amp; Statistics | Predictions.Global</title>
             <meta name="description"
-                  content="Latest odds on Augur Prediction markets. Tools for Augur traders, market creators, and reporters. Augur prediction market discusion, trading volume, bid ask, and charts."/>
+              content="Latest odds on Augur Prediction markets. Tools for Augur traders, market creators, and reporters. Augur prediction market discusion, trading volume, bid ask, and charts." />
           </Helmet>
           <ScrollToTop>
             <VeilMarketsContext.Provider value={this.state.veilMarkets}>
               <Switch>
-                <Route exact={true} path="/e/v1/:id" render={renderEmbeddedMarketCard}/>
-                <Route exact={true} path="/e/:id" render={renderEmbeddedMarketCard}/>
-                <Route exact={true} path={`${marketDetailPageURLPrefix}/:url`} render={renderMarketDetailPage}/>
-                <Route exact={true} path="/augur-public-ethereum-nodes" render={renderPublicEthereumNodes}/>
-                <Route exact={true} path="/augur-reporter-fee-window-rep-profit-calculator" render={renderAugurFeeWindows}/>
-                <Route exact={true} path="/faq" render={renderFAQ}/>
-                <Route exact={true} path="/" render={renderHome}/>
+                <Route exact={true} path="/e/v1/:id" render={renderEmbeddedMarketCard} />
+                <Route exact={true} path="/e/:id" render={renderEmbeddedMarketCard} />
+                <Route exact={true} path={`${marketDetailPageURLPrefix}/:url`} render={renderMarketDetailPage} />
+                <Route exact={true} path="/augur-public-ethereum-nodes" render={renderPublicEthereumNodes} />
+                <Route exact={true} path="/augur-reporter-fee-window-rep-profit-calculator" render={renderAugurFeeWindows} />
+                <Route exact={true} path="/faq" render={renderFAQ} />
+                <Route exact={true} path="/dashboard" render={dashboard} />
+                <Route exact={true} path="/" render={renderHome} />
               </Switch>
             </VeilMarketsContext.Provider>
           </ScrollToTop>

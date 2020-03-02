@@ -117,9 +117,6 @@ var hoverDetail = new Rickshaw.Graph.HoverDetail({
 // Override formatter https://github.com/shutterstock/rickshaw/blob/master/src/js/Rickshaw.Graph.HoverDetail.js#L34
 hoverDetail.formatter = (series, x, y, formattedX, formattedY, d) => `${series.name}&nbsp;${formattedY}`;
 
-var time = new Rickshaw.Fixtures.Time.Local();
-var unit = time.unit('minute');
-
 var xAxis = new Rickshaw.Graph.Axis.Time({
   graph: graph,
 	timeFixture: new Rickshaw.Fixtures.Time.Local(),

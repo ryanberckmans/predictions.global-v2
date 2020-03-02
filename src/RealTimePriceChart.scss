@@ -1,0 +1,67 @@
+
+.rickshawChartContainer {
+  position: relative;
+  width: 100%;
+  // height: 100%;
+  // width: 50vw;
+  @media only screen and (max-width: 768px) {
+    height: 50vh;
+  }
+  @media only screen and (min-width: 769px) {
+    height: 25vh;
+  }
+  background-color: rgb(21, 35, 44);
+}
+
+.rickshawChart {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: none !important;
+  z-index: 0;
+}
+.rickshawChart2 {
+  position: absolute;
+  top: 0;
+  right: -4%;
+  z-index: 1;
+  border: none !important;
+}
+
+.rickshawChartLegend {
+  font-family: Arial, sans-serif; // same as used in x_tick
+  // writing-mode: vertical-rl;
+  // text-orientation: sideways;
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  z-index: 2;
+  // transform: rotate(180deg);
+
+  .marketName {
+    // these values cause marketName to look like the x axis time ticks
+    color: white;
+    opacity: 0.5;
+  }
+
+  img {
+    height: 0.8em;
+    // transform: rotate(90deg);
+  }
+}
+
+.detail .active {
+  // transform-origin: left center;
+  // transform: rotate(-90deg) translateY(-57%) translateX(9%);
+}
+
+.x_label {
+  top: 40%;
+}
+
+.x_tick .title {
+  // bottom: unset !important; /* unsetting bottom has the effect of pushing the X axis time labels to the top of the chart, ie. to the right of the chart after rotation, this is because rickshaw css already sets position absolute, top 0, bottom 0, so when we unset bottom what's left is "position: absolute, top: 0" */
+  color: white;
+  // border-left: none; // hides the thin vertical line that dilineates the precise location of each x axis tick
+  // transform: rotate(-90deg) translateX(-44%);
+}
