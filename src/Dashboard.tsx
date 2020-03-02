@@ -117,7 +117,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         17879: true, // Biden
         19023: true, // Bloomberg
         17884: true, // Warren
-        17885: true, // Klobuchar
+        // 17885: true, // Klobuchar
       },
     }));
     setChart10Markets(getSubsetOfMarkets(ms, {
