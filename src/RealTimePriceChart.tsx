@@ -41,8 +41,8 @@ export interface Market {
 export interface Outcome {
   name: string;
   imageUrl: string;
-  initialPrices: OutcomePrices;
-  observer: Observer<OutcomePrices>;
+  initialPrices: ContractUpdate;
+  observer: Observer<ContractUpdate>; // ContractUpdate is a PI-specific structure, it extends OutcomePrices
 }
 
 export interface OutcomePrices {
@@ -107,7 +107,7 @@ export const RealTimePriceChart: React.SFC<Props> = ({ markets, desiredSecondsOf
     const unsubs: Unsubscribe[] = [];
     Object.keys(markets.marketsById).forEach(marketId => {
       Object.keys(markets.marketsById[marketId].outcomesById).forEach(outcomeId => {
-        unsubs.push(markets.marketsById[marketId].outcomesById[outcomeId].observer.subscribe((newPrices: OutcomePrices) => {
+        unsubs.push(markets.marketsById[marketId].outcomesById[outcomeId].observer.subscribe((newPrices: ContractUpdate) => {
           // console.log(`${marketId}-${outcomeId}`, newPrices);
           updatePrices(outcomeId, newPrices);
         }).unsubscribe);
@@ -124,7 +124,7 @@ export const RealTimePriceChart: React.SFC<Props> = ({ markets, desiredSecondsOf
 
 interface Chart {
   domNode: React.ReactElement; // rendered chart to insert into DOM
-  updatePrices?: (outcomeId: string, newPrices: OutcomePrices) => void; // client should push new prices into this function to cause them to be rendered into the chart in real time
+  updatePrices?: (outcomeId: string, newPrices: ContractUpdate) => void; // client should push new prices into this function to cause them to be rendered into the chart in real time
 }
 
 // TODO associate candidates with colors, so that Bernie is always blue, regardless of which market is being displayed.
@@ -227,7 +227,7 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
       outcomeId: string,
       bidOrAsk: 'bid' | 'ask',
     }
-    const mostRecentOutcomePricesByOutcomeId: { [outcomeId: string]: OutcomePrices } = {};
+    const unprocessedUpdatesByOutcomeId: { [outcomeId: string]: ContractUpdate[] } = {};
     const seriesNameByOutcomeId: { [outcomeId: string]: { [bidOrAsk in 'bid' | 'ask']: string } } = {};
     const series: SeriesInit[] = marketIds.reduce<SeriesInit[]>((sis, marketId) => {
       Object.keys(ms.marketsById[marketId].outcomesById).forEach(outcomeId => {
@@ -249,7 +249,7 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
           bid: bidName,
           ask: askName,
         };
-        mostRecentOutcomePricesByOutcomeId[outcomeId] = outcome.initialPrices;
+        unprocessedUpdatesByOutcomeId[outcomeId] = [outcome.initialPrices];
         sis.push(siBid);
         sis.push(siAsk);
       });
@@ -269,7 +269,7 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
       }, {
           timeInterval: timeIntervalMillis,
           maxDataPoints,
-          timeBase: new Date().getTime() / 1000,
+          timeBase: Date.now() / 1000,
         })
     }, getChartElementWidthAndHeight()));
 
@@ -283,7 +283,7 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
     // xAxisTickPeriodSeconds is the number of seconds between each x axis tick. We determine this value dynamically so as to show a pleasing and useful number of ticks regardless of x axis timescale.
     const xAxisTickPeriodSeconds: number = (() => {
       const simultaneousTicks = 4; // number of ticks that should show simultaneously on the chart
-      const tickPeriod = Math.floor(desiredSecondsOfHistory/simultaneousTicks);
+      const tickPeriod = Math.floor(desiredSecondsOfHistory / simultaneousTicks);
       const tickPeriodRoundedUpToNearestMinute = tickPeriod - (tickPeriod % 60) + 60;
       return Math.max(60, tickPeriodRoundedUpToNearestMinute); // no more often than one tick per 60 seconds
     })();
@@ -298,36 +298,109 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
     });
     xAxis.render();
 
-    function render() {
-      // WARNING - the way Rickshaw FixedDuration graphs work is they don't keep track of the passage of time internally, nor will they automatically duplicate a data point that hasn't changed since the last rerender. To properly rerender we must 1. render on an interval equal to the timeInterval passed to graph, 2. pass latest data points prior to each rerender, even if there have been no changes.
-      const data = {};
-      Object.keys(mostRecentOutcomePricesByOutcomeId).forEach(outcomeId => {
-        data[seriesNameByOutcomeId[outcomeId].bid] = mostRecentOutcomePricesByOutcomeId[outcomeId].bestBidPrice;
-        data[seriesNameByOutcomeId[outcomeId].ask] = mostRecentOutcomePricesByOutcomeId[outcomeId].bestAskPrice;
+    // addAllDataPointsUpTilNow does time+data+timestamp calculations and adds exactly
+    // the right number of data points into the graph to account for the passage of
+    // time. The start of time is baked into the graph. The current time is passed as
+    // nowMillisSinceEpoch. addAllDataPointsUpTilNow must be called immediately prior
+    // to rerendering the graph, otherwise what's rendered won't actually be up to
+    // date. Data points must not be added to the graph by sources other than this
+    // function.
+    function addAllDataPointsUpTilNow(nowMillisSinceEpoch: number) {
+      const secondsSinceEpoch = nowMillisSinceEpoch / 1000;
+      const timebaseSecondsSinceEpoch: number = graph.series.timeBase;
+      const secondsElapsedSinceChartHistoryBegan = secondsSinceEpoch - timebaseSecondsSinceEpoch;
+      const timeIntervalSeconds = timeIntervalMillis / 1000;
+
+      // Regarding expected/actualNumberOfDataPointsEverAddedToChart, the rickshaw FixedDuration series will automatically generate one data point per time step. These data points are initialized to y value of zero. It's possible to initialize them to a default, but we don't yet have historical data, so it's better to show them as a zero. This is why actualNumberOfDataPointsEverAddedToChart will show a large number for a newly initialized chart.
+      const expectedNumberOfDataPointsEverAddedToChart = Math.floor(secondsElapsedSinceChartHistoryBegan / timeIntervalSeconds) + 1; // + 1 because the first data point occurs at time zero
+      const actualNumberOfDataPointsEverAddedToChart = graph.series.currentIndex;
+      const missingNumberOfDataPoints = expectedNumberOfDataPointsEverAddedToChart - actualNumberOfDataPointsEverAddedToChart;
+      const dataPointsToAdd = Math.max(missingNumberOfDataPoints, 0);
+
+      // console.log("catchUpPassageOfTime", "timeIntervalSeconds", timeIntervalSeconds, "secondsSinceEpoch", secondsSinceEpoch, "timebaseSecondsSinceEpoch", timebaseSecondsSinceEpoch, "secondsElapsedSinceChartHistoryBegan", secondsElapsedSinceChartHistoryBegan, "expectedNumberOfDataPointsEverAddedToChart", expectedNumberOfDataPointsEverAddedToChart, "actualNumberOfDataPointsEverAddedToChart (currentIndex)", actualNumberOfDataPointsEverAddedToChart, "dataPointsToAdd", dataPointsToAdd);
+
+      if (dataPointsToAdd < 1) {
+        // Rarely we have no data points to add if this callback was triggered twice in one timeIntervalSeconds.
+        // console.warn("no data points to add");
+        return;
+      }
+
+      // startSecondsSinceEpochInclusive the first timestamp for which data is missing. We know we have `dataPointsToAdd > 0`, so our start time is just one timeInveral step past the last timestamp that has data. The first data point in the graph is at x=timebaseSecondsSinceEpoch, so with one point ever added to the graph the _next_ time slot available would be timebaseSecondsSinceEpoch + 1, hence we get this formula
+      const startSecondsSinceEpochInclusive = timebaseSecondsSinceEpoch + timeIntervalSeconds * actualNumberOfDataPointsEverAddedToChart;
+      // console.log("startSecondsSinceEpochInclusive", startSecondsSinceEpochInclusive);
+
+      const dataToAdd: { [outcomeId: string]: ContractUpdate[] } = {};
+      Object.keys(unprocessedUpdatesByOutcomeId).forEach(outcomeId => {
+        const us = unprocessedUpdatesByOutcomeId[outcomeId];
+        if (us.length < 1) {
+          // unprocessedUpdatesByOutcomeId[outcomeId] should always be non-empty because it's initialized to `[initialDataPoint]` and then never fully cleared
+          throw new Error(`expected unprocessedUpdatesByOutcomeId[outcomeId = ${outcomeId}].length > 0`);
+        }
+        let i = 0;
+        const usLenMinus1 = us.length - 1;
+        let stepSecondsSinceEpoch = startSecondsSinceEpochInclusive;
+        const dataThisOutcome = [];
+        for (let j = 0; j < dataPointsToAdd; j++) {
+          /*
+            Design note
+
+            unprocessedUpdatesByOutcomeId[outcomeId] are pushed in the order they arrive from the data feed, which is approximately timestamp order.
+
+            us[0] is the least recent data point (besides those already inside the graph). It was the most recent data point the last time we added data points to the graph. Any data points beyond us[0] have arrived since the last time we added points to the graph, ie. been pushed eagerly by an observer subscription from the data feed.
+
+            Our task is to select a data point from `us` for timestamp `stepSecondsSinceEpoch``. We'll select the newest such data point that's older than stepSecondsSinceEpoch. This is simply the most recent data point if consider stepSecondsSinceEpoch to be "time now".
+          */
+
+          while (
+            i < usLenMinus1 && // if i is the last index, use us[i] (and use us[i] next loop iteration)
+            !(us[i].timestamp <= stepSecondsSinceEpoch && us[i + 1].timestamp > stepSecondsSinceEpoch) // if us[i] is the newest that's older than stepSecondsSinceEpoch, use us[i]
+          ) {
+            // console.log("skipping us[i] timestamp", us[i].timestamp, "stepSecondsSinceEpoch", stepSecondsSinceEpoch);
+            i++;
+          }
+          // console.log("using us[i].timestamp", us[i].timestamp, "stepSecondsSinceEpoch", stepSecondsSinceEpoch);
+          dataThisOutcome.push(us[i]);
+          stepSecondsSinceEpoch += timeIntervalSeconds;
+        }
+        unprocessedUpdatesByOutcomeId[outcomeId] = [us[us.length - 1]]; // WARNING note what's happening here, we set unprocessedUpdatesByOutcomeId[outcomeId] to be a new array comprised of only the last element of `us`, this causes us to drop all the data points that weren't already included, except for the most recent data point. The intuition here is that the next time step will already ignore these dropped data points, because us[us.length-1] will be the "newest data point older than stepSecondsSinceEpoch", unless new data points are pushed from the feed
+        // if (usLenMinus1 > 0) console.log("added data, outcomeId", outcomeId, "oldLen", usLenMinus1 + 1, "newLen", unprocessedUpdatesByOutcomeId[outcomeId].length);
+        dataToAdd[outcomeId] = dataThisOutcome;
+        if (dataThisOutcome.length !== dataPointsToAdd) throw new Error(`expected dataThisOutcome.length=${dataThisOutcome.length} === dataPointsToAdd=${dataPointsToAdd}`);
       });
-      graph.series.addData(data);
+
+      // Here we actually add the data to the graph. Note that we must add data for all series for one timestep to the graph in one function call, that's how rickshaw is designed. Ie. `dataPointsToAdd` are the number of time steps worth of data that we're adding to the graph.
+      for (let j = 0; j < dataPointsToAdd; j++) {
+        const data = {};
+        Object.keys(dataToAdd).forEach(outcomeId => {
+          data[seriesNameByOutcomeId[outcomeId].bid] = dataToAdd[outcomeId][j].bestBidPrice;
+          data[seriesNameByOutcomeId[outcomeId].ask] = dataToAdd[outcomeId][j].bestAskPrice;
+        });
+        graph.series.addData(data);
+      }
+    }
+
+    function render() {
       graph.render();
       graph2.render();
     }
-    // Using setInterval accumulates O(# of times rendered) drift with respect to real passage of time. This technique reduces the drift to a constant amount. https://stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
-    let expectedRenderTime = Date.now() + timeIntervalMillis;
-    let graphRenderInterval = window.setTimeout(function step() {
-      const now = Date.now();
-      const delta = now - expectedRenderTime;
-      render();
-      expectedRenderTime += timeIntervalMillis;
-      const nextInterval = Math.max(0, timeIntervalMillis - delta);
-      // We'll see delta monotonically increase if the browser can't render our charts fast enough to keep up with the render loop timing. A fix here is to increase timeInterval.
-      if (delta > 1000) {
-        // console.log("now", now, "expected", expectedRenderTime, "delta", delta);
-      }
-      graphRenderInterval = window.setTimeout(step, nextInterval);
-    }, timeIntervalMillis); // WARNING the timeInterval for the re-render must be the same as the timeInterval passed to the graph
 
-    const updatePrices = (outcomeId: string, newPrices: OutcomePrices) => {
-      // console.log("graph getting live data", newPrices);
-      mostRecentOutcomePricesByOutcomeId[outcomeId] = newPrices;
-      graph2.series[graph2SeriesIndexByOutcomeId[outcomeId]].data = [{ x: 36, y: newPrices.lastTradePrice }];
+    // Using setInterval accumulates O(# of times rendered) drift with respect to real passage of time. This technique reduces the drift to a constant amount. https://stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
+    const initialRenderDelayMillis = 25; // We want to render asap, but delay a tiny bit to allow React to finish its initial render and whatever callbacks may be associated
+    let expectedRenderTimeMillisSinceEpoch = Date.now() + initialRenderDelayMillis;
+    let graphRenderInterval = window.setTimeout(function step() {
+      const millisSinceEpoch = Date.now();
+      const deltaMillis = millisSinceEpoch - expectedRenderTimeMillisSinceEpoch;
+      expectedRenderTimeMillisSinceEpoch += timeIntervalMillis; // advance expectedRenderTime by the duration of one render cycle, ie. timeIntervalMillis
+      const nextInterval = Math.max(0, timeIntervalMillis - deltaMillis);
+      addAllDataPointsUpTilNow(millisSinceEpoch);
+      render();
+      graphRenderInterval = window.setTimeout(step, nextInterval);
+    }, initialRenderDelayMillis);
+
+    const updatePrices = (outcomeId: string, cu: ContractUpdate) => {
+      unprocessedUpdatesByOutcomeId[outcomeId].push(cu);
+      // console.log("updatePrices", cu, "buffered contractUpdates", unprocessedUpdatesByOutcomeId[outcomeId].length);
+      graph2.series[graph2SeriesIndexByOutcomeId[outcomeId]].data = [{ x: 36, y: cu.lastTradePrice }];
     };
 
     // Last trade price chart2/graph2
