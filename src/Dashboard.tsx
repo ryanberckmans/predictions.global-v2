@@ -211,6 +211,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
               chartOptions={{
                 desiredSecondsOfHistory: desiredSecondsOfHistory * 100,
                 hideLastTradePriceGraph: true,
+                initialRenderDelayMillis: desiredSecondsOfHistory * 1000, // we want to delay the initial render of the long-term chart because it doesn't physically connect to the short term chart until the short term chart has elapsed its entire time window. If we render the long-term chart immediately then its initial data appear as a weird vertical bar in the middle of the two charts, which is ugly, useless, and users think it's a bug
               }}
             />}
           </div>

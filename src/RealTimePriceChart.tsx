@@ -26,6 +26,7 @@ interface ChartOptions {
   desiredSecondsOfHistory: number;
   hideLegend?: true;
   hideLastTradePriceGraph?: true;
+  initialRenderDelayMillis?: number;
 }
 
 interface Props {
@@ -398,7 +399,7 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
     }
 
     // Using setInterval accumulates O(# of times rendered) drift with respect to real passage of time. This technique reduces the drift to a constant amount. https://stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
-    const initialRenderDelayMillis = 25; // We want to render asap, but delay a tiny bit to allow React to finish its initial render and whatever callbacks may be associated
+    const initialRenderDelayMillis: number = chartOptions.initialRenderDelayMillis || 25; // We want to render asap, but by (default) delay a tiny bit to allow React to finish its initial render and whatever callbacks may be associated
     let expectedRenderTimeMillisSinceEpoch = Date.now() + initialRenderDelayMillis;
     let graphRenderInterval = window.setTimeout(function step() {
       const millisSinceEpoch = Date.now();
