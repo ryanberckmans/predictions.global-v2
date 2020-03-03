@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as Rickshaw from 'rickshaw';
 import '../node_modules/rickshaw/rickshaw.css';
 import { Observer, Unsubscribe } from './Components/observer';
+import { ContractUpdate } from './PredictItApi';
 import "./RealTimePriceChart.css";
 
 /*
