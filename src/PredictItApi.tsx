@@ -84,11 +84,12 @@ function addContractListener(allContractIds: string[], fb: firebase.app.App): (c
     query.on('child_changed', update);
     function update(data: firebase.database.DataSnapshot) {
       const timestampRaw = parseFloat(data.child("TimeStamp").val());
+      const bestNoPriceVal = data.child("BestNoPrice").val();
       const u: ContractUpdate = {
         contractId: data.child("ContractId").val().toString(), // WARNING PI models ContractId as a number, but we do so as a string so that our ids are compatible with Object.keys
         timestamp: isNaN(timestampRaw) ? (Date.now() / 1000) : timestampRaw,
-        bestBidPrice: 1 - (data.child("BestNoPrice").val() || 0), // ie. in PredictIt nomenclature, BestNoPrice is the price you'd pay to buy a "No", ie. to sell a yes / fill a pre-existing yes/buy order. So if BestNoPrice is 0.3, then you'd provide $0.30 to match the pre-existing yes/buy order, and the order creator provided $0.70, which is why the bestBidPrice is `1 - BestNoPrice`
-        bestAskPrice: data.child("BestYesPrice").val() || 0, // ie. in PredictIt nomenclature, BestYesPrice is the price you (the order filler/taker) pay to buy a yes share, ie. to fill a pre-existing no/sell order, this is just the best ask price. For example if there was a best ask of 0.6, and you filled this order, you'll expect to pay $0.60 to fill that order, and order creator matches that with $0.40 to create $1 of open interest (assuming neither side pays for the trade with pre-owned shares)
+        bestBidPrice: bestNoPriceVal ? 1 - bestNoPriceVal : 0, // ie. in PredictIt nomenclature, BestNoPrice is the price you'd pay to buy a "No", ie. to sell a yes / fill a pre-existing yes/buy order. So if BestNoPrice is 0.3, then you'd provide $0.30 to match the pre-existing yes/buy order, and the order creator provided $0.70, which is why the bestBidPrice is `1 - BestNoPrice`
+        bestAskPrice: data.child("BestYesPrice").val() || 1, // ie. in PredictIt nomenclature, BestYesPrice is the price you (the order filler/taker) pay to buy a yes share, ie. to fill a pre-existing no/sell order, this is just the best ask price. For example if there was a best ask of 0.6, and you filled this order, you'll expect to pay $0.60 to fill that order, and order creator matches that with $0.40 to create $1 of open interest (assuming neither side pays for the trade with pre-owned shares)
         lastTradePrice: data.child("LastTradePrice").val() || 0,
       };
       // console.log("ContractUpdate", u);
