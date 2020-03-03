@@ -138,6 +138,7 @@ function marketNameFixup(marketName: string): string {
   return marketName
     .replace("2020 ", "")
     .replace(" Dem primary winner", "")
+    .replace("Democrats Abroad primary winner", "Dems abroad")
     .replace("Democratic nominee", "Dem nominee")
     .replace("presidential winner", "President")
     .replace("?", "")
