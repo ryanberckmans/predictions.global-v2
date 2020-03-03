@@ -1,8 +1,9 @@
+import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import ReactTooltip from 'react-tooltip';
 import { getMarkets } from './PredictItApi';
 import { getSubsetOfMarkets, Markets, RealTimePriceChart } from './RealTimePriceChart';
-import queryString from 'query-string';
 
 export const Dashboard: React.SFC<{}> = (props) => {
   const historySeconds: number = (() => {
@@ -167,55 +168,93 @@ export const Dashboard: React.SFC<{}> = (props) => {
     // }));
   }, [markets]);
 
+  const styleOuter = {
+    padding: "0.4rem",
+  };
+  const styleInner = {
+    border: "1px solid #A5B5C1",
+  };
   function mkChart(ms: Markets | undefined, desiredSecondsOfHistory: number) {
     return (
-      <div className="column is-6" style={{ padding: "0.4rem" }}>
-        {ms && <RealTimePriceChart
-          markets={ms}
-          desiredSecondsOfHistory={desiredSecondsOfHistory}
-        />}
+      <div className="column is-3" style={styleOuter}>
+        <div className="columns is-marginless is-paddingless" style={styleInner}>
+          <div className="column is-6 is-paddingless">
+            {ms && <RealTimePriceChart
+              markets={ms}
+              chartOptions={{
+                desiredSecondsOfHistory: desiredSecondsOfHistory * 100,
+                hideLastTradePriceGraph: true,
+              }}
+            />}
+          </div>
+          <div className="column is-6 is-paddingless">
+            {ms && <RealTimePriceChart
+              markets={ms}
+              chartOptions={{
+                desiredSecondsOfHistory,
+                hideLegend: true,
+              }}
+            />}
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="columns is-marginless is-paddingless is-multiline">
+    <div className="dashboard" style={{ minHeight: "100vh" }}>
+      <ReactTooltip />
       <Helmet>
         <title>PredictIt Dashboard | Predictions.Global</title>
         <meta
           name="description"
           content="Dashboard for PredictIt and Augur Prediction Markets. PredictIt and Augur prediction market discusion, prices, trading volume, bid ask, and charts." />
       </Helmet>
-      {mkChart(chart2Markets, historySeconds * 100)}
-      {mkChart(chart2Markets, historySeconds)}
-      {mkChart(chart3Markets, historySeconds * 100)}
-      {mkChart(chart3Markets, historySeconds)}
-      {mkChart(chart4Markets, historySeconds * 100)}
-      {mkChart(chart4Markets, historySeconds)}
-      {mkChart(chart5Markets, historySeconds * 100)}
-      {mkChart(chart5Markets, historySeconds)}
-      {mkChart(chart6Markets, historySeconds * 100)}
-      {mkChart(chart6Markets, historySeconds)}
-      {mkChart(chart7Markets, historySeconds * 100)}
-      {mkChart(chart7Markets, historySeconds)}
-      {mkChart(chart8Markets, historySeconds * 100)}
-      {mkChart(chart8Markets, historySeconds)}
-      {mkChart(chart9Markets, historySeconds * 100)}
-      {mkChart(chart9Markets, historySeconds)}
-      {mkChart(chart10Markets, historySeconds * 100)}
-      {mkChart(chart10Markets, historySeconds)}
-      {mkChart(chart11Markets, historySeconds * 100)}
-      {mkChart(chart11Markets, historySeconds)}
-      {mkChart(chart12Markets, historySeconds * 100)}
-      {mkChart(chart12Markets, historySeconds)}
-      {mkChart(chart13Markets, historySeconds * 100)}
-      {mkChart(chart13Markets, historySeconds)}
-      {mkChart(chart1Markets, historySeconds * 100)}
-      {mkChart(chart1Markets, historySeconds)}
-      {mkChart(chart1Pt5Markets, historySeconds * 100)}
-      {mkChart(chart1Pt5Markets, historySeconds)}
-      {/*mkChart(chart1Markets, 600)*/}
-      {/*mkChart(chart2Markets, 600)*/}
+      <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "0.8rem" }}>
+        <div className="column is-half">
+          <img width="230" className="logo" src="logo.png" />
+        </div>
+        <div className="column is-narrow">
+          <a target="_blank" href="https://discord.gg/hXByEjw">
+            <img width="30" src="discord-button.svg" />
+          </a>
+        </div>
+        <div className="column is-narrow">
+          <a target="_blank" href="https://discord.gg/hXByEjw">
+            <span>DM @ryanb</span>
+          </a>
+        </div>
+        <div className="column is-narrow">
+          <a target="_blank" href="https://forms.gle/TXpxBaWNhD2JkGfaA">
+            <span>Send Feedback (or say Hi)</span>
+          </a>
+        </div>
+        <div className="column is-narrow">
+          <div data-multiline={true} data-place='bottom' data-tip={`The big dots🔵are last trade price.<br>The two lines📉with the same color are bid & ask.<br>Right now it only shows new data, no history... but you can leave the tab open.<br>Try it on your phone`} style={{ color: "#3273DC" }}>
+            Hot Tips
+            &nbsp;
+          <i className="far fa-question-circle" />
+          </div>
+
+        </div>
+      </div>
+
+      <div className="columns is-marginless is-multiline">
+        {mkChart(chart2Markets, historySeconds)}
+        {mkChart(chart3Markets, historySeconds)}
+        {mkChart(chart4Markets, historySeconds)}
+        {mkChart(chart5Markets, historySeconds)}
+        {mkChart(chart6Markets, historySeconds)}
+        {mkChart(chart7Markets, historySeconds)}
+        {mkChart(chart8Markets, historySeconds)}
+        {mkChart(chart9Markets, historySeconds)}
+        {mkChart(chart10Markets, historySeconds)}
+        {mkChart(chart11Markets, historySeconds)}
+        {mkChart(chart12Markets, historySeconds)}
+        {mkChart(chart13Markets, historySeconds)}
+        {mkChart(chart1Markets, historySeconds)}
+        {mkChart(chart1Pt5Markets, historySeconds)}
+      </div>
     </div>
   );
 }

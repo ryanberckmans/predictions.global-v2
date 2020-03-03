@@ -1,3 +1,7 @@
+.dashboard {
+  font-family: Arial, sans-serif; // same as used in x_tick
+  background-color: black;
+}
 
 .rickshawChartContainer {
   position: relative;
@@ -8,7 +12,7 @@
     height: 25vh;
   }
   @media only screen and (min-width: 769px) {
-    height: 20vh;
+    height: 25vw; // height is a % of vw (vwidth) so that we can ensure the charts are taller than they are wide, which is useful to see price differences
   }
   background-color: rgb(21, 35, 44);
 }
@@ -39,9 +43,8 @@
   // transform: rotate(180deg);
 
   .marketName {
-    // these values cause marketName to look like the x axis time ticks
     color: white;
-    opacity: 0.5;
+    // opacity: 0.5; this value causes marketName to look like the x axis time ticks
   }
 
   img {

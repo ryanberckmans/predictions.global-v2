@@ -22,9 +22,15 @@ uglifyOptions:
 Bottom line --> `reserved: ["$super"]` seems to be working, I can observe the token "$super" in the minified prod code, and also the site works now in prod build.
 */
 
+interface ChartOptions {
+  desiredSecondsOfHistory: number;
+  hideLegend?: true;
+  hideLastTradePriceGraph?: true;
+}
+
 interface Props {
   markets: Markets;
-  desiredSecondsOfHistory: number;
+  chartOptions: ChartOptions;
 }
 
 export interface Markets {
@@ -92,9 +98,9 @@ const LegendItem: React.SFC<LegendItemProps> = ({ market, colorWheel }) => {
   </>);
 }
 
-export const RealTimePriceChart: React.SFC<Props> = ({ markets, desiredSecondsOfHistory }: Props) => {
+export const RealTimePriceChart: React.SFC<Props> = ({ markets, chartOptions }: Props) => {
   // console.log("RealTimePriceChart", markets);
-  const chart = useChart(markets, desiredSecondsOfHistory);
+  const chart = useChart(markets, chartOptions);
 
   // TODO wrap this observer subscription process into a standalone hook
   useEffect(() => {
@@ -157,7 +163,12 @@ function getColorWheel(colorScheme: string[]): () => string {
 }
 
 // useChart is a hook to encapsulate our use of Rickshaw. Right now the useEffect will instantiate a Chart.domNode and requires the client to mount this domNode while this function has an interval that checks if the domNode has been mounted. TODO another, faster, simpler, less brittle approach might be to create the dom node here, and not use refs, and create the rickshaw graph on an unmounted dom node, and then return the whole thing fully constructed.
-function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefined {
+function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
+  const {
+    desiredSecondsOfHistory,
+    hideLegend,
+    hideLastTradePriceGraph,
+  } = chartOptions;
   const timeIntervalMillis: number = (() => { // milliseconds, lower is better, but lower affects render performance and graphs will drift from real time. Render performance because of how long each render takes, but also the total number of data points on the graph
     if (desiredSecondsOfHistory < 121) {
       return 1000;
@@ -185,9 +196,9 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
         <div className="rickshawChartContainer">
           <div className="rickshawChart" ref={chartRef} />
           <div className="rickshawChart2" ref={chart2Ref} />
-          <div className="rickshawChartLegend">
+          {!hideLegend && <div className="rickshawChartLegend">
             {marketIds.map(id => <LegendItem key={id} market={ms.marketsById[id]} colorWheel={colorWheel} />)}
-          </div>
+          </div>}
         </div>
       </a>
     );
@@ -282,7 +293,7 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
 
     // xAxisTickPeriodSeconds is the number of seconds between each x axis tick. We determine this value dynamically so as to show a pleasing and useful number of ticks regardless of x axis timescale.
     const xAxisTickPeriodSeconds: number = (() => {
-      const simultaneousTicks = 4; // number of ticks that should show simultaneously on the chart
+      const simultaneousTicks = 2; // number of ticks that should show simultaneously on the chart
       const tickPeriod = Math.floor(desiredSecondsOfHistory / simultaneousTicks);
       const tickPeriodRoundedUpToNearestMinute = tickPeriod - (tickPeriod % 60) + 60;
       return Math.max(60, tickPeriodRoundedUpToNearestMinute); // no more often than one tick per 60 seconds
@@ -381,7 +392,9 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
 
     function render() {
       graph.render();
-      graph2.render();
+      if (graph2 !== undefined) {
+        (graph2 as any).render();
+      }
     }
 
     // Using setInterval accumulates O(# of times rendered) drift with respect to real passage of time. This technique reduces the drift to a constant amount. https://stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
@@ -400,7 +413,9 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
     const updatePrices = (outcomeId: string, cu: ContractUpdate) => {
       unprocessedUpdatesByOutcomeId[outcomeId].push(cu);
       // console.log("updatePrices", cu, "buffered contractUpdates", unprocessedUpdatesByOutcomeId[outcomeId].length);
-      graph2.series[graph2SeriesIndexByOutcomeId[outcomeId]].data = [{ x: 36, y: cu.lastTradePrice }];
+      if (graph2 !== undefined) {
+        (graph2 as any).series[graph2SeriesIndexByOutcomeId[outcomeId]].data = [{ x: 36, y: cu.lastTradePrice }];
+      }
     };
 
     // Last trade price chart2/graph2
@@ -438,7 +453,8 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
       return s;
     })();
 
-    const graph2 = new Rickshaw.Graph(Object.assign({
+    // TypeScript doesn't support `undefined | defined`, so here we use `undefined | object`, but the `object` type doesn't know about any of the APIs on a graph, so we invoke all apis like `(graph2 as any).api()`.
+    const graph2: undefined | object = hideLastTradePriceGraph !== undefined ? undefined : new Rickshaw.Graph(Object.assign({
       element: chart2Div,
       renderer: 'scatterplot',
       min: 0, // y-axis min value, ie. $0
@@ -448,25 +464,28 @@ function useChart(ms: Markets, desiredSecondsOfHistory: number): Chart | undefin
 
     // Cache nowUTCString once per second, otherwise hoverDetail2.xFormatter will recompute it each render.
     let nowUTCString = new Date().toUTCString();
-    // TODO use a stepping technique as done with graph render interval -- this interval will drift a lot over time and become materially incorrect
-    const nowUTCInterval = window.setInterval(() => nowUTCString = new Date().toUTCString(), 1000);
+    const nowUTCInterval = window.setInterval(() => nowUTCString = new Date().toUTCString(), 1000); // this interval will drift, ie. it won't actually fire 60 times per minute, but that doesn't matter because the `new Date` is the correct time "now" whenever "now" happens to be
 
-    const hoverDetail2 = new Rickshaw.Graph.HoverDetail({
-      graph: graph2,
-      xFormatter: (_x: any) => nowUTCString,
-      yFormatter: (y: number) => `${Math.round(y * 100)}¢`,
-    });
-    // Override formatter https://github.com/shutterstock/rickshaw/blob/master/src/js/Rickshaw.Graph.HoverDetail.js#L34
-    hoverDetail2.formatter = (series2: any, _x: any, _y: any, _formattedX: any, formattedY: any, _d: any) => `${series2.name} last &nbsp;${formattedY}`;
+    if (graph2 !== undefined) {
+      const hoverDetail2 = new Rickshaw.Graph.HoverDetail({
+        graph: graph2,
+        xFormatter: (_x: any) => nowUTCString,
+        yFormatter: (y: number) => `${Math.round(y * 100)}¢`,
+      });
+      // Override formatter https://github.com/shutterstock/rickshaw/blob/master/src/js/Rickshaw.Graph.HoverDetail.js#L34
+      hoverDetail2.formatter = (series2: any, _x: any, _y: any, _formattedX: any, formattedY: any, _d: any) => `${series2.name} &nbsp;${formattedY}`;
+    }
 
     const onResize = () => {
       graph.configure(getChartElementWidthAndHeight());
       graph.render();
 
-      const wh = getChart2ElementWidthAndHeight()
-      graph2.configure(getChart2ElementWidthAndHeight());
-      graph2.renderer.dotSize = Math.min(10, Math.max(6, Math.round(wh.height * 0.04)));
-      graph2.render();
+      if (graph2 !== undefined) {
+        const wh = getChart2ElementWidthAndHeight();
+        (graph2 as any).configure(getChart2ElementWidthAndHeight());
+        (graph2 as any).renderer.dotSize = Math.min(7, Math.max(4, Math.round(wh.height * 0.04)));
+        (graph2 as any).render();
+      }
     };
     window.addEventListener("resize", onResize);
     onResize();
