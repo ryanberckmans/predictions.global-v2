@@ -136,18 +136,19 @@ interface Chart {
 
 // TODO associate candidates with colors, so that Bernie is always blue, regardless of which market is being displayed.
 const globalColorScheme = [ // rickshaw color scheme, colors appear twice because each outcome has two lines, bid and ask
-  'lightcoral',
-  'lightcoral',
-  'darkturquoise',
-  'darkturquoise',
-  'goldenrod',
-  'goldenrod',
-  'darkorange',
-  'darkorange',
-  'hotpink',
-  'hotpink',
-  'greenyellow',
-  'greenyellow',
+  // colors from http://ksrowell.com/blog-visualizing-data/2012/02/02/optimal-colors-for-graphs/
+  'rgb(57, 106, 177)',
+  'rgb(57, 106, 177)',
+  'rgb(218, 124, 48)',
+  'rgb(218, 124, 48)',
+  'rgb(62, 150, 81)',
+  'rgb(62, 150, 81)',
+  'rgb(204, 37, 41)',
+  'rgb(204, 37, 41)',
+  'rgb(107, 76, 154)',
+  'rgb(107, 76, 154)',
+  'rgb(83, 81, 84)',
+  'rgb(83, 81, 84)',
 ];
 
 // getColorWheel returns a generator for a stream of colors for the passed
@@ -412,6 +413,7 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
     }, initialRenderDelayMillis);
 
     const updatePrices = (outcomeId: string, cu: ContractUpdate) => {
+      // TODO the chart hung when I opened my laptop after it had been closed for 6 hours... and then it caught up just fine. But, the hang is not acceptable, I think it's from the buffered firebase data. We should prevent arbitrarily large amounts of data from being pushed into updatePrices, but it's not as simple as constraining its length to maxDataPoints, because the timestamps of the buffered data matter
       unprocessedUpdatesByOutcomeId[outcomeId].push(cu);
       // console.log("updatePrices", cu, "buffered contractUpdates", unprocessedUpdatesByOutcomeId[outcomeId].length);
       if (graph2 !== undefined) {
