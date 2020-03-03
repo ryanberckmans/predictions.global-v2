@@ -134,6 +134,16 @@ function addContractListener(allContractIds: string[], fb: firebase.app.App): (c
 //   });
 // }
 
+function marketNameFixup(marketName: string): string {
+  return marketName
+    .replace("2020 ", "")
+    .replace(" Dem primary winner", "")
+    .replace("Democratic nominee", "Dem nominee")
+    .replace("presidential winner", "President")
+    .replace("?", "")
+  ;
+}
+
 let singletonMarkets: undefined | Markets; // TODO stop using a singletonMarkets and have better control over precisely when it's constructed, and how many times it is constructed
 
 // Construct a RealTimePriceChart Markets for the available PI data. Only
@@ -150,7 +160,7 @@ export function getMarkets(): Markets {
   const marketsById: { [marketId: string]: Market } = Object.keys(piMarketsById).reduce<{ [marketId: string]: Market }>((o, id) => {
     const m = piMarketsById[id];
     const m2: Market = {
-      name: m.shortName,
+      name: marketNameFixup(m.shortName),
       imageUrl: m.image,
       url: m.url,
       outcomesById: getOutcomes(id),
