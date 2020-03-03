@@ -201,10 +201,13 @@ export const Dashboard: React.SFC<{}> = (props) => {
   const styleInner = {
     border: "1px solid #A5B5C1",
   };
+  const styleRight = {
+    borderLeft: "1px solid #A5B5C1",
+  }
   function mkChart(ms: Markets | undefined, desiredSecondsOfHistory: number) {
     return (
       <div className="column is-3" style={styleOuter}>
-        <div className="columns is-marginless is-paddingless" style={styleInner}>
+        <div className="columns is-marginless is-paddingless is-mobile" style={styleInner}>
           <div className="column is-6 is-paddingless">
             {ms && <RealTimePriceChart
               markets={ms}
@@ -215,7 +218,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
               }}
             />}
           </div>
-          <div className="column is-6 is-paddingless">
+          <div className="column is-6 is-paddingless" style={styleRight}>
             {ms && <RealTimePriceChart
               markets={ms}
               chartOptions={{
@@ -258,7 +261,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
           </a>
         </div>
         <div className="column is-narrow">
-          <div data-multiline={true} data-place='bottom' data-tip={`The big dots🔵are last trade price.<br>The two lines📉with the same color are bid & ask.<br>Right now it only shows new data, no history... but you can leave the tab open.<br>Try it on your phone`} style={{ color: "#3273DC" }}>
+          <div data-multiline={true} data-place='bottom' data-tip={`The big dots🔵are last trade price.<br>The two lines📉with the same color are bid & ask.<br>Each chart has a 2-hour timescale on left, 1-min timescale on right, left side moves slow, right side really fast.<br>Right now it only shows new data, no history... but you can leave the tab open and left side will build up 2 hours of history.<br>Try it on your phone`} style={{ color: "#3273DC" }}>
             Hot Tips
             &nbsp;
           <i className="far fa-question-circle" />

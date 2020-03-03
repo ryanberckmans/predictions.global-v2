@@ -9,7 +9,7 @@
   // height: 100%;
   // width: 50vw;
   @media only screen and (max-width: 768px) {
-    height: 25vh;
+    height: 50vh;
   }
   @media only screen and (min-width: 769px) {
     height: 25vw; // height is a % of vw (vwidth) so that we can ensure the charts are taller than they are wide, which is useful to see price differences
