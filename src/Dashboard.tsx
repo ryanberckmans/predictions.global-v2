@@ -1,6 +1,7 @@
 import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
 import { getMarkets } from './PredictItApi';
 import { getSubsetOfMarkets, Markets, RealTimePriceChart } from './RealTimePriceChart';
@@ -243,7 +244,9 @@ export const Dashboard: React.SFC<{}> = (props) => {
       </Helmet>
       <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "0.8rem" }}>
         <div className="column is-half">
-          <img width="230" className="logo" src="logo.png" />
+          <Link to="/">
+            <img width="230" className="logo" src="logo.png" />
+          </Link>
         </div>
         <div className="column is-narrow">
           <a target="_blank" href="https://discord.gg/hXByEjw">
