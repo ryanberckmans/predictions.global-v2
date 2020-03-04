@@ -59,8 +59,11 @@ export interface OutcomePrices {
   lastTradePrice: number;
 }
 
-export function getSubsetOfMarkets(markets: Markets, marketsAndOutcomes: { [marketId: string]: { [outcomeId: string]: true } }): Markets {
-  // console.log("getSubsetOfMarketsIn", markets);
+export function getSubsetOfMarkets(markets: Markets, marketsAndOutcomes: { [marketId: string]: {
+  autoOutcomeMaxNum?: number,
+  outcomeIds?: {[outcomeId: string]: true },
+}}): Markets {
+  // console.log("getSubsetOfMarketsIn", markets, marketsAndOutcomes);
   const ms = {
     marketsById: {},
   };
@@ -68,9 +71,14 @@ export function getSubsetOfMarkets(markets: Markets, marketsAndOutcomes: { [mark
     const m: Market = Object.assign({}, markets.marketsById[marketId], {
       outcomesById: {},
     });
-    Object.keys(marketsAndOutcomes[marketId]).forEach(outcomeId => {
-      m.outcomesById[outcomeId] = markets.marketsById[marketId].outcomesById[outcomeId];
-    });
+    const outcomeIds: string[] = marketsAndOutcomes[marketId].autoOutcomeMaxNum !== undefined ?
+      // Select the first `autoOutcomeMaxNum` market outcomes
+      Object.keys(markets.marketsById[marketId].outcomesById).slice(0, marketsAndOutcomes[marketId].autoOutcomeMaxNum) :
+      Object.keys(
+        marketsAndOutcomes[marketId].outcomeIds || // Select the subset of market outcomes provided by caller
+        markets.marketsById[marketId].outcomesById // Default to all outcomes for this market
+      );
+    outcomeIds.forEach(outcomeId => m.outcomesById[outcomeId] = markets.marketsById[marketId].outcomesById[outcomeId]);
     ms.marketsById[marketId] = m;
   })
   // console.log("getSubsetOfMarkets", ms);
@@ -181,13 +189,17 @@ function getColorWheel(colorScheme: string[]): () => string {
 }
 
 const contentOrder = [
+  'Democratic',
+  'Republican',
   'Biden',
   'Sanders',
   'Warren',
   'Bloomberg',
+  'Clinton',
 ];
 
 // getAndSortOutcomeIdsByContent provides a content sort order for the passed market's outcomeIds. The idea here is to eg. always show [Biden, Sanders, Warren, Bloomberg] in that order. We could instead model this as an actual comparator that could be passed to JavaScript's sort functions.
+// TODO this isn't quite done yet... what we want to do is something more like dynamically generating a color scheme to associate each candidate with their personal color. For example most colors are stable now, but if Warren is missing from a market then Bloomberg will take her color --> ACTUALLY this is easy because each series item can specify its own color as seriesItem.color... so we're all set here --> we can even generate a palette of the form `palette: { seriesName: color }`
 function getAndSortOutcomeIdsByContent(m: Market): string[] {
   const outcomeIds = Object.keys(m.outcomesById);
   const addedAlready: { [outcomeId: string]: true } = {};
