@@ -445,6 +445,7 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
     }
 
     function render() {
+      // TODO skip render if browser tab is not visible, or if chart div is not visible on screen (due to scrolling, etc)
       graph.render();
       if (graph2 !== undefined) {
         (graph2 as any).render();
