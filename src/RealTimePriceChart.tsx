@@ -87,7 +87,7 @@ const LegendItem: React.SFC<LegendItemProps> = ({ market, colorWheel }) => {
     <img src={market.imageUrl} />
     &nbsp;
     <span className="marketName">{market.name}</span>
-    {Object.keys(market.outcomesById).map(outcomeId => {
+    {getAndSortOutcomeIdsByContent(market).map(outcomeId => {
       const outcome = market.outcomesById[outcomeId];
       return (<span key={outcomeId} style={{ display: "inline-block" }}>
         &nbsp;&nbsp;
@@ -180,6 +180,38 @@ function getColorWheel(colorScheme: string[]): () => string {
   };
 }
 
+const contentOrder = [
+  'Biden',
+  'Sanders',
+  'Warren',
+  'Bloomberg',
+];
+
+// getAndSortOutcomeIdsByContent provides a content sort order for the passed market's outcomeIds. The idea here is to eg. always show [Biden, Sanders, Warren, Bloomberg] in that order. We could instead model this as an actual comparator that could be passed to JavaScript's sort functions.
+function getAndSortOutcomeIdsByContent(m: Market): string[] {
+  const outcomeIds = Object.keys(m.outcomesById);
+  const addedAlready: { [outcomeId: string]: true } = {};
+  const sorted: string[] = [];
+
+  // O(contentOrder * outcomes)
+  contentOrder.forEach(c => {
+    const outcomeIdForThisContent = outcomeIds.find(id => m.outcomesById[id].name.indexOf(c) > -1);
+    if (outcomeIdForThisContent !== undefined && !(outcomeIdForThisContent in addedAlready)) {
+      addedAlready[outcomeIdForThisContent] = true;
+      sorted.push(outcomeIdForThisContent);
+    }
+  });
+  outcomeIds.forEach(id => {
+    if (!(id in addedAlready)) {
+      sorted.push(id);
+    }
+  });
+  if (sorted.length !== outcomeIds.length) {
+    throw new Error(`expected sorted.length=${sorted.length} to equal outcomeIds.length=${outcomeIds.length}`);
+  }
+  return sorted;
+}
+
 // useChart is a hook to encapsulate our use of Rickshaw. Right now the useEffect will instantiate a Chart.domNode and requires the client to mount this domNode while this function has an interval that checks if the domNode has been mounted. TODO another, faster, simpler, less brittle approach might be to create the dom node here, and not use refs, and create the rickshaw graph on an unmounted dom node, and then return the whole thing fully constructed.
 function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
   const {
@@ -262,9 +294,10 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
     const unprocessedUpdatesByOutcomeId: { [outcomeId: string]: ContractUpdate[] } = {};
     const seriesNameByOutcomeId: { [outcomeId: string]: { [bidOrAsk in 'bid' | 'ask']: string } } = {};
     const series: SeriesInit[] = marketIds.reduce<SeriesInit[]>((sis, marketId) => {
-      Object.keys(ms.marketsById[marketId].outcomesById).forEach(outcomeId => {
+      const m = ms.marketsById[marketId];
+      getAndSortOutcomeIdsByContent(m).forEach(outcomeId => {
         // Each Outcome will result in two series, a bid series and an ask series. For example a market (DemNom = Biden x Sanders) will have four series, Biden-bid, Biden-ask, Sanders-bid, Sanders-ask.
-        const outcome = ms.marketsById[marketId].outcomesById[outcomeId];
+        const outcome = m.outcomesById[outcomeId];
         const bidName = outcome.name + " bid";
         const askName = outcome.name + " ask";
         const siBid: SeriesInit = {
@@ -461,7 +494,7 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
       }];
       let i = 1; // starts at 1 because the dummy series is 0
       marketIds.forEach((marketId) => {
-        Object.keys(ms.marketsById[marketId].outcomesById).forEach(outcomeId => {
+        getAndSortOutcomeIdsByContent(ms.marketsById[marketId]).forEach(outcomeId => {
           const outcome = ms.marketsById[marketId].outcomesById[outcomeId];
           s.push({
             name: outcome.name + " last",
