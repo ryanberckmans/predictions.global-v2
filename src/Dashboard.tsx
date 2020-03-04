@@ -208,7 +208,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
     border: "1px solid #A5B5C1",
   };
   const styleRight = {
-    borderLeft: "1px solid #A5B5C1",
+    borderLeft: "1px dotted rgba(165, 181, 193, 0.4)",
   }
   function mkChart(ms: Markets | undefined, desiredSecondsOfHistory: number) {
     return (
