@@ -13,6 +13,11 @@ export const Dashboard: React.SFC<{}> = (props) => {
     return isNaN(raw2) ? 72 : raw2;
   })();
 
+  const isColorBlindMode: boolean = (() => {
+    const raw = queryString.parse((props as any).location.search).colorBlindMode;
+    return typeof raw === 'string' && raw.length > 0;
+  })();
+
   const [markets, setMarkets] = useState(undefined as undefined | Markets);
   const [chart1Markets, setChart1Markets] = useState(undefined as undefined | Markets);
   const [chart1Pt5Markets, setChart1Pt5Markets] = useState(undefined as undefined | Markets);
@@ -216,6 +221,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
                 desiredSecondsOfHistory: desiredSecondsOfHistory * 100,
                 hideLastTradePriceGraph: true,
                 initialRenderDelayMillis: desiredSecondsOfHistory * 1000, // we want to delay the initial render of the long-term chart because it doesn't physically connect to the short term chart until the short term chart has elapsed its entire time window. If we render the long-term chart immediately then its initial data appear as a weird vertical bar in the middle of the two charts, which is ugly, useless, and users think it's a bug
+                colorBlindMode: isColorBlindMode ? true : undefined,
               }}
             />}
           </div>
@@ -225,6 +231,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
               chartOptions={{
                 desiredSecondsOfHistory,
                 hideLegend: true,
+                colorBlindMode: isColorBlindMode ? true: undefined,
               }}
             />}
           </div>

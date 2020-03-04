@@ -27,6 +27,7 @@ interface ChartOptions {
   hideLegend?: true;
   hideLastTradePriceGraph?: true;
   initialRenderDelayMillis?: number;
+  colorBlindMode?: true;
 }
 
 interface Props {
@@ -134,13 +135,28 @@ interface Chart {
   updatePrices?: (outcomeId: string, newPrices: ContractUpdate) => void; // client should push new prices into this function to cause them to be rendered into the chart in real time
 }
 
-// TODO associate candidates with colors, so that Bernie is always blue, regardless of which market is being displayed.
-const globalColorScheme = [ // rickshaw color scheme, colors appear twice because each outcome has two lines, bid and ask
+const defaultColorScheme = [ // rickshaw color scheme, colors appear twice because each outcome has two lines, bid and ask
   // colors from http://ksrowell.com/blog-visualizing-data/2012/02/02/optimal-colors-for-graphs/
   'rgb(57, 106, 177)',
   'rgb(57, 106, 177)',
   'rgb(218, 124, 48)',
   'rgb(218, 124, 48)',
+  'rgb(62, 150, 81)',
+  'rgb(62, 150, 81)',
+  'rgb(204, 37, 41)',
+  'rgb(204, 37, 41)',
+  'rgb(107, 76, 154)',
+  'rgb(107, 76, 154)',
+  'rgb(83, 81, 84)',
+  'rgb(83, 81, 84)',
+];
+
+const colorBlindColorScheme = [
+  // similar to and based on globalColorScheme, but with select colors replaced based on talking to color blind users
+  'rgb(57, 106, 177)',
+  'rgb(57, 106, 177)',
+  'yellow',
+  'yellow',
   'rgb(62, 150, 81)',
   'rgb(62, 150, 81)',
   'rgb(204, 37, 41)',
@@ -170,6 +186,7 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
     desiredSecondsOfHistory,
     hideLegend,
     hideLastTradePriceGraph,
+    colorBlindMode,
   } = chartOptions;
   const timeIntervalMillis: number = (() => { // milliseconds, lower is better, but lower affects render performance and graphs will drift from real time. Render performance because of how long each render takes, but also the total number of data points on the graph
     if (desiredSecondsOfHistory < 121) {
@@ -177,6 +194,8 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
     }
     return 10000;
   })();
+
+  const colorScheme = colorBlindMode === undefined ? defaultColorScheme : colorBlindColorScheme;
 
   // console.log("useChart");
   const marketIds = Object.keys(ms.marketsById);
@@ -192,7 +211,7 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
   useEffect(() => {
     // console.log("useChart useEffect", chartRef, chart2Ref);
 
-    const colorWheel = getColorWheel(globalColorScheme); // TODO pass colorScheme in useChart options
+    const colorWheel = getColorWheel(colorScheme);
     const domNode = (
       <a href={marketIds.length > 0 ? ms.marketsById[marketIds[0]].url : ""} target="_blank">
         <div className="rickshawChartContainer">
@@ -278,7 +297,7 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
       interpolation: 'step-after', // line smoothing / interpolation method, square steps from point to point, https://github.com/mbostock/d3/wiki/SVG-Shapes#wiki-line_interpolate
       series: new Rickshaw.Series.FixedDuration(series, {
         // these are args for https://github.com/shutterstock/rickshaw/blob/master/src/js/Rickshaw.Color.Palette.js
-        scheme: globalColorScheme,
+        scheme: colorScheme,
       }, {
           timeInterval: timeIntervalMillis,
           maxDataPoints,
@@ -433,7 +452,7 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
     // TODO make this strongly typed
     const graph2SeriesIndexByOutcomeId: { [outcomeId: string]: number } = {};
     const graph2Series: object[] = (() => {
-      const colorWheel2 = getColorWheel(globalColorScheme);
+      const colorWheel2 = getColorWheel(colorScheme);
       const s = [{
         // this first series is a hack to set the X axis domain from [0,11] which causes the subsequent series' x values of 6 to be in the middle of the X axis domain, which has the effect of rendering the last trade price dot on the right margin of the price chart
         name: "dummy",
