@@ -33,7 +33,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
   const [chart8Markets, setChart8Markets] = useState(undefined as undefined | Markets);
   const [chart9Markets, setChart9Markets] = useState(undefined as undefined | Markets);
   const [chart10Markets, setChart10Markets] = useState(undefined as undefined | Markets);
-  const [chart11Markets, setChart11Markets] = useState(undefined as undefined | Markets);
+  // const [chart11Markets, setChart11Markets] = useState(undefined as undefined | Markets);
   // const [chart12Markets, setChart12Markets] = useState(undefined as undefined | Markets);
   // const [chart13Markets, setChart13Markets] = useState(undefined as undefined | Markets);
   const [chart14Markets, setChart14Markets] = useState(undefined as undefined | Markets);
@@ -139,14 +139,6 @@ export const Dashboard: React.SFC<{}> = (props) => {
         outcomeIds: {
           18920: true, // Sanders
           18916: true, // Biden
-        },
-      },
-    }));
-    setChart11Markets(getSubsetOfMarkets(ms, {
-      5241: { // Iowa primary
-        outcomeIds: {
-          14847: true, // Buttigieg
-          14214: true, // Sanders
         },
       },
     }));
@@ -346,7 +338,6 @@ export const Dashboard: React.SFC<{}> = (props) => {
         {mkChart(chart24Markets, historySeconds)}
         {mkChart(chart25Markets, historySeconds)}
         {mkChart(chart26Markets, historySeconds)}
-        {mkChart(chart11Markets, historySeconds) /* iowa */}
       </div>
     </div>
   );
