@@ -192,6 +192,7 @@ const contentOrder = [
   'Democratic',
   'Republican',
   'Biden',
+  'Buttigieg',
   'Sanders',
   'Warren',
   'Bloomberg',

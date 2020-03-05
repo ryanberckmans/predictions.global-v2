@@ -141,6 +141,9 @@ function marketNameFixup(marketName: string): string {
     .replace("Balance of power after 2020 election", "Balance of power after 2020")
     .replace("2020 ", "")
     .replace(" Dem primary winner", "")
+    .replace(" Democratic caucus winner", "")
+    .replace(" Democratic primary winner", "")
+    .replace(" Dem caucus winner", "")
     .replace("Democrats Abroad primary winner", "Dems abroad")
     .replace("Democratic nominee", "Dem nominee")
     .replace("presidential winner", "President")
@@ -152,6 +155,7 @@ function marketNameFixup(marketName: string): string {
     .replace("Who will control the House after 2020", "Controls House after 2020")
     .replace("Who will control the Senate after 2020", "Controls Senate after 2020")
     .replace("Which party wins the Presidency in 2020", "Wins Presidency in 2020")
+    .replace("Warren to drop out before the weekend", "Warren drops out before weekend")
     .replace("?", "")
   ;
 }
