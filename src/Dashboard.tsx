@@ -21,7 +21,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
   const [markets, setMarkets] = useState(undefined as undefined | Markets);
   const [chart1Markets, setChart1Markets] = useState(undefined as undefined | Markets);
   const [chart1Pt5Markets, setChart1Pt5Markets] = useState(undefined as undefined | Markets);
-  const [chart2Markets, setChart2Markets] = useState(undefined as undefined | Markets);
+  // const [chart2Markets, setChart2Markets] = useState(undefined as undefined | Markets);
   const [chart3Markets, setChart3Markets] = useState(undefined as undefined | Markets);
   const [chart4Markets, setChart4Markets] = useState(undefined as undefined | Markets);
   const [chart4Pt5Markets, setChart4Pt5Markets] = useState(undefined as undefined | Markets);
@@ -72,10 +72,6 @@ export const Dashboard: React.SFC<{}> = (props) => {
           7940: true, // Biden
           // 13873: true, // Bloomberg
         },
-      },
-    }));
-    setChart2Markets(getSubsetOfMarkets(ms, {
-      6518: { // Warren drops out by 3/6
       },
     }));
     setChart3Markets(getSubsetOfMarkets(ms, {
@@ -314,7 +310,6 @@ export const Dashboard: React.SFC<{}> = (props) => {
       </div>
 
       <div className="columns is-marginless is-multiline">
-        {mkChart(chart2Markets, historySeconds)}
         {mkChart(chart4Pt6Markets, historySeconds)}
         {mkChart(chart3Markets, historySeconds)}
         {mkChart(chart4Markets, historySeconds)}

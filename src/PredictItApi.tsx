@@ -155,7 +155,6 @@ function marketNameFixup(marketName: string): string {
     .replace("Who will control the House after 2020", "Controls House after 2020")
     .replace("Who will control the Senate after 2020", "Controls Senate after 2020")
     .replace("Which party wins the Presidency in 2020", "Wins Presidency in 2020")
-    .replace("Warren to drop out before the weekend", "Warren drops out before weekend")
     .replace("?", "")
   ;
 }
