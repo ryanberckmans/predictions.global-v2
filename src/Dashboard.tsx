@@ -231,7 +231,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
   }, [markets]);
 
   const styleOuter = {
-    padding: "0.4rem",
+    padding: "0",
   };
   const styleInner = {
     border: "1px solid #A5B5C1",
@@ -241,9 +241,9 @@ export const Dashboard: React.SFC<{}> = (props) => {
   }
   function mkChart(ms: Markets | undefined, desiredSecondsOfHistory: number) {
     return (
-      <div className="column is-3" style={styleOuter}>
+      <div className="column is-8" style={styleOuter}>
         <div className="columns is-marginless is-paddingless is-mobile" style={styleInner}>
-          <div className="column is-6 is-paddingless">
+          <div className="column is-4 is-paddingless">
             {ms && <RealTimePriceChart
               markets={ms}
               chartOptions={{
@@ -254,7 +254,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
               }}
             />}
           </div>
-          <div className="column is-6 is-paddingless" style={styleRight}>
+          <div className="column is-8 is-paddingless" style={styleRight}>
             {ms && <RealTimePriceChart
               markets={ms}
               chartOptions={{
@@ -269,6 +269,30 @@ export const Dashboard: React.SFC<{}> = (props) => {
     );
   }
 
+  // {mkChart(chart4Pt6Markets, historySeconds)}
+  // TOOD ID
+  // {mkChart(chart4Markets, historySeconds)}
+  // {mkChart(chart6Markets, historySeconds)}
+  // {mkChart(chart4Pt5Markets, historySeconds)}
+  // {mkChart(chart7Markets, historySeconds)}
+  // {mkChart(chart10Markets, historySeconds) /* NY */}
+  // {mkChart(chart9Markets, historySeconds) /* OR */}
+  // {mkChart(chart8Markets, historySeconds) /* WA */}
+  // {mkChart(chart1Markets, historySeconds)}
+  // {mkChart(chart14Markets, historySeconds)}
+  // {mkChart(chart1Pt5Markets, historySeconds)}
+  // {mkChart(chart15Markets, historySeconds)}
+  // {mkChart(chart17Markets, historySeconds)}
+  // {mkChart(chart18Markets, historySeconds)}
+  // {mkChart(chart19Markets, historySeconds)}
+  // {mkChart(chart20Markets, historySeconds)}
+  // {mkChart(chart21Markets, historySeconds)}
+  // {mkChart(chart22Markets, historySeconds)}
+  // {mkChart(chart23Markets, historySeconds)}
+  // {mkChart(chart24Markets, historySeconds)}
+  // {mkChart(chart25Markets, historySeconds)}
+  // {mkChart(chart26Markets, historySeconds)}
+
   return (
     <div className="dashboard" style={{ minHeight: "100vh" }}>
       <ReactTooltip />
@@ -278,10 +302,10 @@ export const Dashboard: React.SFC<{}> = (props) => {
           name="description"
           content="Dashboard for PredictIt and Augur Prediction Markets. PredictIt and Augur prediction market discusion, prices, trading volume, bid ask, and charts." />
       </Helmet>
-      <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "0.8rem" }}>
-        <div className="column is-half">
+      <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "1.2rem", paddingBottom: "0", marginBottom: "0" }}>
+        <div className="column is-2">
           <Link to="/">
-            <img width="230" className="logo" src="logo.png" />
+            <img className="logo" src="logo.png" />
           </Link>
         </div>
         <div className="column is-narrow">
@@ -290,49 +314,39 @@ export const Dashboard: React.SFC<{}> = (props) => {
           </a>
         </div>
         <div className="column is-narrow">
-          <a target="_blank" href="https://discord.gg/hXByEjw">
-            <span>DM @ryanb</span>
-          </a>
-        </div>
-        <div className="column is-narrow">
           <a target="_blank" href="https://forms.gle/TXpxBaWNhD2JkGfaA">
-            <span>Send Feedback (or say Hi)</span>
+            <span>Send Feedback</span>
           </a>
-        </div>
-        <div className="column is-narrow">
-          <div data-multiline={true} data-place='bottom' data-tip={`The big dots🔵are last trade price.<br>The two lines📉with the same color are bid & ask.<br>Each chart has a 2-hour timescale on left, 1-min timescale on right, left side moves slow, right side really fast.<br>Right now it only shows new data, no history... but you can leave the tab open and left side will build up 2 hours of history.<br>Try it on your phone`} style={{ color: "#3273DC" }}>
-            Hot Tips
-            &nbsp;
-          <i className="far fa-question-circle" />
-          </div>
-
         </div>
       </div>
 
-      <div className="columns is-marginless is-multiline">
-        {mkChart(chart4Pt6Markets, historySeconds)}
+      <div className="columns is-marginless is-multiline" style={{ padding: "0.8rem" }}>
         {mkChart(chart3Markets, historySeconds)}
-        {mkChart(chart4Markets, historySeconds)}
-        {mkChart(chart6Markets, historySeconds)}
-        {mkChart(chart4Pt5Markets, historySeconds)}
-        {mkChart(chart7Markets, historySeconds)}
-        {mkChart(chart10Markets, historySeconds) /* NY */}
-        {mkChart(chart9Markets, historySeconds) /* OR */}
-        {mkChart(chart8Markets, historySeconds) /* WA */}
-        {mkChart(chart1Markets, historySeconds)}
-        {mkChart(chart14Markets, historySeconds)}
-        {mkChart(chart1Pt5Markets, historySeconds)}
-        {mkChart(chart15Markets, historySeconds)}
-        {mkChart(chart17Markets, historySeconds)}
-        {mkChart(chart18Markets, historySeconds)}
-        {mkChart(chart19Markets, historySeconds)}
-        {mkChart(chart20Markets, historySeconds)}
-        {mkChart(chart21Markets, historySeconds)}
-        {mkChart(chart22Markets, historySeconds)}
-        {mkChart(chart23Markets, historySeconds)}
-        {mkChart(chart24Markets, historySeconds)}
-        {mkChart(chart25Markets, historySeconds)}
-        {mkChart(chart26Markets, historySeconds)}
+        <div className="column is-4" style={{ height: "35vw", border: "1px solid #A5B5C1" }}>
+          <div className="" style={{ height: "100%" }}>
+            <span style={{ color: "yellow" }}>Chat</span>
+          </div>
+        </div>
+      </div>
+      <div className="columns is-vcentered is-centered has-text-centered is-marginless is-multiline" style={{ padding: "0.8rem" }}>
+      <div className="column is-8" style={{ fontSize: "3em"}}>
+        <input type="radio" value="❤️"
+        checked={true} />
+        <label>❤️</label>
+        &nbsp;&nbsp;
+        <input type="radio" value="😂"
+        checked={false} />
+        <label>😂</label>
+        &nbsp;&nbsp;
+        <input type="radio" value="biden"
+        checked={false} />
+        <label><img src="https://az620379.vo.msecnd.net/images/Contracts/small_4c64890a-503c-454c-b02e-732319f1459f.jpg" style={{height: "0.8em"}} /></label>
+        &nbsp;&nbsp;
+        <input type="radio" value="sanders"
+        checked={false} />
+        <label><img src="https://az620379.vo.msecnd.net/images/Contracts/small_a23d6bdd-d901-476f-b0d9-6d5d5b8c02c0.jpg" style={{height: "0.8em"}} /></label>
+
+      </div>
       </div>
     </div>
   );
