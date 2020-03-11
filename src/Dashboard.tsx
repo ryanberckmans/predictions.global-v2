@@ -290,7 +290,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
         </div>
       </div>
 
-      <div className="columns is-marginless is-multiline">
+      <div className="columns is-marginless is-multiline" style={{ position: "relative" }}>
         {mkChart(chart26Markets, historySeconds)}
         {mkChart(chart4Pt6Markets, historySeconds)}
         {mkChart(chart4Markets, historySeconds) /* AK */}
@@ -312,6 +312,17 @@ export const Dashboard: React.SFC<{}> = (props) => {
         {mkChart(chart23Markets, historySeconds)}
         {mkChart(chart24Markets, historySeconds)}
         {mkChart(chart25Markets, historySeconds)}
+        <div className="column is-6" style={Object.assign({
+          "position": "relative",
+          "zIndex": 10,
+        }, styleOuter)}>
+          <iframe className="chatIframe" src="https://gateway.ipfs.io/ipfs/QmRxw2poQkEXx5W4f6g5kaGDWnvE5ZLEHkG2KsexMyN2V1"/>
+        </div>
+      </div>
+      <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "0.8rem" }}>
+        <div className="column is-half">
+          <a target="_blank" href="0x56329ACd726a373177f8Bf2f94Ca601C0BB3C4FA.png">Donate Ethereum: 0x56329ACd726a373177f8Bf2f94Ca601C0BB3C4FA</a>
+        </div>
       </div>
     </div>
   );
