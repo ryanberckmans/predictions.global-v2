@@ -21,18 +21,18 @@ export const Dashboard: React.SFC<{}> = (props) => {
   const [markets, setMarkets] = useState(undefined as undefined | Markets);
   const [chart1Markets, setChart1Markets] = useState(undefined as undefined | Markets);
   const [chart1Pt5Markets, setChart1Pt5Markets] = useState(undefined as undefined | Markets);
-  // const [chart2Markets, setChart2Markets] = useState(undefined as undefined | Markets);
+  const [chart2Markets, setChart2Markets] = useState(undefined as undefined | Markets);
   const [chart3Markets, setChart3Markets] = useState(undefined as undefined | Markets);
   const [chart4Markets, setChart4Markets] = useState(undefined as undefined | Markets);
   const [chart4Pt5Markets, setChart4Pt5Markets] = useState(undefined as undefined | Markets);
   const [chart4Pt6Markets, setChart4Pt6Markets] = useState(undefined as undefined | Markets);
   // const [chart5Markets, setChart5Markets] = useState(undefined as undefined | Markets);
   // const [chart5Pt5Markets, setChart5Pt5Markets] = useState(undefined as undefined | Markets);
-  const [chart6Markets, setChart6Markets] = useState(undefined as undefined | Markets);
-  const [chart7Markets, setChart7Markets] = useState(undefined as undefined | Markets);
+  // const [chart6Markets, setChart6Markets] = useState(undefined as undefined | Markets);
+  // const [chart7Markets, setChart7Markets] = useState(undefined as undefined | Markets);
   const [chart8Markets, setChart8Markets] = useState(undefined as undefined | Markets);
   const [chart9Markets, setChart9Markets] = useState(undefined as undefined | Markets);
-  const [chart10Markets, setChart10Markets] = useState(undefined as undefined | Markets);
+  // const [chart10Markets, setChart10Markets] = useState(undefined as undefined | Markets);
   // const [chart11Markets, setChart11Markets] = useState(undefined as undefined | Markets);
   // const [chart12Markets, setChart12Markets] = useState(undefined as undefined | Markets);
   // const [chart13Markets, setChart13Markets] = useState(undefined as undefined | Markets);
@@ -74,43 +74,27 @@ export const Dashboard: React.SFC<{}> = (props) => {
         },
       },
     }));
+    setChart2Markets(getSubsetOfMarkets(ms, {
+      4036: { // Woman VP in 2020?
+      },
+    }));
     setChart3Markets(getSubsetOfMarkets(ms, {
-      6037: { // Idaho primary
-        outcomeIds: {
-          18389: true, // Sanders
-          18385: true, // Biden
-        },
+      4037: { // Will 2020 Dem VP nominee be a woman?
       },
     }));
     setChart4Markets(getSubsetOfMarkets(ms, {
-      6038: { // MI primary
+      6095: { // AK primary
         outcomeIds: {
-          18402: true, // Sanders
-          18398: true, // Biden
+          18829: true, // Sanders
+          18825: true, // Biden
         },
       },
     }));
     setChart4Pt5Markets(getSubsetOfMarkets(ms, {
-      6039: { // Mississipi primary
+      6096: { // HI primary
         outcomeIds: {
-          18415: true, // Sanders
-          18411: true, // Biden
-        },
-      },
-    }));
-    setChart6Markets(getSubsetOfMarkets(ms, {
-      6040: { // Missouri primary
-        outcomeIds: {
-          18428: true, // Sanders
-          18424: true, // Biden
-        },
-      },
-    }));
-    setChart7Markets(getSubsetOfMarkets(ms, {
-      6346: { // North Dakota primary
-        outcomeIds: {
-          20557: true, // Sanders
-          20553: true, // Biden
+          18842: true, // Sanders
+          18838: true, // Biden
         },
       },
     }));
@@ -127,14 +111,6 @@ export const Dashboard: React.SFC<{}> = (props) => {
         outcomeIds: {
           20391: true, // Sanders
           20387: true, // Biden
-        },
-      },
-    }));
-    setChart10Markets(getSubsetOfMarkets(ms, {
-      6102: { // NY primary
-        outcomeIds: {
-          18920: true, // Sanders
-          18916: true, // Biden
         },
       },
     }));
@@ -213,7 +189,12 @@ export const Dashboard: React.SFC<{}> = (props) => {
       },
     }));
     setChart26Markets(getSubsetOfMarkets(ms, {
-      6489: { // COVID pandemic by 3/6?
+      6501: { // Number of Democrats running on 4/1?
+        outcomeIds: {
+          21564: true, // 1
+          21569: true, // 2
+          21565: true, // 3
+        },
       },
     }));
     // setChart14Markets(getSubsetOfMarkets(ms, {
@@ -310,17 +291,16 @@ export const Dashboard: React.SFC<{}> = (props) => {
       </div>
 
       <div className="columns is-marginless is-multiline">
+        {mkChart(chart26Markets, historySeconds)}
         {mkChart(chart4Pt6Markets, historySeconds)}
-        {mkChart(chart3Markets, historySeconds)}
-        {mkChart(chart4Markets, historySeconds)}
-        {mkChart(chart6Markets, historySeconds)}
-        {mkChart(chart4Pt5Markets, historySeconds)}
-        {mkChart(chart7Markets, historySeconds)}
-        {mkChart(chart10Markets, historySeconds) /* NY */}
+        {mkChart(chart4Markets, historySeconds) /* AK */}
+        {mkChart(chart4Pt5Markets, historySeconds) /* HI */}
         {mkChart(chart9Markets, historySeconds) /* OR */}
         {mkChart(chart8Markets, historySeconds) /* WA */}
         {mkChart(chart1Markets, historySeconds)}
         {mkChart(chart14Markets, historySeconds)}
+        {mkChart(chart3Markets, historySeconds)}
+        {mkChart(chart2Markets, historySeconds)}
         {mkChart(chart1Pt5Markets, historySeconds)}
         {mkChart(chart15Markets, historySeconds)}
         {mkChart(chart17Markets, historySeconds)}
@@ -332,7 +312,6 @@ export const Dashboard: React.SFC<{}> = (props) => {
         {mkChart(chart23Markets, historySeconds)}
         {mkChart(chart24Markets, historySeconds)}
         {mkChart(chart25Markets, historySeconds)}
-        {mkChart(chart26Markets, historySeconds)}
       </div>
     </div>
   );

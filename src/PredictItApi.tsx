@@ -138,6 +138,7 @@ function marketNameFixup(marketName: string): string {
   return marketName
     .replace("Will Trump be the 2020 GOP nominee", "Trump GOP nominee")
     .replace("Will Pence be 2020 GOP VP nominee", "Pence GOP VP nominee")
+    .replace("Will 2020 Dem VP nominee be a woman", "Dem VP nominee a woman")
     .replace("Balance of power after 2020 election", "Balance of power after 2020")
     .replace("2020 ", "")
     .replace(" Dem primary winner", "")
@@ -149,12 +150,12 @@ function marketNameFixup(marketName: string): string {
     .replace("presidential winner", "President")
     .replace("Democratic VP nominee", "Dem VP nominee")
     .replace("Brokered Democratic convention", "Brokered convention")
-    .replace("Most Super Tuesday pledged delegates", "Most Super Tuesday delegates")
     .replace("Will Hillary Clinton run in 2020", "Hillary Clinton runs")
     .replace("Trump win popular vote in 2020", "Trump wins popular vote")
     .replace("Who will control the House after 2020", "Controls House after 2020")
     .replace("Who will control the Senate after 2020", "Controls Senate after 2020")
     .replace("Which party wins the Presidency in 2020", "Wins Presidency in 2020")
+    .replace("Number of Democrats", "# of Dems")
     .replace("?", "")
   ;
 }
