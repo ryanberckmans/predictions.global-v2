@@ -132,7 +132,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
           17472: true, // Klobuchar
           17477: true, // Warren
           17480: true, // Buttigieg
-          20451: true, // Turner
+          20450: true, // Masto
         },
       },
     }));
