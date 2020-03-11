@@ -12,7 +12,7 @@
     height: 50vh;
   }
   @media only screen and (min-width: 769px) {
-    height: 25vw; // height is a % of vw (vwidth) so that we can ensure the charts are taller than they are wide, which is useful to see price differences
+    height: 17vw; // height is a % of vw (vwidth) so that we can ensure the charts are taller than they are wide, which is useful to see price differences
   }
   background-color: rgb(21, 35, 44);
 }

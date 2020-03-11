@@ -212,7 +212,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
   }, [markets]);
 
   const styleOuter = {
-    padding: "0.4rem",
+    padding: "0.2rem",
   };
   const styleInner = {
     border: "1px solid #A5B5C1",
@@ -222,7 +222,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
   }
   function mkChart(ms: Markets | undefined, desiredSecondsOfHistory: number) {
     return (
-      <div className="column is-3" style={styleOuter}>
+      <div className="column is-2" style={styleOuter}>
         <div className="columns is-marginless is-paddingless is-mobile" style={styleInner}>
           <div className="column is-6 is-paddingless">
             {ms && <RealTimePriceChart
