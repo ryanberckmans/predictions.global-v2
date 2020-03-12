@@ -316,7 +316,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
           "position": "relative",
           "zIndex": 10,
         }, styleOuter)}>
-          <iframe className="chatIframe" src="https://cloudflare-ipfs.com/ipfs/QmRxw2poQkEXx5W4f6g5kaGDWnvE5ZLEHkG2KsexMyN2V1"/>
+          <iframe className="chatIframe" src="https://cloudflare-ipfs.com/ipfs/QmY2GfoWovUFkQyRvdBhL4sBUpCLHvpXJ4dkP5YAeMZMZN"/>
         </div>
       </div>
       <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "0.8rem" }}>
