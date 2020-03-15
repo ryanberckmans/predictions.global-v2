@@ -134,6 +134,16 @@ function addContractListener(allContractIds: string[], fb: firebase.app.App): (c
 //   });
 // }
 
+function outcomeNameFixup(outcomeName: string): string {
+  return outcomeName
+    .replace("6.0% to 6.5%", "6.0-6.5%")
+    .replace("6.5% to 7.0%", "6.5-7.0%")
+    .replace("7.0% to 7.5%", "7.0-7.5%")
+    .replace("7.5% to 8.0%", "7.5-8.0%")
+    .replace("8.0% to 8.5%", "8.0-8.5%")
+  ;
+}
+
 function marketNameFixup(marketName: string): string {
   return marketName
     .replace("Will Trump be the 2020 GOP nominee", "Trump GOP nominee")
@@ -156,6 +166,8 @@ function marketNameFixup(marketName: string): string {
     .replace("Who will control the Senate after 2020", "Controls Senate after 2020")
     .replace("Which party wins the Presidency in 2020", "Wins Presidency in 2020")
     .replace("Number of Democrats", "# of Dems")
+    .replace("California primary margin of victory", "CA margin of victory")
+    .replace("Washington primary margin of victory", "WA margin of victory")
     .replace("?", "")
   ;
 }
@@ -188,7 +200,7 @@ export function getMarkets(): Markets {
   function getOutcomes(marketId: string): { [outcomeId: string]: Outcome } {
     const outcomesById: { [outcomeId: string]: Outcome } = (piMarketsById[marketId].contracts as any[]).reduce<{ [outcomeId: string]: Outcome }>((o, c) => {
       o[c.id] = {
-        name: piMarketsById[marketId].contracts.length > 1 ? c.shortName : "Yes", // if this market has only one contract, then we name the outcome "Yes" because downstream we want to display "${marketName} ${outcomeName}" and for binary markets the best way to display this is "Will Trump 1st term recession? Yes"
+        name: piMarketsById[marketId].contracts.length > 1 ? outcomeNameFixup(c.shortName) : "Yes", // if this market has only one contract, then we name the outcome "Yes" because downstream we want to display "${marketName} ${outcomeName}" and for binary markets the best way to display this is "Will Trump 1st term recession? Yes"
         imageUrl: c.image,
         initialPrices: {
           contractId: c.id.toString(), // PIData JSON has `c.id: number` but we need string
