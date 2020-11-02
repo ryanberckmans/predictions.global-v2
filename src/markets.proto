@@ -1,0 +1,164 @@
+syntax = "proto3";
+
+package markets;
+
+message MarketsSummary {
+	uint64 block = 1;
+	uint64 total_markets = 2;
+	Price total_markets_capitalization = 3;
+	repeated Market markets = 4;
+	uint64 generation_time = 5; // time at which this MarketsSummary was generated
+	LiquidityMetricsConfig liquidity_metrics_config = 6;
+};
+
+message LiquidityMetricsConfig {
+	repeated uint64 milliether_tranches = 1; // set of liquidity tranches computed by the backend for each market, sorted ascending; used in LiquidityMetrics
+};
+
+message Price {
+	float eth = 1;
+	float usd = 2;
+	float btc = 3;
+};
+
+enum MarketType {
+	YESNO = 0;
+	CATEGORICAL = 1;
+	SCALAR = 2;
+};
+
+message Market {
+	string id = 1;
+	MarketType market_type = 2;
+	string name = 3;
+	uint32 comment_count = 4;
+	Price market_capitalization = 5;
+	uint64 end_date = 6; // unix timestamp, seconds since epoch
+	repeated Prediction predictions = 7;
+	string author = 8;
+	uint64 creation_time = 9; // unix timestamp, seconds since epoch
+	uint64 creation_block = 10;
+	string resolution_source = 11;
+	string details = 12 [deprecated=true]; // Deprecated; always empty. Use MarketDetail.MarketInfo.details instead.
+	repeated string tags = 13;
+	bool is_featured = 14; // if true, this market is specially featured on our website
+	string category = 15;
+	uint64 last_trade_time = 16; // time of last executed trade; unix timestamp, seconds since epoch
+	map<uint64, LiquidityAtPrice> best_bids = 17; // map key is augur-node OutcomeInfo.id
+	map<uint64, LiquidityAtPrice> best_asks = 18; // map key is augur-node OutcomeInfo.id
+	Price volume = 19; // total historical volume
+	map<uint64, ListLiquidityAtPrice> bids = 20; // map key is augur-node OutcomeInfo.id; lists expected to be sorted by best best/ask (see ListLiquidityAtPrice)
+	map<uint64, ListLiquidityAtPrice> asks = 21; // map key is augur-node OutcomeInfo.id; lists expected to be sorted by best best/ask (see ListLiquidityAtPrice)
+	LiquidityMetrics liquidity_metrics = 22;
+	MarketDataSources market_data_sources = 23;
+};
+
+message MarketDataSources {
+	string market_detail_file_name = 1; // previously we had one google storage file per market, and then realized this was not cost-effective in terms of GCP billing because a large number of tiny files is extremely expensive. Now we have put MarketDetail into bucket files, so there's a few orders of magnitude fewer files, but the files are larger. Ie. when a user navigates to a market detail page, it loads data for a bucket of detail pages. Eg. market_detail_file_name == "3" which then is prefixed with "https://storage.googleapis.com/predictions-global-prod/augur/markets/" for a final filename of "https://storage.googleapis.com/predictions-global-prod/augur/markets/3", and the contents of this file is a MarketDetailByMarketId.
+}
+
+message MarketDetailByMarketId {
+	map<string, MarketDetail> market_detail_by_market_id = 1; // map key is MarketDetail.market_id
+}
+
+message MarketDetail {
+	string market_id = 1;
+	Market market_summary = 2;
+	MarketInfo market_info = 3;
+};
+
+message Prediction {
+	string name = 1;
+	float percent = 2; // Value between [0, 100] used in yesno and categorical markets
+	float value = 3; // Used in scalar markets
+	uint64 outcome_id = 4; // OutcomeInfo.id associated with this Prediction. OutcomeInfo and Prediction have a 1-to-1 correspondence.
+};
+
+message LiquidityMetrics {
+	map<uint64, float> retention_ratio_by_milliether_tranche = 1; // map key is the milliETH amount you can spend to buy complete sets of shares from the system, and then immediately sell these complete sets into the market, and the map value is the ratio [0,1] of ETH amount you will retain after this buy/sell process.
+}
+
+// LiquidityAtPrice represents a single price point in a market outcome's Order book.
+// Note that one bid LiquidityAtPrice may represent an aggregation of N Orders.
+message LiquidityAtPrice {
+	float price = 1;
+	float amount = 2; // ie. quantity of shares in the order book at this price
+}
+
+message ListLiquidityAtPrice {
+	repeated LiquidityAtPrice liquidity_at_price = 1; // expected to be sorted such that liquidity_at_price[0] is best bid or ask. Ie. if liquidity_at_price represents a list of bids, then it's sorted by price descending such that [0] is highest bid; if it represents a list of asks, then it's sorted by price ascending such that [0] is lowest ask.
+}
+
+message MarketsSnapshot {
+  MarketsSummary markets_summary = 1;
+  repeated MarketInfo market_infos = 2;
+};
+
+message MarketInfo {
+        string id = 1;
+        string universe = 2;
+        string market_type = 3;
+        uint32 num_outcomes = 4;
+        string min_price = 5;
+        string max_price = 6;
+        string cumulative_scale = 7;
+        string author = 8;
+        uint64 creation_time = 9;
+        uint64 creation_block = 10;
+        string creation_fee = 11;
+        string settlement_fee = 12;
+        string reporting_fee_rate = 13;
+        string market_creator_fee_rate = 14;
+        string market_creator_fees_balance = 15;
+        string market_creator_mailbox = 16;
+        string market_creator_mailbox_owner = 17;
+        string initial_report_size = 18;
+        string category = 19;
+        repeated string tags = 20;
+        string volume = 21;
+        string outstanding_shares = 22;
+        string fee_window = 23;
+        uint64 end_time = 24;
+        uint64 finalization_block_number = 25;
+        uint64 finalization_time = 26;
+        ReportingState reporting_state = 27;
+        bool forking = 28;
+        bool needs_migration = 29;
+        string description = 30;
+        string details = 31;
+        string scalar_denomination = 32;
+        string designated_reporter = 33;
+        string designated_report_stake = 34;
+        string resolution_source = 35;
+        string num_ticks = 36;
+        string tick_size = 37;
+        NormalizedPayout consensus = 38;
+        repeated OutcomeInfo outcomes = 39;
+        uint64 last_trade_block_number = 40;
+        uint64 last_trade_time = 41;
+};
+
+enum ReportingState {
+        PRE_REPORTING = 0;
+        DESIGNATED_REPORTING = 1;
+        OPEN_REPORTING = 2;
+        CROWDSOURCING_DISPUTE = 3;
+        AWAITING_NEXT_WINDOW = 4;
+        AWAITING_FINALIZATION = 5;
+        FINALIZED = 6;
+        FORKING = 7;
+        AWAITING_NO_REPORT_MIGRATION = 8;
+        AWAITING_FORK_MIGRATION = 9;
+};
+
+message NormalizedPayout {
+        bool is_invalid = 1;
+        repeated string payout = 2;
+};
+
+message OutcomeInfo {
+        uint64 id = 1;
+        string volume = 2;
+        string price = 3;
+        string description = 4;
+};

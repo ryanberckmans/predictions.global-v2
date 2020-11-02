@@ -32,7 +32,7 @@
   },
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
-    "build-protobuf": "mkdir -p src/generated && npx protoc-gen-grpc-ts --ts_out=service=true:src/generated --proto_path=../interfaces ../interfaces/markets.proto && npx protoc-gen-grpc --js_out=import_style=commonjs,binary:src/generated --grpc_out=src/generated --proto_path=../interfaces ../interfaces/markets.proto && find src/generated/ -type f | xargs -n1 sed -i '' '1s;^;/* tslint:disable */\\\n;'",
+    "build-protobuf": "mkdir -p src/generated && npx protoc-gen-grpc-ts --ts_out=service=true:src/generated --proto_path=src src/markets.proto && npx protoc-gen-grpc --js_out=import_style=commonjs,binary:src/generated --grpc_out=src/generated --proto_path=src src/markets.proto && find src/generated/ -type f | xargs -n1 -I{} sh -c '(echo \"/* tslint:disable */\n\" && cat {}) > /tmp/tmp-file-836636328 && mv /tmp/tmp-file-836636328 {}'",
     "build-css": "node-sass-chokidar src/ -o src/ --include-path=node_modules",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive --include-path=node_modules",
     "start-js": "react-scripts-ts start",
