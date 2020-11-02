@@ -62,56 +62,7 @@ const Header: React.SFC<HeaderProps> = (props) => {
       "Sắp có",
       "जल्द आ रहा है",
     ]} />;
-  return <div>
-    <section className="header section">
-      <div className="container">
-        <div className="columns is-mobile">
-          <div className="column is-9-mobile is-8-tablet is-8-desktop">
-            <div className="columns is-vcentered">
-              <div className="datum column is-narrow">
-                <span className="content">
-                  <strong>Markets: </strong>
-                  {numberFormat.format(props.ms.getTotalMarkets())}
-                </span>
-              </div>
-              <div className="datum column is-narrow">
-                <strong>Total Money at Stake: </strong>
-                <Price2
-                  p={props.ms.getTotalMarketsCapitalization()}
-                  o={props.currencySelectionObserver} />
-              </div>
-              <div className="datum column">
-                <span className="content">
-                  <strong>Block Number: </strong>
-                  {numberFormat.format(props.ms.getBlock())}
-                </span>
-              </div>
-            </div>
-            {liquidMarketCount !== undefined && <div className="columns is-vcentered">
-              <div className="datum column is-narrow no-padding-top">
-                <span className="content">
-                  <strong>Liquid Markets: </strong>
-                  {liquidMarketCount}
-                </span>
-              </div>
-            </div>}
-          </div>
-          <div className="column is-3-mobile is-4-tablet is-4-desktop">
-            <div className="is-clearfix">
-              <div className="is-pulled-left is-hidden-touch">
-                <MarketCreatorSignup />
-              </div>
-              <div className="is-pulled-right">
-                {languageSelector}
-              </div>
-            </div>
-            <div style={{ paddingTop: "0.75rem" }} className="is-pulled-right is-hidden-desktop has-text-centered">
-              <MarketCreatorSignup />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  return <div>    
     <section className="less-padding-bottom section">
       <div className="columns is-centered is-marginless is-paddingless">
         <div className="column is-12-mobile is-5-tablet is-5-desktop">

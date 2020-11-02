@@ -2,12 +2,12 @@ import 'bulma/css/bulma.css';
 import classNames from 'classnames';
 import moment from 'moment';
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 // @ts-ignore for HashLink which has no TypeScript types
 import { HashLink } from 'react-router-hash-link';
 import ReactTooltip from 'react-tooltip';
 import './App.css';
 import { Dropdown } from './Components/Dropdown';
-import Footer from './Components/Footer';
 import Header, { HasMarketsSummary } from './Components/Header';
 import { Observer, ObserverOwner } from './Components/observer';
 import { Currency } from './Currency';
@@ -42,24 +42,34 @@ export class Home extends React.Component<Props> {
       <div>
         <Header ms={ms} currencySelectionObserver={currencySelectionObserver}
           doesClickingLogoReloadPage={true}
-          headerContent={
-          <div className="has-text-centered content">
-            <p><strong>See What the World Thinks.</strong></p>
-            <p>
-              Prediction Markets powered by Augur. Each market trades on the <a href="https://augur.net"
-                target="_blank">Augur</a>
-              {' decentralized prediction market platform, built on the Ethereum blockchain.'}
-            </p>
+          headerContent={<div />}
+        />
+        <section className="less-padding-bottom section" style={{ fontSize: "1.618em" }}>
+          <div className="container">
+            <div className="has-text-centered content">
+              <Link to={"/dashboard"}>
+                <div className="market-creator-signup content">
+                  <strong>Click Here for the 2020 Election Real-Time Dashboard for PredictIt markets</strong>
+                </div>
+              </Link>
+            </div>
           </div>
-        } />
-        <div className="container">
-          <MarketList currencySelectionObserverOwner={currencySelectionObserverOwner}
-            currencySelectionObserver={currencySelectionObserver}
-            liquidityTranches={liquidityTranches}
-            marketList={ms.getMarketsList()}
-            marketSortFunctions={marketSortFunctions} />
-        </div>
-        {Footer}
+        </section>
+        <section className="section" style={{ fontSize: "1.618em" }}>
+          <div className="container">
+            <div className="columns has-text-centered is-centered is-vcentered is-multiline content">
+              <div className="column is-12 is-paddingless">
+                <strong>Also check out</strong>
+              </div>
+              <div className="column is-12 is-paddingless">
+                <a href="https://catnip.exchange" target="_blank">Catnip, a prediction market exchange built on Augur</a>
+              </div>
+              <div className="column is-12 is-paddingless">
+                <Link to="/how-2020-election-real-time-dashboard-works">The 2020 Election Real-Time Dashboard: How it Works</Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }
@@ -300,16 +310,16 @@ class MarketList extends React.Component<MarketListProps, MarketListState> {
               </div>
             </div>
           </div>
-        </div> }
+        </div>}
         {
           filteredMarketList.length < 1 ?
             <div className="columns is-vcentered">
               <div className="column content has-text-centered">
                 {/* Currently market list can be empty for two reasons: no search results or liquidity tranche has no markets */}
-                { this.state.searchQuery.length > 0 ? <div>
-                    <strong>No Search Results</strong>
-                    <p>Please search on market name or id.</p>
-                  </div> : <div>
+                {this.state.searchQuery.length > 0 ? <div>
+                  <strong>No Search Results</strong>
+                  <p>Please search on market name or id.</p>
+                </div> : <div>
                     <strong>No Markets With This Target Liquidity</strong>
                   </div>
                 }
@@ -467,5 +477,5 @@ class MarketList extends React.Component<MarketListProps, MarketListState> {
 
 function renderLiquidityTranche(millietherTranche: number): React.ReactNode {
   // We decided to show this only in ETH (as opposed to in user's currency preference) because liquidity sort is a trader tool, they think in ETH, and at the time of coding there was an extra burden to use Price2 because the exchangeRates weren't immediately accessible.
-  return `${smartRoundThreeDecimals(millietherTranche/1000)} Ξ`;
+  return `${smartRoundThreeDecimals(millietherTranche / 1000)} Ξ`;
 }
