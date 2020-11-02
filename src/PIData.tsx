@@ -14,7 +14,7 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.64,
+          "lastTradePrice": 0.65,
           "bestBuyYesCost": 0.65,
           "bestBuyNoCost": 0.36,
           "bestSellYesCost": 0.64,
@@ -68,7 +68,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -94,7 +94,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -495,7 +495,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -521,7 +521,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -547,7 +547,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -564,7 +564,7 @@ export const PIMarkets = {
           "name": "D House, D Senate",
           "shortName": "D House, D Senate",
           "status": "Open",
-          "lastTradePrice": 0.6,
+          "lastTradePrice": 0.59,
           "bestBuyYesCost": 0.6,
           "bestBuyNoCost": 0.41,
           "bestSellYesCost": 0.59,
@@ -579,10 +579,10 @@ export const PIMarkets = {
           "name": "D House, R Senate",
           "shortName": "D House, R Senate",
           "status": "Open",
-          "lastTradePrice": 0.34,
+          "lastTradePrice": 0.33,
           "bestBuyYesCost": 0.34,
-          "bestBuyNoCost": 0.67,
-          "bestSellYesCost": 0.33,
+          "bestBuyNoCost": 0.68,
+          "bestSellYesCost": 0.32,
           "bestSellNoCost": 0.66,
           "lastClosePrice": 0.33,
           "displayOrder": 0
@@ -594,7 +594,7 @@ export const PIMarkets = {
           "name": "R House, R Senate",
           "shortName": "R House, R Senate",
           "status": "Open",
-          "lastTradePrice": 0.15,
+          "lastTradePrice": 0.14,
           "bestBuyYesCost": 0.15,
           "bestBuyNoCost": 0.86,
           "bestSellYesCost": 0.14,
@@ -618,7 +618,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -659,7 +659,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -700,7 +700,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -726,7 +726,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -752,7 +752,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -793,7 +793,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -810,7 +810,7 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.71,
+          "lastTradePrice": 0.72,
           "bestBuyYesCost": 0.72,
           "bestBuyNoCost": 0.29,
           "bestSellYesCost": 0.71,
@@ -825,7 +825,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.32,
+          "lastTradePrice": 0.33,
           "bestBuyYesCost": 0.33,
           "bestBuyNoCost": 0.69,
           "bestSellYesCost": 0.31,
@@ -834,7 +834,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -851,11 +851,11 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.61,
-          "bestBuyYesCost": 0.61,
-          "bestBuyNoCost": 0.4,
-          "bestSellYesCost": 0.6,
-          "bestSellNoCost": 0.39,
+          "lastTradePrice": 0.59,
+          "bestBuyYesCost": 0.6,
+          "bestBuyNoCost": 0.41,
+          "bestSellYesCost": 0.59,
+          "bestSellNoCost": 0.4,
           "lastClosePrice": 0.6,
           "displayOrder": 0
         },
@@ -875,7 +875,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -907,16 +907,16 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.43,
-          "bestBuyYesCost": 0.43,
+          "lastTradePrice": 0.44,
+          "bestBuyYesCost": 0.44,
           "bestBuyNoCost": 0.58,
           "bestSellYesCost": 0.42,
-          "bestSellNoCost": 0.57,
+          "bestSellNoCost": 0.56,
           "lastClosePrice": 0.4,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -948,7 +948,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.33,
+          "lastTradePrice": 0.32,
           "bestBuyYesCost": 0.33,
           "bestBuyNoCost": 0.68,
           "bestSellYesCost": 0.32,
@@ -957,7 +957,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -983,7 +983,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1000,10 +1000,10 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.55,
+          "lastTradePrice": 0.56,
           "bestBuyYesCost": 0.56,
-          "bestBuyNoCost": 0.45,
-          "bestSellYesCost": 0.55,
+          "bestBuyNoCost": 0.46,
+          "bestSellYesCost": 0.54,
           "bestSellNoCost": 0.44,
           "lastClosePrice": 0.53,
           "displayOrder": 0
@@ -1024,7 +1024,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1056,7 +1056,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.27,
+          "lastTradePrice": 0.28,
           "bestBuyYesCost": 0.28,
           "bestBuyNoCost": 0.73,
           "bestSellYesCost": 0.27,
@@ -1065,7 +1065,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1106,7 +1106,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1138,7 +1138,7 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.51,
+          "lastTradePrice": 0.5,
           "bestBuyYesCost": 0.51,
           "bestBuyNoCost": 0.5,
           "bestSellYesCost": 0.5,
@@ -1147,7 +1147,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1165,10 +1165,10 @@ export const PIMarkets = {
           "shortName": "Republican",
           "status": "Open",
           "lastTradePrice": 0.69,
-          "bestBuyYesCost": 0.7,
-          "bestBuyNoCost": 0.31,
-          "bestSellYesCost": 0.69,
-          "bestSellNoCost": 0.3,
+          "bestBuyYesCost": 0.69,
+          "bestBuyNoCost": 0.32,
+          "bestSellYesCost": 0.68,
+          "bestSellNoCost": 0.31,
           "lastClosePrice": 0.74,
           "displayOrder": 0
         },
@@ -1179,7 +1179,7 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.32,
+          "lastTradePrice": 0.33,
           "bestBuyYesCost": 0.33,
           "bestBuyNoCost": 0.68,
           "bestSellYesCost": 0.32,
@@ -1188,7 +1188,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1206,10 +1206,10 @@ export const PIMarkets = {
           "shortName": "Democratic",
           "status": "Open",
           "lastTradePrice": 0.78,
-          "bestBuyYesCost": 0.79,
+          "bestBuyYesCost": 0.78,
           "bestBuyNoCost": 0.23,
           "bestSellYesCost": 0.77,
-          "bestSellNoCost": 0.21,
+          "bestSellNoCost": 0.22,
           "lastClosePrice": 0.74,
           "displayOrder": 0
         },
@@ -1221,15 +1221,15 @@ export const PIMarkets = {
           "shortName": "Republican",
           "status": "Open",
           "lastTradePrice": 0.25,
-          "bestBuyYesCost": 0.25,
-          "bestBuyNoCost": 0.76,
-          "bestSellYesCost": 0.24,
-          "bestSellNoCost": 0.75,
+          "bestBuyYesCost": 0.26,
+          "bestBuyNoCost": 0.75,
+          "bestSellYesCost": 0.25,
+          "bestSellNoCost": 0.74,
           "lastClosePrice": 0.28,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1261,16 +1261,16 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.1,
-          "bestBuyYesCost": 0.09,
-          "bestBuyNoCost": 0.92,
-          "bestSellYesCost": 0.08,
-          "bestSellNoCost": 0.91,
+          "lastTradePrice": 0.09,
+          "bestBuyYesCost": 0.1,
+          "bestBuyNoCost": 0.91,
+          "bestSellYesCost": 0.09,
+          "bestSellNoCost": 0.9,
           "lastClosePrice": 0.11,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1287,7 +1287,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.76,
+          "lastTradePrice": 0.75,
           "bestBuyYesCost": 0.76,
           "bestBuyNoCost": 0.25,
           "bestSellYesCost": 0.75,
@@ -1302,7 +1302,7 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.27,
+          "lastTradePrice": 0.28,
           "bestBuyYesCost": 0.28,
           "bestBuyNoCost": 0.73,
           "bestSellYesCost": 0.27,
@@ -1311,7 +1311,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1328,7 +1328,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.59,
+          "lastTradePrice": 0.6,
           "bestBuyYesCost": 0.6,
           "bestBuyNoCost": 0.41,
           "bestSellYesCost": 0.59,
@@ -1343,16 +1343,16 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.43,
-          "bestBuyYesCost": 0.43,
+          "lastTradePrice": 0.42,
+          "bestBuyYesCost": 0.42,
           "bestBuyNoCost": 0.59,
           "bestSellYesCost": 0.41,
-          "bestSellNoCost": 0.57,
+          "bestSellNoCost": 0.58,
           "lastClosePrice": 0.42,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1369,11 +1369,11 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.91,
-          "bestBuyYesCost": 0.92,
+          "lastTradePrice": 0.92,
+          "bestBuyYesCost": 0.91,
           "bestBuyNoCost": 0.1,
           "bestSellYesCost": 0.9,
-          "bestSellNoCost": 0.08,
+          "bestSellNoCost": 0.09,
           "lastClosePrice": 0.9,
           "displayOrder": 0
         },
@@ -1384,7 +1384,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.1,
+          "lastTradePrice": 0.09,
           "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.91,
           "bestSellYesCost": 0.09,
@@ -1393,7 +1393,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1419,7 +1419,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1505,7 +1505,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1546,7 +1546,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1563,7 +1563,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.74,
+          "lastTradePrice": 0.73,
           "bestBuyYesCost": 0.74,
           "bestBuyNoCost": 0.27,
           "bestSellYesCost": 0.73,
@@ -1578,7 +1578,7 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.29,
+          "lastTradePrice": 0.28,
           "bestBuyYesCost": 0.29,
           "bestBuyNoCost": 0.72,
           "bestSellYesCost": 0.28,
@@ -1587,7 +1587,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1628,7 +1628,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1645,11 +1645,11 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.82,
-          "bestBuyYesCost": 0.82,
-          "bestBuyNoCost": 0.19,
-          "bestSellYesCost": 0.81,
-          "bestSellNoCost": 0.18,
+          "lastTradePrice": 0.81,
+          "bestBuyYesCost": 0.81,
+          "bestBuyNoCost": 0.2,
+          "bestSellYesCost": 0.8,
+          "bestSellNoCost": 0.19,
           "lastClosePrice": 0.78,
           "displayOrder": 0
         },
@@ -1669,7 +1669,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1710,7 +1710,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1727,7 +1727,7 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.72,
+          "lastTradePrice": 0.73,
           "bestBuyYesCost": 0.73,
           "bestBuyNoCost": 0.28,
           "bestSellYesCost": 0.72,
@@ -1751,7 +1751,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1777,7 +1777,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1803,7 +1803,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1829,7 +1829,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1855,7 +1855,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1881,7 +1881,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1907,7 +1907,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1924,7 +1924,7 @@ export const PIMarkets = {
           "name": "Will the 2020 SC Democratic primary winner win the presidency?",
           "shortName": "SC primary winner elected president?",
           "status": "Open",
-          "lastTradePrice": 0.65,
+          "lastTradePrice": 0.64,
           "bestBuyYesCost": 0.65,
           "bestBuyNoCost": 0.36,
           "bestSellYesCost": 0.64,
@@ -1933,7 +1933,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1950,7 +1950,7 @@ export const PIMarkets = {
           "name": "Will the 2020 TX Democratic primary winner win the presidency?",
           "shortName": "TX primary winner elected president?",
           "status": "Open",
-          "lastTradePrice": 0.65,
+          "lastTradePrice": 0.64,
           "bestBuyYesCost": 0.65,
           "bestBuyNoCost": 0.36,
           "bestSellYesCost": 0.64,
@@ -1959,7 +1959,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -1985,7 +1985,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2002,7 +2002,7 @@ export const PIMarkets = {
           "name": "Will the 2020 MA Democratic primary winner win the presidency?",
           "shortName": "MA primary winner elected president?",
           "status": "Open",
-          "lastTradePrice": 0.65,
+          "lastTradePrice": 0.64,
           "bestBuyYesCost": 0.65,
           "bestBuyNoCost": 0.36,
           "bestSellYesCost": 0.64,
@@ -2011,7 +2011,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2037,7 +2037,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2063,7 +2063,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2089,7 +2089,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2130,7 +2130,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2171,7 +2171,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2205,8 +2205,8 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.24,
           "bestBuyYesCost": 0.27,
-          "bestBuyNoCost": 0.76,
-          "bestSellYesCost": 0.24,
+          "bestBuyNoCost": 0.75,
+          "bestSellYesCost": 0.25,
           "bestSellNoCost": 0.73,
           "lastClosePrice": 0.25,
           "displayOrder": 0
@@ -2235,8 +2235,8 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.05,
           "bestBuyYesCost": 0.07,
-          "bestBuyNoCost": 0.95,
-          "bestSellYesCost": 0.05,
+          "bestBuyNoCost": 0.94,
+          "bestSellYesCost": 0.06,
           "bestSellNoCost": 0.93,
           "lastClosePrice": 0.04,
           "displayOrder": 0
@@ -2377,7 +2377,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2403,7 +2403,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2429,7 +2429,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2455,7 +2455,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2481,7 +2481,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2507,7 +2507,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2533,7 +2533,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2559,7 +2559,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2576,16 +2576,16 @@ export const PIMarkets = {
           "name": "Will Trump grant clemency to Michael Flynn in his first term?",
           "shortName": "Flynn clemency in Trump's first term?",
           "status": "Open",
-          "lastTradePrice": 0.53,
-          "bestBuyYesCost": 0.52,
-          "bestBuyNoCost": 0.53,
-          "bestSellYesCost": 0.47,
-          "bestSellNoCost": 0.48,
+          "lastTradePrice": 0.45,
+          "bestBuyYesCost": 0.46,
+          "bestBuyNoCost": 0.55,
+          "bestSellYesCost": 0.45,
+          "bestSellNoCost": 0.54,
           "lastClosePrice": 0.5,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2611,7 +2611,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2637,7 +2637,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2678,7 +2678,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2697,8 +2697,8 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.62,
           "bestBuyYesCost": 0.64,
-          "bestBuyNoCost": 0.38,
-          "bestSellYesCost": 0.62,
+          "bestBuyNoCost": 0.37,
+          "bestSellYesCost": 0.63,
           "bestSellNoCost": 0.36,
           "lastClosePrice": 0.66,
           "displayOrder": 0
@@ -2719,7 +2719,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2760,7 +2760,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2801,7 +2801,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2842,7 +2842,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2883,7 +2883,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2915,16 +2915,16 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.31,
-          "bestBuyYesCost": 0.32,
-          "bestBuyNoCost": 0.69,
-          "bestSellYesCost": 0.31,
-          "bestSellNoCost": 0.68,
+          "lastTradePrice": 0.29,
+          "bestBuyYesCost": 0.3,
+          "bestBuyNoCost": 0.71,
+          "bestSellYesCost": 0.29,
+          "bestSellNoCost": 0.7,
           "lastClosePrice": 0.37,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -2965,7 +2965,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3006,7 +3006,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3047,7 +3047,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3064,7 +3064,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.97,
+          "lastTradePrice": 0.96,
           "bestBuyYesCost": 0.97,
           "bestBuyNoCost": 0.04,
           "bestSellYesCost": 0.96,
@@ -3088,7 +3088,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3129,7 +3129,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3161,7 +3161,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.05,
+          "lastTradePrice": 0.06,
           "bestBuyYesCost": 0.06,
           "bestBuyNoCost": 0.96,
           "bestSellYesCost": 0.04,
@@ -3170,7 +3170,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3202,7 +3202,7 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.09,
+          "lastTradePrice": 0.1,
           "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.91,
           "bestSellYesCost": 0.09,
@@ -3211,7 +3211,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3252,7 +3252,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3293,7 +3293,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3334,7 +3334,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3375,7 +3375,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3407,7 +3407,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.07,
+          "lastTradePrice": 0.05,
           "bestBuyYesCost": 0.07,
           "bestBuyNoCost": 0.95,
           "bestSellYesCost": 0.05,
@@ -3416,7 +3416,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3433,7 +3433,7 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.91,
+          "lastTradePrice": 0.9,
           "bestBuyYesCost": 0.91,
           "bestBuyNoCost": 0.1,
           "bestSellYesCost": 0.9,
@@ -3457,7 +3457,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3498,7 +3498,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3539,7 +3539,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3580,7 +3580,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3621,7 +3621,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3638,7 +3638,7 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.96,
+          "lastTradePrice": 0.95,
           "bestBuyYesCost": 0.96,
           "bestBuyNoCost": 0.05,
           "bestSellYesCost": 0.95,
@@ -3662,7 +3662,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3703,7 +3703,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3744,7 +3744,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3785,7 +3785,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3826,7 +3826,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3867,7 +3867,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3908,7 +3908,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3949,7 +3949,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -3990,7 +3990,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4031,7 +4031,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4072,7 +4072,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4113,7 +4113,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4154,7 +4154,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4195,7 +4195,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4236,7 +4236,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4277,7 +4277,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4296,14 +4296,14 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.7,
           "bestBuyYesCost": 0.71,
-          "bestBuyNoCost": 0.3,
-          "bestSellYesCost": 0.7,
+          "bestBuyNoCost": 0.31,
+          "bestSellYesCost": 0.69,
           "bestSellNoCost": 0.29,
           "lastClosePrice": 0.71,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4344,7 +4344,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4385,7 +4385,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4426,7 +4426,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4444,10 +4444,10 @@ export const PIMarkets = {
           "shortName": "Democratic",
           "status": "Open",
           "lastTradePrice": 0.95,
-          "bestBuyYesCost": 0.95,
-          "bestBuyNoCost": 0.06,
-          "bestSellYesCost": 0.94,
-          "bestSellNoCost": 0.05,
+          "bestBuyYesCost": 0.96,
+          "bestBuyNoCost": 0.05,
+          "bestSellYesCost": 0.95,
+          "bestSellNoCost": 0.04,
           "lastClosePrice": 0.92,
           "displayOrder": 0
         },
@@ -4459,15 +4459,15 @@ export const PIMarkets = {
           "shortName": "Republican",
           "status": "Open",
           "lastTradePrice": 0.05,
-          "bestBuyYesCost": 0.06,
-          "bestBuyNoCost": 0.95,
-          "bestSellYesCost": 0.05,
-          "bestSellNoCost": 0.94,
+          "bestBuyYesCost": 0.05,
+          "bestBuyNoCost": 0.96,
+          "bestSellYesCost": 0.04,
+          "bestSellNoCost": 0.95,
           "lastClosePrice": 0.07,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4484,11 +4484,11 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.63,
-          "bestBuyYesCost": 0.63,
-          "bestBuyNoCost": 0.38,
-          "bestSellYesCost": 0.62,
-          "bestSellNoCost": 0.37,
+          "lastTradePrice": 0.61,
+          "bestBuyYesCost": 0.61,
+          "bestBuyNoCost": 0.4,
+          "bestSellYesCost": 0.6,
+          "bestSellNoCost": 0.39,
           "lastClosePrice": 0.62,
           "displayOrder": 0
         },
@@ -4508,7 +4508,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4527,8 +4527,8 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.52,
           "bestBuyYesCost": 0.57,
-          "bestBuyNoCost": 0.48,
-          "bestSellYesCost": 0.52,
+          "bestBuyNoCost": 0.49,
+          "bestSellYesCost": 0.51,
           "bestSellNoCost": 0.43,
           "lastClosePrice": 0.54,
           "displayOrder": 0
@@ -4549,7 +4549,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4665,7 +4665,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4743,10 +4743,10 @@ export const PIMarkets = {
           "shortName": "GOP by 60 - 99",
           "status": "Open",
           "lastTradePrice": 0.15,
-          "bestBuyYesCost": 0.16,
-          "bestBuyNoCost": 0.85,
-          "bestSellYesCost": 0.15,
-          "bestSellNoCost": 0.84,
+          "bestBuyYesCost": 0.15,
+          "bestBuyNoCost": 0.86,
+          "bestSellYesCost": 0.14,
+          "bestSellNoCost": 0.85,
           "lastClosePrice": 0.15,
           "displayOrder": 4
         },
@@ -4772,7 +4772,7 @@ export const PIMarkets = {
           "name": "GOP by 10 - 29",
           "shortName": "GOP by 10 - 29",
           "status": "Open",
-          "lastTradePrice": 0.06,
+          "lastTradePrice": 0.07,
           "bestBuyYesCost": 0.07,
           "bestBuyNoCost": 0.94,
           "bestSellYesCost": 0.06,
@@ -4916,7 +4916,7 @@ export const PIMarkets = {
           "displayOrder": 15
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -4933,11 +4933,11 @@ export const PIMarkets = {
           "name": "GOP by 10.5% or more",
           "shortName": "GOP by 10.5%+",
           "status": "Open",
-          "lastTradePrice": 0.03,
-          "bestBuyYesCost": 0.04,
-          "bestBuyNoCost": 0.97,
-          "bestSellYesCost": 0.03,
-          "bestSellNoCost": 0.96,
+          "lastTradePrice": 0.02,
+          "bestBuyYesCost": 0.03,
+          "bestBuyNoCost": 0.98,
+          "bestSellYesCost": 0.02,
+          "bestSellNoCost": 0.97,
           "lastClosePrice": 0.02,
           "displayOrder": 0
         },
@@ -4963,7 +4963,7 @@ export const PIMarkets = {
           "name": "GOP by 7.5% - 9.0%",
           "shortName": "GOP by 7.5% - 9%",
           "status": "Open",
-          "lastTradePrice": 0.02,
+          "lastTradePrice": 0.01,
           "bestBuyYesCost": 0.02,
           "bestBuyNoCost": 0.99,
           "bestSellYesCost": 0.01,
@@ -4978,7 +4978,7 @@ export const PIMarkets = {
           "name": "GOP by 6.0% - 7.5%",
           "shortName": "GOP by 6% - 7.5%",
           "status": "Open",
-          "lastTradePrice": 0.02,
+          "lastTradePrice": 0.01,
           "bestBuyYesCost": 0.02,
           "bestBuyNoCost": 0.99,
           "bestSellYesCost": 0.01,
@@ -5053,11 +5053,11 @@ export const PIMarkets = {
           "name": "Dems, less than 1.5%",
           "shortName": "Dems by 1.5%-",
           "status": "Open",
-          "lastTradePrice": 0.08,
-          "bestBuyYesCost": 0.08,
-          "bestBuyNoCost": 0.93,
-          "bestSellYesCost": 0.07,
-          "bestSellNoCost": 0.92,
+          "lastTradePrice": 0.06,
+          "bestBuyYesCost": 0.07,
+          "bestBuyNoCost": 0.94,
+          "bestSellYesCost": 0.06,
+          "bestSellNoCost": 0.93,
           "lastClosePrice": 0.07,
           "displayOrder": 8
         },
@@ -5068,7 +5068,7 @@ export const PIMarkets = {
           "name": "Dems by 1.5% - 3.0%",
           "shortName": "Dems by 1.5% - 3%",
           "status": "Open",
-          "lastTradePrice": 0.08,
+          "lastTradePrice": 0.07,
           "bestBuyYesCost": 0.08,
           "bestBuyNoCost": 0.93,
           "bestSellYesCost": 0.07,
@@ -5083,7 +5083,7 @@ export const PIMarkets = {
           "name": "Dems by 3.0% - 4.5%",
           "shortName": "Dems by 3% - 4.5%",
           "status": "Open",
-          "lastTradePrice": 0.08,
+          "lastTradePrice": 0.07,
           "bestBuyYesCost": 0.08,
           "bestBuyNoCost": 0.93,
           "bestSellYesCost": 0.07,
@@ -5113,7 +5113,7 @@ export const PIMarkets = {
           "name": "Dems by 6.0% - 7.5%",
           "shortName": "Dems by 6% - 7.5%",
           "status": "Open",
-          "lastTradePrice": 0.13,
+          "lastTradePrice": 0.12,
           "bestBuyYesCost": 0.13,
           "bestBuyNoCost": 0.88,
           "bestSellYesCost": 0.12,
@@ -5128,10 +5128,10 @@ export const PIMarkets = {
           "name": "Dems by 7.5% - 9.0%",
           "shortName": "Dems by 7.5% - 9%",
           "status": "Open",
-          "lastTradePrice": 0.2,
+          "lastTradePrice": 0.18,
           "bestBuyYesCost": 0.2,
-          "bestBuyNoCost": 0.81,
-          "bestSellYesCost": 0.19,
+          "bestBuyNoCost": 0.82,
+          "bestSellYesCost": 0.18,
           "bestSellNoCost": 0.8,
           "lastClosePrice": 0.17,
           "displayOrder": 13
@@ -5158,7 +5158,7 @@ export const PIMarkets = {
           "name": "Dems, 10.5% or more",
           "shortName": "Dems by 10.5%+",
           "status": "Open",
-          "lastTradePrice": 0.15,
+          "lastTradePrice": 0.16,
           "bestBuyYesCost": 0.16,
           "bestBuyNoCost": 0.85,
           "bestSellYesCost": 0.15,
@@ -5167,7 +5167,7 @@ export const PIMarkets = {
           "displayOrder": 15
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -5433,7 +5433,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -5609,7 +5609,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -5626,7 +5626,7 @@ export const PIMarkets = {
           "name": "GOP +4 or more",
           "shortName": "GOP +4 or more",
           "status": "Open",
-          "lastTradePrice": 0.04,
+          "lastTradePrice": 0.05,
           "bestBuyYesCost": 0.05,
           "bestBuyNoCost": 0.96,
           "bestSellYesCost": 0.04,
@@ -5701,7 +5701,7 @@ export const PIMarkets = {
           "name": "Democrats +1",
           "shortName": "Dems +1",
           "status": "Open",
-          "lastTradePrice": 0.06,
+          "lastTradePrice": 0.07,
           "bestBuyYesCost": 0.07,
           "bestBuyNoCost": 0.94,
           "bestSellYesCost": 0.06,
@@ -5731,7 +5731,7 @@ export const PIMarkets = {
           "name": "Democrats +3",
           "shortName": "Dems +3",
           "status": "Open",
-          "lastTradePrice": 0.13,
+          "lastTradePrice": 0.12,
           "bestBuyYesCost": 0.13,
           "bestBuyNoCost": 0.88,
           "bestSellYesCost": 0.12,
@@ -5800,7 +5800,7 @@ export const PIMarkets = {
           "displayOrder": 11
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -5826,7 +5826,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -5843,7 +5843,7 @@ export const PIMarkets = {
           "name": "Ohio",
           "shortName": "Ohio",
           "status": "Open",
-          "lastTradePrice": 0.13,
+          "lastTradePrice": 0.14,
           "bestBuyYesCost": 0.14,
           "bestBuyNoCost": 0.87,
           "bestSellYesCost": 0.13,
@@ -5858,11 +5858,11 @@ export const PIMarkets = {
           "name": "Florida",
           "shortName": "Florida",
           "status": "Open",
-          "lastTradePrice": 0.11,
-          "bestBuyYesCost": 0.12,
+          "lastTradePrice": 0.13,
+          "bestBuyYesCost": 0.13,
           "bestBuyNoCost": 0.89,
           "bestSellYesCost": 0.11,
-          "bestSellNoCost": 0.88,
+          "bestSellNoCost": 0.87,
           "lastClosePrice": 0.11,
           "displayOrder": 0
         },
@@ -5889,10 +5889,10 @@ export const PIMarkets = {
           "shortName": "Pennsylvania",
           "status": "Open",
           "lastTradePrice": 0.1,
-          "bestBuyYesCost": 0.1,
+          "bestBuyYesCost": 0.11,
           "bestBuyNoCost": 0.91,
           "bestSellYesCost": 0.09,
-          "bestSellNoCost": 0.9,
+          "bestSellNoCost": 0.89,
           "lastClosePrice": 0.08,
           "displayOrder": 0
         },
@@ -6137,7 +6137,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6193,7 +6193,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6219,7 +6219,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6238,8 +6238,8 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.81,
           "bestBuyYesCost": 0.81,
-          "bestBuyNoCost": 0.23,
-          "bestSellYesCost": 0.77,
+          "bestBuyNoCost": 0.22,
+          "bestSellYesCost": 0.78,
           "bestSellNoCost": 0.19,
           "lastClosePrice": 0.75,
           "displayOrder": 0
@@ -6252,15 +6252,15 @@ export const PIMarkets = {
           "shortName": "Democratic",
           "status": "Open",
           "lastTradePrice": 0.23,
-          "bestBuyYesCost": 0.23,
-          "bestBuyNoCost": 0.78,
-          "bestSellYesCost": 0.22,
-          "bestSellNoCost": 0.77,
+          "bestBuyYesCost": 0.24,
+          "bestBuyNoCost": 0.77,
+          "bestSellYesCost": 0.23,
+          "bestSellNoCost": 0.76,
           "lastClosePrice": 0.28,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6301,7 +6301,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6342,7 +6342,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6375,15 +6375,15 @@ export const PIMarkets = {
           "shortName": "Republican",
           "status": "Open",
           "lastTradePrice": 0.16,
-          "bestBuyYesCost": 0.15,
-          "bestBuyNoCost": 0.86,
-          "bestSellYesCost": 0.14,
-          "bestSellNoCost": 0.85,
+          "bestBuyYesCost": 0.16,
+          "bestBuyNoCost": 0.85,
+          "bestSellYesCost": 0.15,
+          "bestSellNoCost": 0.84,
           "lastClosePrice": 0.18,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6400,7 +6400,7 @@ export const PIMarkets = {
           "name": "Will Donald Trump win any state he lost in 2016?",
           "shortName": "Trump wins any state he lost in 2016?",
           "status": "Open",
-          "lastTradePrice": 0.38,
+          "lastTradePrice": 0.36,
           "bestBuyYesCost": 0.38,
           "bestBuyNoCost": 0.63,
           "bestSellYesCost": 0.37,
@@ -6409,7 +6409,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6427,15 +6427,15 @@ export const PIMarkets = {
           "shortName": "Trump loses any state he won in 2016?",
           "status": "Open",
           "lastTradePrice": 0.82,
-          "bestBuyYesCost": 0.82,
-          "bestBuyNoCost": 0.19,
-          "bestSellYesCost": 0.81,
-          "bestSellNoCost": 0.18,
+          "bestBuyYesCost": 0.83,
+          "bestBuyNoCost": 0.18,
+          "bestSellYesCost": 0.82,
+          "bestSellNoCost": 0.17,
           "lastClosePrice": 0.78,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6536,7 +6536,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6802,7 +6802,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6843,7 +6843,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6861,10 +6861,10 @@ export const PIMarkets = {
           "shortName": "Democratic",
           "status": "Open",
           "lastTradePrice": 0.67,
-          "bestBuyYesCost": 0.75,
+          "bestBuyYesCost": 0.74,
           "bestBuyNoCost": 0.33,
           "bestSellYesCost": 0.67,
-          "bestSellNoCost": 0.25,
+          "bestSellNoCost": 0.26,
           "lastClosePrice": 0.67,
           "displayOrder": 0
         },
@@ -6875,16 +6875,16 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.33,
-          "bestBuyYesCost": 0.34,
-          "bestBuyNoCost": 0.67,
-          "bestSellYesCost": 0.33,
-          "bestSellNoCost": 0.66,
+          "lastTradePrice": 0.34,
+          "bestBuyYesCost": 0.35,
+          "bestBuyNoCost": 0.66,
+          "bestSellYesCost": 0.34,
+          "bestSellNoCost": 0.65,
           "lastClosePrice": 0.3,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6925,7 +6925,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -6942,11 +6942,11 @@ export const PIMarkets = {
           "name": "Democratic",
           "shortName": "Democratic",
           "status": "Open",
-          "lastTradePrice": 0.8,
-          "bestBuyYesCost": 0.81,
-          "bestBuyNoCost": 0.2,
-          "bestSellYesCost": 0.8,
-          "bestSellNoCost": 0.19,
+          "lastTradePrice": 0.81,
+          "bestBuyYesCost": 0.82,
+          "bestBuyNoCost": 0.19,
+          "bestSellYesCost": 0.81,
+          "bestSellNoCost": 0.18,
           "lastClosePrice": 0.8,
           "displayOrder": 0
         },
@@ -6966,7 +6966,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7013,11 +7013,11 @@ export const PIMarkets = {
           "name": "6",
           "shortName": "6",
           "status": "Open",
-          "lastTradePrice": 0.06,
-          "bestBuyYesCost": 0.07,
+          "lastTradePrice": 0.08,
+          "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.94,
           "bestSellYesCost": 0.06,
-          "bestSellNoCost": 0.93,
+          "bestSellNoCost": 0.9,
           "lastClosePrice": 0.04,
           "displayOrder": 2
         },
@@ -7082,7 +7082,7 @@ export const PIMarkets = {
           "displayOrder": 6
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7123,7 +7123,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7140,16 +7140,16 @@ export const PIMarkets = {
           "name": "Will Democrats win the White House, Senate and House in 2020?",
           "shortName": "Clean sweep for Democrats in 2020?",
           "status": "Open",
-          "lastTradePrice": 0.53,
-          "bestBuyYesCost": 0.53,
-          "bestBuyNoCost": 0.48,
-          "bestSellYesCost": 0.52,
-          "bestSellNoCost": 0.47,
+          "lastTradePrice": 0.52,
+          "bestBuyYesCost": 0.52,
+          "bestBuyNoCost": 0.49,
+          "bestSellYesCost": 0.51,
+          "bestSellNoCost": 0.48,
           "lastClosePrice": 0.52,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7190,7 +7190,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7231,7 +7231,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7272,7 +7272,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7313,7 +7313,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7354,7 +7354,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7372,10 +7372,10 @@ export const PIMarkets = {
           "shortName": "Democratic",
           "status": "Open",
           "lastTradePrice": 0.76,
-          "bestBuyYesCost": 0.76,
+          "bestBuyYesCost": 0.77,
           "bestBuyNoCost": 0.28,
           "bestSellYesCost": 0.72,
-          "bestSellNoCost": 0.24,
+          "bestSellNoCost": 0.23,
           "lastClosePrice": 0.72,
           "displayOrder": 0
         },
@@ -7395,7 +7395,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7436,7 +7436,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7477,7 +7477,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7518,7 +7518,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7559,7 +7559,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7600,7 +7600,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7641,7 +7641,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7682,7 +7682,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7888,7 +7888,7 @@ export const PIMarkets = {
           "displayOrder": 12
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7929,7 +7929,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -7970,7 +7970,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8116,7 +8116,7 @@ export const PIMarkets = {
           "displayOrder": 8
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8157,7 +8157,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8198,7 +8198,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8254,7 +8254,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8295,7 +8295,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8336,7 +8336,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8362,7 +8362,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8403,7 +8403,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8444,7 +8444,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8461,10 +8461,10 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.93,
+          "lastTradePrice": 0.9,
           "bestBuyYesCost": 0.92,
-          "bestBuyNoCost": 0.1,
-          "bestSellYesCost": 0.9,
+          "bestBuyNoCost": 0.11,
+          "bestSellYesCost": 0.89,
           "bestSellNoCost": 0.08,
           "lastClosePrice": 0.93,
           "displayOrder": 0
@@ -8478,14 +8478,14 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.11,
           "bestBuyYesCost": 0.11,
-          "bestBuyNoCost": 0.92,
-          "bestSellYesCost": 0.08,
+          "bestBuyNoCost": 0.9,
+          "bestSellYesCost": 0.1,
           "bestSellNoCost": 0.89,
           "lastClosePrice": 0.09,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8526,7 +8526,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8567,7 +8567,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8608,7 +8608,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8641,10 +8641,10 @@ export const PIMarkets = {
           "shortName": "West",
           "status": "Open",
           "lastTradePrice": 0.08,
-          "bestBuyYesCost": 0.1,
+          "bestBuyYesCost": 0.09,
           "bestBuyNoCost": 0.94,
           "bestSellYesCost": 0.06,
-          "bestSellNoCost": 0.9,
+          "bestSellNoCost": 0.91,
           "lastClosePrice": 0.07,
           "displayOrder": 0
         },
@@ -8769,7 +8769,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8795,7 +8795,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8956,7 +8956,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -8997,7 +8997,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9038,7 +9038,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9079,7 +9079,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9120,7 +9120,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9161,7 +9161,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9232,7 +9232,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9273,7 +9273,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9344,7 +9344,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9376,11 +9376,11 @@ export const PIMarkets = {
           "name": "November 4",
           "shortName": "November 4",
           "status": "Open",
-          "lastTradePrice": 0.38,
-          "bestBuyYesCost": 0.38,
-          "bestBuyNoCost": 0.64,
-          "bestSellYesCost": 0.36,
-          "bestSellNoCost": 0.62,
+          "lastTradePrice": 0.36,
+          "bestBuyYesCost": 0.37,
+          "bestBuyNoCost": 0.65,
+          "bestSellYesCost": 0.35,
+          "bestSellNoCost": 0.63,
           "lastClosePrice": 0.38,
           "displayOrder": 1
         },
@@ -9391,11 +9391,11 @@ export const PIMarkets = {
           "name": "November 5",
           "shortName": "November 5",
           "status": "Open",
-          "lastTradePrice": 0.09,
-          "bestBuyYesCost": 0.09,
+          "lastTradePrice": 0.08,
+          "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.92,
           "bestSellYesCost": 0.08,
-          "bestSellNoCost": 0.91,
+          "bestSellNoCost": 0.9,
           "lastClosePrice": 0.09,
           "displayOrder": 2
         },
@@ -9421,7 +9421,7 @@ export const PIMarkets = {
           "name": "November 8 or 9",
           "shortName": "November 8 or 9",
           "status": "Open",
-          "lastTradePrice": 0.06,
+          "lastTradePrice": 0.05,
           "bestBuyYesCost": 0.06,
           "bestBuyNoCost": 0.95,
           "bestSellYesCost": 0.05,
@@ -9498,14 +9498,14 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.12,
           "bestBuyYesCost": 0.12,
-          "bestBuyNoCost": 0.91,
-          "bestSellYesCost": 0.09,
+          "bestBuyNoCost": 0.9,
+          "bestSellYesCost": 0.1,
           "bestSellNoCost": 0.88,
           "lastClosePrice": 0.12,
           "displayOrder": 9
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9546,7 +9546,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9587,7 +9587,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9664,7 +9664,7 @@ export const PIMarkets = {
           "name": "139 mil. to 142 mil.",
           "shortName": "139 mil - 142 mil",
           "status": "Open",
-          "lastTradePrice": 0.02,
+          "lastTradePrice": 0.03,
           "bestBuyYesCost": 0.03,
           "bestBuyNoCost": 0.98,
           "bestSellYesCost": 0.02,
@@ -9710,10 +9710,10 @@ export const PIMarkets = {
           "shortName": "148 mil - 151 mil",
           "status": "Open",
           "lastTradePrice": 0.09,
-          "bestBuyYesCost": 0.11,
+          "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.91,
           "bestSellYesCost": 0.09,
-          "bestSellNoCost": 0.89,
+          "bestSellNoCost": 0.9,
           "lastClosePrice": 0.09,
           "displayOrder": 7
         },
@@ -9739,7 +9739,7 @@ export const PIMarkets = {
           "name": "154 mil. to 157 mil.",
           "shortName": "154 mil - 157 mil",
           "status": "Open",
-          "lastTradePrice": 0.17,
+          "lastTradePrice": 0.18,
           "bestBuyYesCost": 0.18,
           "bestBuyNoCost": 0.84,
           "bestSellYesCost": 0.16,
@@ -9769,16 +9769,16 @@ export const PIMarkets = {
           "name": "160 mil. or more",
           "shortName": "160 mil. or more",
           "status": "Open",
-          "lastTradePrice": 0.41,
-          "bestBuyYesCost": 0.42,
-          "bestBuyNoCost": 0.6,
-          "bestSellYesCost": 0.4,
-          "bestSellNoCost": 0.58,
+          "lastTradePrice": 0.42,
+          "bestBuyYesCost": 0.43,
+          "bestBuyNoCost": 0.58,
+          "bestSellYesCost": 0.42,
+          "bestSellNoCost": 0.57,
           "lastClosePrice": 0.37,
           "displayOrder": 11
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9819,7 +9819,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9860,7 +9860,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9901,7 +9901,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -9933,11 +9933,11 @@ export const PIMarkets = {
           "name": "November 4",
           "shortName": "November 4",
           "status": "Open",
-          "lastTradePrice": 0.21,
-          "bestBuyYesCost": 0.21,
+          "lastTradePrice": 0.22,
+          "bestBuyYesCost": 0.24,
           "bestBuyNoCost": 0.83,
           "bestSellYesCost": 0.17,
-          "bestSellNoCost": 0.79,
+          "bestSellNoCost": 0.76,
           "lastClosePrice": 0.16,
           "displayOrder": 1
         },
@@ -10062,7 +10062,7 @@ export const PIMarkets = {
           "displayOrder": 9
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10094,16 +10094,16 @@ export const PIMarkets = {
           "name": "Republican",
           "shortName": "Republican",
           "status": "Open",
-          "lastTradePrice": 0.38,
+          "lastTradePrice": 0.36,
           "bestBuyYesCost": 0.39,
-          "bestBuyNoCost": 0.64,
-          "bestSellYesCost": 0.36,
+          "bestBuyNoCost": 0.65,
+          "bestSellYesCost": 0.35,
           "bestSellNoCost": 0.61,
           "lastClosePrice": 0.35,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10144,7 +10144,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10185,7 +10185,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10241,7 +10241,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10282,7 +10282,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10323,7 +10323,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10364,7 +10364,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10405,7 +10405,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10446,7 +10446,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10472,7 +10472,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10513,7 +10513,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10539,7 +10539,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10556,7 +10556,7 @@ export const PIMarkets = {
           "name": "November 3",
           "shortName": "November 3",
           "status": "Open",
-          "lastTradePrice": 0.13,
+          "lastTradePrice": 0.12,
           "bestBuyYesCost": 0.13,
           "bestBuyNoCost": 0.88,
           "bestSellYesCost": 0.12,
@@ -10573,8 +10573,8 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.35,
           "bestBuyYesCost": 0.36,
-          "bestBuyNoCost": 0.65,
-          "bestSellYesCost": 0.35,
+          "bestBuyNoCost": 0.66,
+          "bestSellYesCost": 0.34,
           "bestSellNoCost": 0.64,
           "lastClosePrice": 0.38,
           "displayOrder": 1
@@ -10586,11 +10586,11 @@ export const PIMarkets = {
           "name": "November 5",
           "shortName": "November 5",
           "status": "Open",
-          "lastTradePrice": 0.13,
-          "bestBuyYesCost": 0.14,
+          "lastTradePrice": 0.15,
+          "bestBuyYesCost": 0.15,
           "bestBuyNoCost": 0.87,
           "bestSellYesCost": 0.13,
-          "bestSellNoCost": 0.86,
+          "bestSellNoCost": 0.85,
           "lastClosePrice": 0.13,
           "displayOrder": 2
         },
@@ -10700,7 +10700,7 @@ export const PIMarkets = {
           "displayOrder": 9
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10717,7 +10717,7 @@ export const PIMarkets = {
           "name": "Will California Proposition 22 (App-based Drivers) be approved in 2020?",
           "shortName": "CA Prop 22 (App-Based drivers) approved?",
           "status": "Open",
-          "lastTradePrice": 0.72,
+          "lastTradePrice": 0.73,
           "bestBuyYesCost": 0.75,
           "bestBuyNoCost": 0.27,
           "bestSellYesCost": 0.73,
@@ -10726,7 +10726,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -10743,7 +10743,7 @@ export const PIMarkets = {
           "name": "GOP by 3.5% or more",
           "shortName": "GOP by 3.5% +",
           "status": "Open",
-          "lastTradePrice": 0.44,
+          "lastTradePrice": 0.43,
           "bestBuyYesCost": 0.44,
           "bestBuyNoCost": 0.57,
           "bestSellYesCost": 0.43,
@@ -10969,15 +10969,15 @@ export const PIMarkets = {
           "shortName": "Dems by 3.5% +",
           "status": "Open",
           "lastTradePrice": 0.11,
-          "bestBuyYesCost": 0.13,
+          "bestBuyYesCost": 0.12,
           "bestBuyNoCost": 0.89,
           "bestSellYesCost": 0.11,
-          "bestSellNoCost": 0.87,
+          "bestSellNoCost": 0.88,
           "lastClosePrice": 0.08,
           "displayOrder": 15
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -11018,7 +11018,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -11037,8 +11037,8 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.56,
           "bestBuyYesCost": 0.57,
-          "bestBuyNoCost": 0.52,
-          "bestSellYesCost": 0.48,
+          "bestBuyNoCost": 0.5,
+          "bestSellYesCost": 0.5,
           "bestSellNoCost": 0.43,
           "lastClosePrice": 0.52,
           "displayOrder": 0
@@ -11059,7 +11059,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -11076,16 +11076,16 @@ export const PIMarkets = {
           "name": "Will Donald Trump be winning at 6 a.m. (ET) the day after the election?",
           "shortName": "Trump winning at 6 a.m. on November 4?",
           "status": "Open",
-          "lastTradePrice": 0.35,
-          "bestBuyYesCost": 0.35,
-          "bestBuyNoCost": 0.66,
-          "bestSellYesCost": 0.34,
-          "bestSellNoCost": 0.65,
+          "lastTradePrice": 0.36,
+          "bestBuyYesCost": 0.37,
+          "bestBuyNoCost": 0.64,
+          "bestSellYesCost": 0.36,
+          "bestSellNoCost": 0.63,
           "lastClosePrice": 0.37,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -11126,7 +11126,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -11234,10 +11234,10 @@ export const PIMarkets = {
           "shortName": "28",
           "status": "Open",
           "lastTradePrice": 0.09,
-          "bestBuyYesCost": 0.09,
+          "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.93,
           "bestSellYesCost": 0.07,
-          "bestSellNoCost": 0.91,
+          "bestSellNoCost": 0.9,
           "lastClosePrice": 0.08,
           "displayOrder": 6
         },
@@ -11248,11 +11248,11 @@ export const PIMarkets = {
           "name": "29",
           "shortName": "29",
           "status": "Open",
-          "lastTradePrice": 0.06,
-          "bestBuyYesCost": 0.07,
-          "bestBuyNoCost": 0.94,
-          "bestSellYesCost": 0.06,
-          "bestSellNoCost": 0.93,
+          "lastTradePrice": 0.07,
+          "bestBuyYesCost": 0.08,
+          "bestBuyNoCost": 0.93,
+          "bestSellYesCost": 0.07,
+          "bestSellNoCost": 0.92,
           "lastClosePrice": 0.04,
           "displayOrder": 7
         },
@@ -11272,7 +11272,7 @@ export const PIMarkets = {
           "displayOrder": 8
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -11409,7 +11409,7 @@ export const PIMarkets = {
           "name": "Dems by 1% to 2%",
           "shortName": "Dems by 1% to 2%",
           "status": "Open",
-          "lastTradePrice": 0.1,
+          "lastTradePrice": 0.09,
           "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.91,
           "bestSellYesCost": 0.09,
@@ -11424,7 +11424,7 @@ export const PIMarkets = {
           "name": "Dems by 2% to 3%",
           "shortName": "Dems by 2% to 3%",
           "status": "Open",
-          "lastTradePrice": 0.09,
+          "lastTradePrice": 0.08,
           "bestBuyYesCost": 0.09,
           "bestBuyNoCost": 0.92,
           "bestSellYesCost": 0.08,
@@ -11493,7 +11493,7 @@ export const PIMarkets = {
           "displayOrder": 15
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -11585,7 +11585,7 @@ export const PIMarkets = {
           "name": "GOP by 1% to 2%",
           "shortName": "GOP by 1% to 2%",
           "status": "Open",
-          "lastTradePrice": 0.08,
+          "lastTradePrice": 0.07,
           "bestBuyYesCost": 0.07,
           "bestBuyNoCost": 0.94,
           "bestSellYesCost": 0.06,
@@ -11600,7 +11600,7 @@ export const PIMarkets = {
           "name": "GOP by under 1%",
           "shortName": "GOP by under 1%",
           "status": "Open",
-          "lastTradePrice": 0.09,
+          "lastTradePrice": 0.08,
           "bestBuyYesCost": 0.09,
           "bestBuyNoCost": 0.92,
           "bestSellYesCost": 0.08,
@@ -11615,7 +11615,7 @@ export const PIMarkets = {
           "name": "Dems by under 1%",
           "shortName": "Dems by under 1%",
           "status": "Open",
-          "lastTradePrice": 0.11,
+          "lastTradePrice": 0.1,
           "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.91,
           "bestSellYesCost": 0.09,
@@ -11630,7 +11630,7 @@ export const PIMarkets = {
           "name": "Dems by 1% to 2%",
           "shortName": "Dems by 1% to 2%",
           "status": "Open",
-          "lastTradePrice": 0.1,
+          "lastTradePrice": 0.09,
           "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.91,
           "bestSellYesCost": 0.09,
@@ -11645,7 +11645,7 @@ export const PIMarkets = {
           "name": "Dems by 2% to 3%",
           "shortName": "Dems by 2% to 3%",
           "status": "Open",
-          "lastTradePrice": 0.1,
+          "lastTradePrice": 0.09,
           "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.91,
           "bestSellYesCost": 0.09,
@@ -11660,7 +11660,7 @@ export const PIMarkets = {
           "name": "Dems by 3% to 4%",
           "shortName": "Dems by 3% to 4%",
           "status": "Open",
-          "lastTradePrice": 0.09,
+          "lastTradePrice": 0.08,
           "bestBuyYesCost": 0.09,
           "bestBuyNoCost": 0.92,
           "bestSellYesCost": 0.08,
@@ -11675,7 +11675,7 @@ export const PIMarkets = {
           "name": "Dems by 4% to 5%",
           "shortName": "Dems by 4% to 5%",
           "status": "Open",
-          "lastTradePrice": 0.07,
+          "lastTradePrice": 0.08,
           "bestBuyYesCost": 0.08,
           "bestBuyNoCost": 0.93,
           "bestSellYesCost": 0.07,
@@ -11714,7 +11714,7 @@ export const PIMarkets = {
           "displayOrder": 15
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -11731,7 +11731,7 @@ export const PIMarkets = {
           "name": "Fewer than 200,000",
           "shortName": "< 200,000",
           "status": "Open",
-          "lastTradePrice": 0.39,
+          "lastTradePrice": 0.41,
           "bestBuyYesCost": 0.41,
           "bestBuyNoCost": 0.62,
           "bestSellYesCost": 0.38,
@@ -11746,11 +11746,11 @@ export const PIMarkets = {
           "name": "200,000 to 300,000",
           "shortName": "200,000 - 300,000",
           "status": "Open",
-          "lastTradePrice": 0.13,
-          "bestBuyYesCost": 0.12,
-          "bestBuyNoCost": 0.9,
-          "bestSellYesCost": 0.1,
-          "bestSellNoCost": 0.88,
+          "lastTradePrice": 0.12,
+          "bestBuyYesCost": 0.13,
+          "bestBuyNoCost": 0.88,
+          "bestSellYesCost": 0.12,
+          "bestSellNoCost": 0.87,
           "lastClosePrice": 0.1,
           "displayOrder": 1
         },
@@ -11866,7 +11866,7 @@ export const PIMarkets = {
           "name": "1 million or more",
           "shortName": "1 million or more",
           "status": "Open",
-          "lastTradePrice": 0.14,
+          "lastTradePrice": 0.12,
           "bestBuyYesCost": 0.14,
           "bestBuyNoCost": 0.88,
           "bestSellYesCost": 0.12,
@@ -11875,7 +11875,7 @@ export const PIMarkets = {
           "displayOrder": 9
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -12012,7 +12012,7 @@ export const PIMarkets = {
           "name": "Dems by 1% to 2%",
           "shortName": "Dems by 1% to 2%",
           "status": "Open",
-          "lastTradePrice": 0.09,
+          "lastTradePrice": 0.1,
           "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.91,
           "bestSellYesCost": 0.09,
@@ -12027,11 +12027,11 @@ export const PIMarkets = {
           "name": "Dems by 2% to 3%",
           "shortName": "Dems by 2% to 3%",
           "status": "Open",
-          "lastTradePrice": 0.09,
-          "bestBuyYesCost": 0.1,
-          "bestBuyNoCost": 0.91,
-          "bestSellYesCost": 0.09,
-          "bestSellNoCost": 0.9,
+          "lastTradePrice": 0.1,
+          "bestBuyYesCost": 0.11,
+          "bestBuyNoCost": 0.9,
+          "bestSellYesCost": 0.1,
+          "bestSellNoCost": 0.89,
           "lastClosePrice": 0.08,
           "displayOrder": 11
         },
@@ -12096,7 +12096,7 @@ export const PIMarkets = {
           "displayOrder": 15
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -12114,10 +12114,10 @@ export const PIMarkets = {
           "shortName": "Trump by 8% +",
           "status": "Open",
           "lastTradePrice": 0.15,
-          "bestBuyYesCost": 0.15,
+          "bestBuyYesCost": 0.14,
           "bestBuyNoCost": 0.87,
           "bestSellYesCost": 0.13,
-          "bestSellNoCost": 0.85,
+          "bestSellNoCost": 0.86,
           "lastClosePrice": 0.14,
           "displayOrder": 0
         },
@@ -12128,7 +12128,7 @@ export const PIMarkets = {
           "name": "Trump by 7% - 8%",
           "shortName": "Trump by 7% - 8%",
           "status": "Open",
-          "lastTradePrice": 0.04,
+          "lastTradePrice": 0.05,
           "bestBuyYesCost": 0.05,
           "bestBuyNoCost": 0.96,
           "bestSellYesCost": 0.04,
@@ -12158,7 +12158,7 @@ export const PIMarkets = {
           "name": "Trump by 5% - 6%",
           "shortName": "Trump by 5% - 6%",
           "status": "Open",
-          "lastTradePrice": 0.06,
+          "lastTradePrice": 0.05,
           "bestBuyYesCost": 0.06,
           "bestBuyNoCost": 0.95,
           "bestSellYesCost": 0.05,
@@ -12174,10 +12174,10 @@ export const PIMarkets = {
           "shortName": "Trump by 4% - 5%",
           "status": "Open",
           "lastTradePrice": 0.08,
-          "bestBuyYesCost": 0.08,
+          "bestBuyYesCost": 0.07,
           "bestBuyNoCost": 0.94,
           "bestSellYesCost": 0.06,
-          "bestSellNoCost": 0.92,
+          "bestSellNoCost": 0.93,
           "lastClosePrice": 0.05,
           "displayOrder": 4
         },
@@ -12218,7 +12218,7 @@ export const PIMarkets = {
           "name": "Trump by 1% - 2%",
           "shortName": "Trump by 1% - 2%",
           "status": "Open",
-          "lastTradePrice": 0.1,
+          "lastTradePrice": 0.08,
           "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.92,
           "bestSellYesCost": 0.08,
@@ -12233,7 +12233,7 @@ export const PIMarkets = {
           "name": "Trump, less than 1%",
           "shortName": "Trump by < 1%",
           "status": "Open",
-          "lastTradePrice": 0.09,
+          "lastTradePrice": 0.08,
           "bestBuyYesCost": 0.09,
           "bestBuyNoCost": 0.92,
           "bestSellYesCost": 0.08,
@@ -12377,7 +12377,7 @@ export const PIMarkets = {
           "displayOrder": 17
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -12426,8 +12426,8 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.08,
           "bestBuyYesCost": 0.09,
-          "bestBuyNoCost": 0.92,
-          "bestSellYesCost": 0.08,
+          "bestBuyNoCost": 0.93,
+          "bestSellYesCost": 0.07,
           "bestSellNoCost": 0.91,
           "lastClosePrice": 0.08,
           "displayOrder": 2
@@ -12628,7 +12628,7 @@ export const PIMarkets = {
           "displayOrder": 15
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -12645,7 +12645,7 @@ export const PIMarkets = {
           "name": "GOP by 8% or more",
           "shortName": "GOP by 8% +",
           "status": "Open",
-          "lastTradePrice": 0.18,
+          "lastTradePrice": 0.17,
           "bestBuyYesCost": 0.18,
           "bestBuyNoCost": 0.83,
           "bestSellYesCost": 0.17,
@@ -12765,11 +12765,11 @@ export const PIMarkets = {
           "name": "GOP by under 1%",
           "shortName": "GOP by under 1%",
           "status": "Open",
-          "lastTradePrice": 0.11,
-          "bestBuyYesCost": 0.1,
-          "bestBuyNoCost": 0.91,
-          "bestSellYesCost": 0.09,
-          "bestSellNoCost": 0.9,
+          "lastTradePrice": 0.1,
+          "bestBuyYesCost": 0.11,
+          "bestBuyNoCost": 0.9,
+          "bestSellYesCost": 0.1,
+          "bestSellNoCost": 0.89,
           "lastClosePrice": 0.09,
           "displayOrder": 8
         },
@@ -12849,7 +12849,7 @@ export const PIMarkets = {
           "displayOrder": 13
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -12956,7 +12956,7 @@ export const PIMarkets = {
           "name": "1.725 mil - 1.75 mil",
           "shortName": "1.725 M - 1.75 M",
           "status": "Open",
-          "lastTradePrice": 0.07,
+          "lastTradePrice": 0.1,
           "bestBuyYesCost": 0.1,
           "bestBuyNoCost": 0.92,
           "bestSellYesCost": 0.08,
@@ -12971,7 +12971,7 @@ export const PIMarkets = {
           "name": "1.75 mil - 1.775 mil",
           "shortName": "1.75 M - 1.775 M",
           "status": "Open",
-          "lastTradePrice": 0.03,
+          "lastTradePrice": 0.02,
           "bestBuyYesCost": 0.03,
           "bestBuyNoCost": 0.99,
           "bestSellYesCost": 0.01,
@@ -13010,7 +13010,7 @@ export const PIMarkets = {
           "displayOrder": 9
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -13087,7 +13087,7 @@ export const PIMarkets = {
           "name": "Dems by under 1%",
           "shortName": "Dems by under 1%",
           "status": "Open",
-          "lastTradePrice": 0.05,
+          "lastTradePrice": 0.06,
           "bestBuyYesCost": 0.06,
           "bestBuyNoCost": 0.95,
           "bestSellYesCost": 0.05,
@@ -13177,7 +13177,7 @@ export const PIMarkets = {
           "name": "Dems by 6% to 7%",
           "shortName": "Dems by 6% to 7%",
           "status": "Open",
-          "lastTradePrice": 0.07,
+          "lastTradePrice": 0.08,
           "bestBuyYesCost": 0.08,
           "bestBuyNoCost": 0.93,
           "bestSellYesCost": 0.07,
@@ -13223,15 +13223,15 @@ export const PIMarkets = {
           "shortName": "Dems by 9% +",
           "status": "Open",
           "lastTradePrice": 0.1,
-          "bestBuyYesCost": 0.1,
+          "bestBuyYesCost": 0.09,
           "bestBuyNoCost": 0.92,
           "bestSellYesCost": 0.08,
-          "bestSellNoCost": 0.9,
+          "bestSellNoCost": 0.91,
           "lastClosePrice": 0.11,
           "displayOrder": 13
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -13407,7 +13407,7 @@ export const PIMarkets = {
           "displayOrder": 10
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -13424,7 +13424,7 @@ export const PIMarkets = {
           "name": "GOP by 5% or more",
           "shortName": "GOP by 5% +",
           "status": "Open",
-          "lastTradePrice": 0.12,
+          "lastTradePrice": 0.13,
           "bestBuyYesCost": 0.13,
           "bestBuyNoCost": 0.88,
           "bestSellYesCost": 0.12,
@@ -13628,7 +13628,7 @@ export const PIMarkets = {
           "displayOrder": 13
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -13660,7 +13660,7 @@ export const PIMarkets = {
           "name": "Mike Pompeo",
           "shortName": "Pompeo",
           "status": "Open",
-          "lastTradePrice": 0.27,
+          "lastTradePrice": 0.28,
           "bestBuyYesCost": 0.28,
           "bestBuyNoCost": 0.73,
           "bestSellYesCost": 0.27,
@@ -13834,7 +13834,7 @@ export const PIMarkets = {
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -13853,14 +13853,14 @@ export const PIMarkets = {
           "status": "Open",
           "lastTradePrice": 0.25,
           "bestBuyYesCost": 0.27,
-          "bestBuyNoCost": 0.75,
-          "bestSellYesCost": 0.25,
+          "bestBuyNoCost": 0.74,
+          "bestSellYesCost": 0.26,
           "bestSellNoCost": 0.73,
           "lastClosePrice": 0.28,
           "displayOrder": 0
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     },
     {
@@ -13892,7 +13892,7 @@ export const PIMarkets = {
           "name": "GOP by 5% to 6%",
           "shortName": "GOP by 5% to 6%",
           "status": "Open",
-          "lastTradePrice": 0.08,
+          "lastTradePrice": 0.09,
           "bestBuyYesCost": 0.09,
           "bestBuyNoCost": 0.92,
           "bestSellYesCost": 0.08,
@@ -13907,7 +13907,7 @@ export const PIMarkets = {
           "name": "GOP by 4% to 5%",
           "shortName": "GOP by 4% to 5%",
           "status": "Open",
-          "lastTradePrice": 0.05,
+          "lastTradePrice": 0.06,
           "bestBuyYesCost": 0.06,
           "bestBuyNoCost": 0.95,
           "bestSellYesCost": 0.05,
@@ -13997,7 +13997,7 @@ export const PIMarkets = {
           "name": "Dems by 1% to 2%",
           "shortName": "Dems by 1% to 2%",
           "status": "Open",
-          "lastTradePrice": 0.06,
+          "lastTradePrice": 0.07,
           "bestBuyYesCost": 0.07,
           "bestBuyNoCost": 0.94,
           "bestSellYesCost": 0.06,
@@ -14081,7 +14081,7 @@ export const PIMarkets = {
           "displayOrder": 15
         }
       ],
-      "timeStamp": "2020-11-01T23:19:57.1683369",
+      "timeStamp": "2020-11-01T23:29:02.5273108",
       "status": "Open"
     }
   ]
