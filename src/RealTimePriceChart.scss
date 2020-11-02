@@ -10,7 +10,7 @@
     height: 80vh;
   }
   @media only screen and (min-width: 769px) {
-    height: 34vw;
+    height: 80vh;
   }
 }
 
@@ -23,7 +23,7 @@
     height: 50vh;
   }
   @media only screen and (min-width: 769px) {
-    height: 17vw; // height is a % of vw (vwidth) so that we can ensure the charts are taller than they are wide, which is useful to see price differences
+    height: unquote("max(180px, 10vh)"); // here we set chart height to 10% of vertical height, allowing a large monitor to see all charts in one screen, while smaller resolutions will ensure a minimum height to avoid bad chart renders. `unquote` is a workaround because max() is a builtin sass function that doesn't support using (px, vh) but the underlying css max function does and unquote uses it directly https://github.com/sass/libsass/issues/2701#issuecomment-650536692    
   }
   background-color: rgb(21, 35, 44);
 }

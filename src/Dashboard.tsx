@@ -1,10 +1,17 @@
 import queryString from 'query-string';
+import { stringify } from 'querystring';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
+import './Dashboard.css';
 import { getMarkets } from './PredictItApi';
-import { getSubsetOfMarkets, Markets, RealTimePriceChart } from './RealTimePriceChart';
+import { getSubsetOfMarkets, Markets, MarketsAndOutcomes, RealTimePriceChart } from './RealTimePriceChart';
+
+interface ChartConfig { // ChartConfig should not be confused with ChartOptions. ChartConfig is more like "config related to embedding this chart in the dashboard", perhaps it should be renamed/moved/changed
+  noAutoChart?: true; // iff true, this chart won't automatically be added to the list of automatic charts
+  marketsAndOutcomes: MarketsAndOutcomes;
+}
 
 export const Dashboard: React.SFC<{}> = (props) => {
   const historySeconds: number = (() => {
@@ -19,277 +26,360 @@ export const Dashboard: React.SFC<{}> = (props) => {
   })();
 
   const [markets, setMarkets] = useState(undefined as undefined | Markets);
-  const [chart1Markets, setChart1Markets] = useState(undefined as undefined | Markets);
-  const [chart1Pt5Markets, setChart1Pt5Markets] = useState(undefined as undefined | Markets);
-  const [chart2Markets, setChart2Markets] = useState(undefined as undefined | Markets);
-  const [chart3Markets, setChart3Markets] = useState(undefined as undefined | Markets);
-  const [chart4Markets, setChart4Markets] = useState(undefined as undefined | Markets);
-  const [chart4Pt5Markets, setChart4Pt5Markets] = useState(undefined as undefined | Markets);
-  const [chart4Pt6Markets, setChart4Pt6Markets] = useState(undefined as undefined | Markets);
-  const [chart5Markets, setChart5Markets] = useState(undefined as undefined | Markets);
-  const [chart5Pt5Markets, setChart5Pt5Markets] = useState(undefined as undefined | Markets);
-  const [chart6Markets, setChart6Markets] = useState(undefined as undefined | Markets);
-  const [chart7Markets, setChart7Markets] = useState(undefined as undefined | Markets);
-  const [chart8Markets, setChart8Markets] = useState(undefined as undefined | Markets);
-  const [chart9Markets, setChart9Markets] = useState(undefined as undefined | Markets);
-  const [chart10Markets, setChart10Markets] = useState(undefined as undefined | Markets);
-  const [chart11Markets, setChart11Markets] = useState(undefined as undefined | Markets);
-  const [chart12Markets, setChart12Markets] = useState(undefined as undefined | Markets);
-  const [chart13Markets, setChart13Markets] = useState(undefined as undefined | Markets);
-  const [chart14Markets, setChart14Markets] = useState(undefined as undefined | Markets);
-  const [chart15Markets, setChart15Markets] = useState(undefined as undefined | Markets);
-  const [chart16Markets, setChart16Markets] = useState(undefined as undefined | Markets);
-  const [chart17Markets, setChart17Markets] = useState(undefined as undefined | Markets);
-  const [chart18Markets, setChart18Markets] = useState(undefined as undefined | Markets);
-  const [chart19Markets, setChart19Markets] = useState(undefined as undefined | Markets);
-  const [chart20Markets, setChart20Markets] = useState(undefined as undefined | Markets);
-  const [chart21Markets, setChart21Markets] = useState(undefined as undefined | Markets);
-  const [chart22Markets, setChart22Markets] = useState(undefined as undefined | Markets);
-  const [chart23Markets, setChart23Markets] = useState(undefined as undefined | Markets);
-  const [chart24Markets, setChart24Markets] = useState(undefined as undefined | Markets);
-  const [chart25Markets, setChart25Markets] = useState(undefined as undefined | Markets);
-  const [chart26Markets, setChart26Markets] = useState(undefined as undefined | Markets);
+  const [marketsForOneChartByChartName, setMarketsForOneChartByChartName] = useState({} as { [chartName: string]: Markets });
+  const [autoChartNames, setAutoChartNames] = useState([] as string[]);
 
   useEffect(() => {
     const ms = getMarkets();
     setMarkets(ms);
-    setChart1Markets(getSubsetOfMarkets(ms, {
-      3633: { // Demnom
-        outcomeIds: {
-          7725: true, // Sanders
-          7729: true, // Biden
-          // 13871: true, // Bloomberg
-          13491: true, // HRC
-          // 7730: true, // Warren
+
+    const marketsAndOutcomesForAllCharts: { [chartName: string]: ChartConfig } = {
+      "2020winner": {
+        noAutoChart: true,
+        marketsAndOutcomes: {
+          2721: { // Which-party-will-win-the-2020-US-presidential-election
+            outcomeIds: {
+              4390: true, // Dems
+              4389: true, // Reps
+            },
+          },
+          3698: { // Who will win the 2020 U.S. presidential election?
+            outcomeIds: {
+              7940: true, // Biden
+              7943: true, // Trump
+            },
+          },
+          4036: {}, // Will a woman be elected U.S. vice president in 2020?
+          5961: {}, // Will the 2020 TX Democratic primary winner win the presidency?
+          5960: {}, // Will the 2020 SC Democratic primary winner win the presidency?
+          5963: {}, // Will the 2020 MA Democratic primary winner win the presidency?
         },
       },
-    }));
-    setChart1Pt5Markets(getSubsetOfMarkets(ms, {
-      3698: { // General election
-        outcomeIds: {
-          7943: true, // Trump
-          7941: true, // Sanders
-          7940: true, // Biden
-          // 13873: true, // Bloomberg
+      "electoralMargin": {
+        marketsAndOutcomes: {
+          6653: { // Electoral College margin of victory?
+            outcomeIds: {
+              22326: true, // Dems by 100 - 149
+              22346: true, // Dems by 150 - 209              
+              22348: true, // Dems by 210 - 279
+              22317: true, // GOP by 30 - 59
+              22319: true, // GOP by 60 - 99
+              22325: true, // GOP by 100 - 149
+              // Lower priority:
+              22318: true, // Dems by 60 - 99
+              22324: true, // Dems by 280+
+              // TODO right now we have a hard maximum of 8 outcomes due to that's all the colors in the color wheel
+              // 22316: true, // GOP by 10 - 29
+              // 22345: true, // GOP by 150 - 209
+            },
+          },
         },
       },
-    }));
-    setChart2Markets(getSubsetOfMarkets(ms, {
-      4036: { // Woman VP in 2020?
-      },
-    }));
-    setChart3Markets(getSubsetOfMarkets(ms, {
-      4037: { // Will 2020 Dem VP nominee be a woman?
-      },
-    }));
-    setChart4Markets(getSubsetOfMarkets(ms, {
-      6095: { // AK primary
-        outcomeIds: {
-          18829: true, // Sanders
-          18825: true, // Biden
+      "popularVoteMargin": {
+        marketsAndOutcomes: {
+          6663: { // Popular Vote margin of victory?
+            outcomeIds: {
+              22403: true, // Dems by 7.5% - 9%
+              22399: true, // Dems by 10.5%+
+              22405: true, // Dems by 9% -10.5%
+              22401: true, // Dems by 6 % - 7.5 %
+              22393: true, // Dems by 4.5% - 6%
+              22398: true, // Dems by 3% - 4.5%
+              22397: true, // Dems by 1.5 % - 3 %
+              22396: true, // Dems by 1.5%-
+            },
+          },
         },
       },
-    }));
-    setChart4Pt5Markets(getSubsetOfMarkets(ms, {
-      6096: { // HI primary
-        outcomeIds: {
-          18842: true, // Sanders
-          18838: true, // Biden
+      "FL": {
+        marketsAndOutcomes: {
+          5544: {}, // Which party will win FL in 2020?
         },
       },
-    }));
-    setChart5Markets(getSubsetOfMarkets(ms, {
-      6368: { // PR primary
-        outcomeIds: {
-          20725: true, // Sanders
-          20722: true, // Biden
+      "MI": {
+        marketsAndOutcomes: {
+          5545: {}, // Which party will win MI in 2020?
         },
       },
-    }));
-    setChart5Pt5Markets(getSubsetOfMarkets(ms, {
-      6331: { // WY primary
-        outcomeIds: {
-          20430: true, // Sanders
-          20426: true, // Biden
+      "PA": {
+        marketsAndOutcomes: {
+          5543: {}, // Which party will win PA in 2020?
         },
       },
-    }));
-    setChart6Markets(getSubsetOfMarkets(ms, {
-      6098: { // WY primary
-        outcomeIds: {
-          18868: true, // Sanders
-          18864: true, // Biden
+      "MN": {
+        marketsAndOutcomes: {
+          5597: {}, // Which party will win MN in 2020?
         },
       },
-    }));
-    setChart7Markets(getSubsetOfMarkets(ms, {
-      6528: { // WA Margin of victory
-        outcomeIds: {
-          21760: true, // less than 1%
-          21761: true, // 1-2%
-          21762: true, // 2-3%
-          21763: true, // 3-4%
-          21764: true, // 4-5%
+      "TX": {
+        marketsAndOutcomes: {
+          5798: {}, // Which party will win TX in 2020?
         },
       },
-    }));
-    setChart8Markets(getSubsetOfMarkets(ms, {
-      6041: { // WA primary
-        outcomeIds: {
-          18441: true, // Sanders
-          18437: true, // Biden
+      "WI": {
+        marketsAndOutcomes: {
+          5542: {}, // Which party will win WI in 2020?
         },
       },
-    }));
-    setChart9Markets(getSubsetOfMarkets(ms, {
-      6328: { // OR primary
-        outcomeIds: {
-          20391: true, // Sanders
-          20387: true, // Biden
+      "AZ": {
+        marketsAndOutcomes: {
+          5596: {}, // Which party will win AZ in 2020?
         },
       },
-    }));
-    setChart10Markets(getSubsetOfMarkets(ms, {
-      6533: { // CA margin of victory
-        outcomeIds: {
-          // 21797: true,
-          21786: true,
-          21787: true,
-          21788: true,
-          21789: true,
-          21790: true,
+      "NC": {
+        marketsAndOutcomes: {
+          5599: {}, // Which party will win NC in 2020?
         },
       },
-    }));
-    setChart11Markets(getSubsetOfMarkets(ms, {
-      6043: { // FL primary
-        outcomeIds: {
-          18463: true, // Biden
-          18467: true, // Sanders
+      "GA": {
+        marketsAndOutcomes: {
+          5604: {}, // Which party will win GA in 2020?
         },
       },
-    }));
-    setChart12Markets(getSubsetOfMarkets(ms, {
-      6044: { // IL primary
-        outcomeIds: {
-          18476: true, // Biden
-          18480: true, // Sanders
+      "OH": {
+        marketsAndOutcomes: {
+          5600: {}, // Which party will win OH in 2020?
         },
       },
-    }));
-    setChart13Markets(getSubsetOfMarkets(ms, {
-      6045: { // OH primary
-        outcomeIds: {
-          18489: true, // Biden
-          18493: true, // Sanders
+      "NV": {
+        marketsAndOutcomes: {
+          5601: {}, // Which party will win NV in 2020?
         },
       },
-    }));
-    setChart4Pt6Markets(getSubsetOfMarkets(ms, {
-      6364: { // Dems Abroad primary
-        outcomeIds: {
-          20686: true, // Sanders
-          20683: true, // Biden
-          // 20694: true, // Bloomberg
-          // 20687: true, // Warren
+      "NH": {
+        marketsAndOutcomes: {
+          5598: {}, // Which party will win NH in 2020?
         },
       },
-    }));
-    setChart14Markets(getSubsetOfMarkets(ms, {
-      5883: { // Dem VP Nominee
-        outcomeIds: {
-          17474: true, // Harris
-          17481: true, // Abrams
-          17472: true, // Klobuchar
-          17477: true, // Warren
-          21162: true, // HRC
-          21164: true, // Obama
-          // 17480: true, // Buttigieg
-          // 20450: true, // Masto
+      "IA": {
+        marketsAndOutcomes: {
+          5603: {}, // Which party will win IA in 2020?
         },
       },
-    }));
-    setChart15Markets(getSubsetOfMarkets(ms, {
-      6168: { // Brokered convention
-      },
-    }));
-    setChart16Markets(getSubsetOfMarkets(ms, {
-      6042: { // AZ primary
-        outcomeIds: {
-          18454: true, // Sanders
-          18450: true, // Biden
+      "NM": {
+        marketsAndOutcomes: {
+          6573: {}, // Which party will win NM in 2020?
         },
       },
-    }));
-    setChart17Markets(getSubsetOfMarkets(ms, {
-      4614: { // Hillary run for president in 2020
-      },
-    }));
-    setChart18Markets(getSubsetOfMarkets(ms, {
-      3390: { // Trump GOP nominee
-      },
-    }));
-    setChart19Markets(getSubsetOfMarkets(ms, {
-      5886: { // Pence GOP VP nominee
-      },
-    }));
-    setChart20Markets(getSubsetOfMarkets(ms, {
-      5554: { // Trump popular vote
-      },
-    }));
-    setChart21Markets(getSubsetOfMarkets(ms, {
-      2721: { // Which party wins presidency
-        outcomeIds: {
-          4389: true, // Republican
-          4390: true, // Democratic
+      "balanceOfPower": {
+        marketsAndOutcomes: {
+          4353: {}, // What-will-be-the-balance-of-power-in-Congress-after-the-2020-election
         },
       },
-    }));
-    setChart22Markets(getSubsetOfMarkets(ms, {
-      4353: { // Balance of power after general
-      },
-    }));
-    setChart23Markets(getSubsetOfMarkets(ms, {
-      4365: { // Which party controls house after general
-        outcomeIds: {
-          10463: true, // Republican
-          10461: true, // Democratic
+      "controlHouse": {
+        marketsAndOutcomes: {
+          4365: {}, // Which party controls House after 2020 election
         },
       },
-    }));
-    setChart24Markets(getSubsetOfMarkets(ms, {
-      4366: { // Which party controls senate after general
-        outcomeIds: {
-          10464: true, // Republican
-          10462: true, // Democratic
+      "controlSenate": {
+        marketsAndOutcomes: {
+          4366: {}, // Which party controls Senate after 2020 election
         },
       },
-    }));
-    setChart25Markets(getSubsetOfMarkets(ms, {
-      4292: { // Trump 1st term recession?
-      },
-    }));
-    setChart26Markets(getSubsetOfMarkets(ms, {
-      6501: { // Number of Democrats running on 4/1?
-        outcomeIds: {
-          21564: true, // 1
-          21569: true, // 2
-          21565: true, // 3
+      "netChangeSenate": {
+        marketsAndOutcomes: {
+          6670: { // What-will-be-the-net-change-in-Senate-seats-by-party
+            outcomeIds: {
+              22467: true, // Dems +4
+              22468: true, // Dems +5
+              22463: true, // Dems +7
+              22466: true, // Dems +3
+              22471: true, // Dems +6
+              22460: true, // Dems +2
+              22461: true, // Dems +1
+              22465: true, // Gop +4
+            },
+          },
         },
       },
-    }));
-    // setChart14Markets(getSubsetOfMarkets(ms, {
-    //   0: { // Dem VP Nominee
-    //     outcomeIds: {
-    //       0: true, // Harris
-    //       0: true, // Abrams
-    //       0: true, // Klobuchar
-    //       0: true, // Warren
-    //       0: true, // Buttigieg
-    //       0: true, // Turner
-    //     },
-    //   },
-    // }));
+      "changeHouse": {
+        marketsAndOutcomes: {
+          6669: { // How-many-House-seats-will-Democrats-win-in-the-2020-election
+            outcomeIds: {
+              22459: true, // 246 or more
+              22454: true, // 242
+              22452: true, // 238
+              22455: true, // 234
+              22449: true, // 209 or fewer
+              22450: true, // 218
+              22457: true, // 210
+            },
+          },
+        },
+      },
+      "FLmargin": {
+        marketsAndOutcomes: {
+          6927: { // What-will-be-the-margin-in-the-presidential-election-in-Florida
+            outcomeIds: {
+              23919: true, // R by 1%
+              23918: true, // R by under 1%
+              23926: true, // R by 3-4%
+              23925: true, // D by 6%
+              23922: true, // R by 6%
+              23923: true, // D by under 1%
+              23931: true, // D by 5%
+              23930: true, // R by 5%
+            },
+          },
+        },
+      },
+      "OHmargin": {
+        marketsAndOutcomes: {
+          6915: { // What-will-be-the-margin-in-the-presidential-election-in-Ohio
+            outcomeIds: {
+              23828: true, // R 3.5%+
+              23832: true, // D 3.5%+
+              23830: true, // D 0.5%
+              23824: true, // R 0.5%
+              23826: true, // D 1.5%
+              23836: true, // D 2.5%
+            },
+          },
+        },
+      },
+      "smallestMargin": {
+        marketsAndOutcomes: {
+          6687: { // Which-state-will-be-won-by-the-smallest-margin-in-the-presidential-election
+            outcomeIds: {
+              22566: true, // OH
+              22563: true, // FL
+              22570: true, // GA
+              22572: true, // PA
+              22565: true, // NC
+              22564: true, // WI
+              22569: true, // CO
+              22574: true // ME
+            },
+          },
+        },
+      },
+      "tippingPoint": {
+        marketsAndOutcomes: {
+          6664: { // What-will-be-the-'tipping-point'-jurisdiction-in-2020
+            outcomeIds: {
+              22415: true, // PA
+              22406: true, // FL
+              22410: true, // AZ
+              22411: true, // MI
+              22407: true, // WI
+              22408: true, // NC
+              22412: true, // NB
+              22409: true, // OH
+            },
+          },
+        },
+      },
+      "howManyVotes": {
+        marketsAndOutcomes: {
+          6882: { // How-many-votes-in-the-2020-US-presidential-election
+            outcomeIds: {
+              23641: true, // 160M+
+              23640: true, // 157M-
+              23639: true, // 154
+              23635: true, // 151
+              23631: true, // 148
+              23636: true, // 145
+              23632: true, // 142
+              23634: true, // 139
+            },
+          },
+        },
+      },
+      "demsWinAll": {
+        marketsAndOutcomes: {
+          6770: {}, // Will-Democrats-win-the-White-House,-Senate-and-House-in-2020
+        },
+      },
+      "whenElectionCalled": {
+        marketsAndOutcomes: {
+          6871: { // When-will-the-presidential-election-outcome-be-called
+            outcomeIds: {
+              23558: true, // Nov 4
+              23557: true, // Nov 3
+              23615: true, // after Dec 14
+              23559: true, // Nov 5
+              23560: true, // Nov 6-7
+              23614: true, // Dec 1-14
+              23561: true, // Nov 8-9
+              23612: true, // Nov 17-23
+            },
+          },
+        },
+      },
+      "trumpWinsPopularVote": {
+        marketsAndOutcomes: {
+          5554: {}, // Will-Donald-Trump-win-the-popular-vote-in-2020
+        },
+      },
+      "popularVoteWinnerAlsoWinsElectoralCollege": {
+        marketsAndOutcomes: {
+          6642: {}, // Will-the-winner-of-the-popular-vote-also-win-the-Electoral-College
+        },
+      },
+      "trumpLoseAny2016StateHeWon": {
+        marketsAndOutcomes: {
+          6727: {}, // Will-Donald-Trump-lose-any-state-he-won-in-2016
+        },
+      },
+      "trumpWinAny2016StateHeLost": {
+        marketsAndOutcomes: {
+          6724: {}, // Will-Donald-Trump-win-any-state-he-lost-in-2016
+        },
+      },
+      "trumpWinningDayAfterElection": {
+        marketsAndOutcomes: {
+          6920: {}, // Will-Donald-Trump-be-winning-at-6-am-(ET)-the-day-after-the-election
+        },
+      },
+      "trumpCompleteFirstTerm": {
+        marketsAndOutcomes: {
+          5158: {}, // Will-Donald-Trump-complete-his-first-term
+        },
+      },
+      "CO": {
+        marketsAndOutcomes: {
+          5605: {}, // Which party will win CO in 2020?
+        },
+      },
+      "VA": {
+        marketsAndOutcomes: {
+          5602: {}, // Which party will win VA in 2020?
+        },
+      },
+      "AK": {
+        marketsAndOutcomes: {
+          6591: {}, // Which party will win AK in 2020?
+        },
+      },
+      "OR": {
+        marketsAndOutcomes: {
+          6582: {}, // Which party will win OR in 2020?
+        },
+      },
+      "ME": {
+        marketsAndOutcomes: {
+          6571: {}, // Which party will win ME in 2020?
+        },
+      },
+      "MO": {
+        marketsAndOutcomes: {
+          6581: {}, // Which party will win MO in 2020?
+        },
+      },
+    };
+
+    const wipAutoChartNames: string[] = [];
+    const wipMarketsForOneChartByChartName: { [chartName: string]: Markets } = {};
+
+    for (const chartName of Object.keys(marketsAndOutcomesForAllCharts)) {
+      const chartConfig = marketsAndOutcomesForAllCharts[chartName];    
+      if (chartConfig.noAutoChart !== true) {
+        wipAutoChartNames.push(chartName);
+      }
+      wipMarketsForOneChartByChartName[chartName] = getSubsetOfMarkets(ms, chartConfig.marketsAndOutcomes);
+    }
+    setMarketsForOneChartByChartName(wipMarketsForOneChartByChartName);
+    setAutoChartNames(wipAutoChartNames)
   }, [markets]);
 
   const styleOuter = {
@@ -301,17 +391,30 @@ export const Dashboard: React.SFC<{}> = (props) => {
   const styleRight = {
     borderLeft: "1px dotted rgba(165, 181, 193, 0.4)",
   }
-  function mkChart(ms: Markets | undefined, desiredSecondsOfHistory: number) {
+
+  interface MkChartOpts {
+    desiredSecondsOfHistory: number;
+    columnWidth: number;
+    key?: string; // JSX.Element key to use if this chart will be included in a React JSX array 
+  }
+
+  const defaultMkChartOpts: MkChartOpts = {
+    desiredSecondsOfHistory: historySeconds,
+    columnWidth: 2,
+  };
+
+  function mkChart(ms: Markets | undefined, optsIn?: Partial<MkChartOpts>): JSX.Element {
+    const opts = Object.assign({}, defaultMkChartOpts, optsIn || {});
     return (
-      <div className="column is-2" style={styleOuter}>
+      <div className={`column is-${opts.columnWidth}`} style={styleOuter} key={opts.key}>
         <div className="columns is-marginless is-paddingless is-mobile" style={styleInner}>
           <div className="column is-6 is-paddingless">
             {ms && <RealTimePriceChart
               markets={ms}
               chartOptions={{
-                desiredSecondsOfHistory: desiredSecondsOfHistory * 100,
+                desiredSecondsOfHistory: opts.desiredSecondsOfHistory * 100,
                 hideLastTradePriceGraph: true,
-                initialRenderDelayMillis: desiredSecondsOfHistory * 1000, // we want to delay the initial render of the long-term chart because it doesn't physically connect to the short term chart until the short term chart has elapsed its entire time window. If we render the long-term chart immediately then its initial data appear as a weird vertical bar in the middle of the two charts, which is ugly, useless, and users think it's a bug
+                initialRenderDelayMillis: opts.desiredSecondsOfHistory * 1000, // we want to delay the initial render of the long-term chart because it doesn't physically connect to the short term chart until the short term chart has elapsed its entire time window. If we render the long-term chart immediately then its initial data appear as a weird vertical bar in the middle of the two charts, which is ugly, useless, and users think it's a bug
                 colorBlindMode: isColorBlindMode ? true : undefined,
               }}
             />}
@@ -320,7 +423,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
             {ms && <RealTimePriceChart
               markets={ms}
               chartOptions={{
-                desiredSecondsOfHistory,
+                desiredSecondsOfHistory: opts.desiredSecondsOfHistory,
                 hideLegend: true,
                 colorBlindMode: isColorBlindMode ? true : undefined,
               }}
@@ -331,14 +434,22 @@ export const Dashboard: React.SFC<{}> = (props) => {
     );
   }
 
+  const chartGroupMaker = (chartNames: string[], opts?: Partial<MkChartOpts>) => chartNames.map(cn => mkChart(marketsForOneChartByChartName[cn], Object.assign({}, opts, {
+    key: cn,
+  })));
+  const mk = chartGroupMaker; // convenience alias
+
+  const electionWinnerChart = mk(["2020winner"], { columnWidth: 6 });
+  const autoCharts = mk(autoChartNames);
+
   return (
     <div className="dashboard" style={{ minHeight: "100vh" }}>
       <ReactTooltip />
       <Helmet>
-        <title>PredictIt Dashboard | Predictions.Global</title>
+        <title>2020 Election Dashboard | Predictions.Global</title>
         <meta
           name="description"
-          content="Dashboard for PredictIt and Augur Prediction Markets. PredictIt and Augur prediction market discusion, prices, trading volume, bid ask, and charts." />
+          content="Real-time dashboard for PredictIt and Augur Prediction Markets. PredictIt and Augur prediction market discusion, prices, trading volume, bid ask, and charts." />
       </Helmet>
       <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "0.8rem" }}>
         <div className="column is-half">
@@ -347,71 +458,48 @@ export const Dashboard: React.SFC<{}> = (props) => {
           </Link>
         </div>
         <div className="column is-narrow">
-          <a target="_blank" href="https://discord.gg/hXByEjw">
-            <img width="30" src="discord-button.svg" />
+          <a target="_blank" href="https://catnip.exchange/">
+            <span>Catnip Election Market</span>
           </a>
         </div>
         <div className="column is-narrow">
-          <a target="_blank" href="https://discord.gg/hXByEjw">
-            <span>DM @ryanb</span>
-          </a>
+          <Link to="/how-2020-election-real-time-dashboard-works">How this works</Link>
         </div>
-        <div className="column is-narrow">
-          <a target="_blank" href="https://forms.gle/TXpxBaWNhD2JkGfaA">
-            <span>Send Feedback (or say Hi)</span>
-          </a>
-        </div>
-        <div className="column is-narrow">
-          <div data-multiline={true} data-place='bottom' data-tip={`The big dots🔵are last trade price.<br>The two lines📉with the same color are bid & ask.<br>Each chart has a 2-hour timescale on left, 1-min timescale on right, left side moves slow, right side really fast.<br>Right now it only shows new data, no history... but you can leave the tab open and left side will build up 2 hours of history.<br>Try it on your phone`} style={{ color: "#3273DC" }}>
-            Hot Tips
-            &nbsp;
-          <i className="far fa-question-circle" />
+        <div className="column is-narrow discord-button">
+          <div className="discord-button-inner">
+            <a target="_blank" href="https://discord.gg/hXByEjw">
+              {/* here we inline the svg for the discord icon so that it can be modified by CSS so we can change the color on hover */}
+              <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 240"><path d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z" /><path d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z" /></svg>
+            </a>
           </div>
-
+        </div>
+        <div className="column is-narrow">
+          <a target="_blank" href="https://twitter.com/ryanberckmans">
+            <i className="fab fa-twitter" />
+          </a>
         </div>
       </div>
 
-      <div className="columns is-marginless is-multiline" style={{ position: "relative" }}>
-        {mkChart(chart26Markets, historySeconds)}
-        {mkChart(chart4Pt6Markets, historySeconds)}
-        {mkChart(chart4Markets, historySeconds) /* AK */}
-        {mkChart(chart16Markets, historySeconds) /* AK */}
-        {mkChart(chart10Markets, historySeconds) /* CA margin of victory */}
-        {mkChart(chart11Markets, historySeconds) /* FL */}
-        {mkChart(chart4Pt5Markets, historySeconds) /* HI */}
-        {mkChart(chart12Markets, historySeconds) /* IL */}
-        {mkChart(chart13Markets, historySeconds) /* OR */}
-        {mkChart(chart9Markets, historySeconds) /* OR */}
-        {mkChart(chart5Markets, historySeconds) /* PR */}
-        {mkChart(chart8Markets, historySeconds) /* WA */}
-        {mkChart(chart7Markets, historySeconds) /* WA margin of victory */}
-        {mkChart(chart6Markets, historySeconds) /* WI */}
-        {mkChart(chart5Pt5Markets, historySeconds) /* WY */}
-        {mkChart(chart1Markets, historySeconds)}
-        {mkChart(chart14Markets, historySeconds)}
-        {mkChart(chart3Markets, historySeconds)}
-        {mkChart(chart2Markets, historySeconds)}
-        {mkChart(chart1Pt5Markets, historySeconds)}
-        {mkChart(chart15Markets, historySeconds)}
-        {mkChart(chart17Markets, historySeconds)}
-        {mkChart(chart18Markets, historySeconds)}
-        {mkChart(chart19Markets, historySeconds)}
-        {mkChart(chart20Markets, historySeconds)}
-        {mkChart(chart21Markets, historySeconds)}
-        {mkChart(chart22Markets, historySeconds)}
-        {mkChart(chart23Markets, historySeconds)}
-        {mkChart(chart24Markets, historySeconds)}
-        {mkChart(chart25Markets, historySeconds)}
-        <div className="column is-6" style={Object.assign({
+      <div className="columns is-marginless">
+        <div className="column is-9 is-paddingless">
+          <div className="columns is-marginless is-multiline" style={{ position: "relative" }}>
+            {/* <div className="column is-12">All election winner markets in one chart</div> */}
+            {electionWinnerChart}
+            {/* <div className="column is-12">Others</div> */}
+            {autoCharts}
+          </div>
+        </div>
+        <div className="column is-3" style={{
           "position": "relative",
           "zIndex": 10,
-        }, styleOuter)}>
-          <iframe className="chatIframe" src="https://cloudflare-ipfs.com/ipfs/QmY2GfoWovUFkQyRvdBhL4sBUpCLHvpXJ4dkP5YAeMZMZN"/>
-        </div>
-      </div>
-      <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "0.8rem" }}>
-        <div className="column is-half">
-          <a target="_blank" href="0x56329ACd726a373177f8Bf2f94Ca601C0BB3C4FA.png">Donate Ethereum: 0x56329ACd726a373177f8Bf2f94Ca601C0BB3C4FA</a>
+          "padding": styleOuter.padding,
+        }}>
+          <iframe className="chatIframe" src="/orbit-web/index.html" />
+          <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "0.8rem" }}>
+            <div className="column is-12">
+              <a target="_blank" href="0x56329ACd726a373177f8Bf2f94Ca601C0BB3C4FA.png">donate on ethereum: 0x56329ACd726a373177f8Bf2f94Ca601C0BB3C4FA</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -16,6 +16,7 @@
   },
   "linterOptions": {
     "exclude": [
+      "public/orbit-web/**/*.js",
       "config/**/*.js",
       "node_modules/**/*.ts",
       "src/generated/**/*.{ts,js}"

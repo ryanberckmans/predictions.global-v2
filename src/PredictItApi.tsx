@@ -134,22 +134,62 @@ function addContractListener(allContractIds: string[], fb: firebase.app.App): (c
 //   });
 // }
 
+const demRegexp = new RegExp(/^Democratic$/);
+const repRegexp = new RegExp(/^Republican$/);
+
 function outcomeNameFixup(outcomeName: string): string {
-  return outcomeName
+  return outcomeName    
+    .replace("160 mil. or more", "160M+")
+    .replace("157 mil - 160 mil", "157-160M")
+    .replace("154 mil - 157 mil", "154-157M")
+    .replace("151 mil - 154 mil", "151-154M")
     .replace("6.0% to 6.5%", "6.0-6.5%")
     .replace("6.5% to 7.0%", "6.5-7.0%")
     .replace("7.0% to 7.5%", "7.0-7.5%")
     .replace("7.5% to 8.0%", "7.5-8.0%")
     .replace("8.0% to 8.5%", "8.0-8.5%")
+    .replace("% - ", "-")
+    .replace("% -", "-")
+    .replace("% to ", "-")
+    .replace("% +", "%+") // extraneous space in PI data
+    .replace(" under ", " <") // ie. " under 3%"
+    .replace(demRegexp, "D")
+    .replace(repRegexp, "R")
+    .replace(" House, ", "-H ")
+    .replace(" Senate", "-Sen")
+    .replace("Dems by", "D")
+    .replace("GOP by", "R")
+    .replace("Dems +", "D +")
+    .replace("GOP +", "R +")
+    .replace(" or more", "+") // ie. "+4 or more" -> "+4+"
+    .replace("Florida", "FL")
+    .replace("Wisconsin", "WI")
+    .replace("North Carolina", "NC")
+    .replace("Ohio", "OH")
+    .replace("November", "Nov")
+    .replace("After December 14", "Dec 14+")
+    .replace("December", "Dec")
   ;
 }
 
+const stateWinnerRegexp = new RegExp(/^Which party will win ([a-zA-Z]+) in 2020/);
+
 function marketNameFixup(marketName: string): string {
   return marketName
+    .replace("November", "Nov")
+    .replace("House seats won by Democrats in 2020", "Dem House seats won")
+    .replace("margin of victory", "MOV")
+    .replace("Turnout in the presidential election", "Voter turnout")
+    .replace(stateWinnerRegexp, (match, state) => state)
+    .replace("Which party wins the presidency in 2020", "Which party wins the presidency")
+    .replace("2020 presidential election winner", "Next president")
     .replace("Will Trump be the 2020 GOP nominee", "Trump GOP nominee")
     .replace("Will Pence be 2020 GOP VP nominee", "Pence GOP VP nominee")
     .replace("Will 2020 Dem VP nominee be a woman", "Dem VP nominee a woman")
     .replace("Balance of power after 2020 election", "Balance of power after 2020")
+    .replace("after 2020", "")
+    .replace("MOV in 2020", "in 2020")
+    .replace("jurisdiction in 2020", "")
     .replace("2020 ", "")
     .replace(" Dem primary winner", "")
     .replace(" Democratic caucus winner", "")
@@ -163,11 +203,13 @@ function marketNameFixup(marketName: string): string {
     .replace("Will Hillary Clinton run in 2020", "Hillary Clinton runs")
     .replace("Trump win popular vote in 2020", "Trump wins popular vote")
     .replace("Who will control the House after 2020", "Controls House after 2020")
-    .replace("Who will control the Senate after 2020", "Controls Senate after 2020")
-    .replace("Which party wins the Presidency in 2020", "Wins Presidency in 2020")
+    .replace("Who will control the Senate after 2020", "Controls Senate after 2020")    
     .replace("Number of Democrats", "# of Dems")
     .replace("California primary margin of victory", "CA margin of victory")
     .replace("Washington primary margin of victory", "WA margin of victory")
+    .replace("presidential vote margin", "vote margin")
+    .replace("presidential election call", "election call")
+    .replace("'Tipping point'", "Tipping point")
     .replace("?", "")
   ;
 }

@@ -59,10 +59,14 @@ export interface OutcomePrices {
   lastTradePrice: number;
 }
 
-export function getSubsetOfMarkets(markets: Markets, marketsAndOutcomes: { [marketId: string]: {
-  autoOutcomeMaxNum?: number,
-  outcomeIds?: {[outcomeId: string]: true },
-}}): Markets {
+export interface MarketsAndOutcomes {
+  [marketId: string]: {
+    autoOutcomeMaxNum?: number,
+    outcomeIds?: { [outcomeId: string]: true },
+  }
+}
+
+export function getSubsetOfMarkets(markets: Markets, marketsAndOutcomes: MarketsAndOutcomes): Markets {
   // console.log("getSubsetOfMarketsIn", markets, marketsAndOutcomes);
   const ms = {
     marketsById: {},
@@ -91,11 +95,12 @@ interface LegendItemProps {
 }
 
 const LegendItem: React.SFC<LegendItemProps> = ({ market, colorWheel }) => {
+  const outcomeIds = getAndSortOutcomeIdsByContent(market).slice(0, 4); // hard restriction on maximum of 4 outcomes per market rendered in the legend. Outcomes omitted from the legend can still be inspected by mousing over the chart lines; TODO show a visual indicator that some outcomes have been omitted from the legend, eg. "3 hidden"
   return (<>
     <img src={market.imageUrl} />
     &nbsp;
     <span className="marketName">{market.name}</span>
-    {getAndSortOutcomeIdsByContent(market).map(outcomeId => {
+    {outcomeIds.map(outcomeId => {
       const outcome = market.outcomesById[outcomeId];
       return (<span key={outcomeId} style={{ display: "inline-block" }}>
         &nbsp;&nbsp;
@@ -144,35 +149,43 @@ interface Chart {
 }
 
 const defaultColorScheme = [ // rickshaw color scheme, colors appear twice because each outcome has two lines, bid and ask
-  // colors from http://ksrowell.com/blog-visualizing-data/2012/02/02/optimal-colors-for-graphs/
+  // colors from https://web.archive.org/web/20200514061244/http://ksrowell.com/blog-visualizing-data/2012/02/02/optimal-colors-for-graphs/
   'rgb(57, 106, 177)',
   'rgb(57, 106, 177)',
-  'rgb(218, 124, 48)',
-  'rgb(218, 124, 48)',
-  'rgb(62, 150, 81)',
-  'rgb(62, 150, 81)',
   'rgb(204, 37, 41)',
   'rgb(204, 37, 41)',
+  'rgb(62, 150, 81)',
+  'rgb(62, 150, 81)',
+  'rgb(218, 124, 48)',
+  'rgb(218, 124, 48)',
   'rgb(107, 76, 154)',
   'rgb(107, 76, 154)',
   'rgb(83, 81, 84)',
   'rgb(83, 81, 84)',
+  'rgb(146, 36, 40)',
+  'rgb(146, 36, 40)',
+  'rgb(148, 139, 61)',
+  'rgb(148, 139, 61)',
 ];
 
 const colorBlindColorScheme = [
   // similar to and based on globalColorScheme, but with select colors replaced based on talking to color blind users
   'rgb(57, 106, 177)',
   'rgb(57, 106, 177)',
-  'yellow',
-  'yellow',
-  'rgb(62, 150, 81)',
-  'rgb(62, 150, 81)',
   'rgb(204, 37, 41)',
   'rgb(204, 37, 41)',
+  'rgb(62, 150, 81)',
+  'rgb(62, 150, 81)',
+  'yellow',
+  'yellow',
   'rgb(107, 76, 154)',
   'rgb(107, 76, 154)',
   'rgb(83, 81, 84)',
   'rgb(83, 81, 84)',
+  'rgb(146, 36, 40)',
+  'rgb(146, 36, 40)',
+  'rgb(148, 139, 61)',
+  'rgb(148, 139, 61)',
 ];
 
 // getColorWheel returns a generator for a stream of colors for the passed
@@ -189,7 +202,43 @@ function getColorWheel(colorScheme: string[]): () => string {
 }
 
 const contentOrder = [
+  "Nov 4", // election called
+  "Nov 3", // election called
+  "Dec 14+", // election called
+  "Nov 5", // election called
+  "160M+", // voter turnout
+  "157-160M", // voter turnout
+  "154-157M", // voter turnout
+  "151-154M", // voter turnout    
+  'R 3.5%+', // OH margin
+  'D 3.5%+', // OH margin
+  'D 0.5-1%', // OH margin
+  'R 0.5-1%', // OH margin
+  'R 1-2%', // FL margin
+  'R <1%', // FL margin
+  'R 3-4%', // FL margin
+  'D 6%+', // FL margin
+  '246', // house seats won by Democrats
+  '242', // house seats won by Democrats
+  '238', // house seats won by Democrats
+  '234', // house seats won by Democrats
+  'D +4', // net change in senate seats
+  'D +5', // net change in senate seats
+  'D +7', // net change in senate seats
+  'D +3', // net change in senate seats
+  'D 7.5%',
+  'D 10.5%',
+  'D 9%',
+  'D 6%',
+  'D 100',
+  'D 150',
+  'D 210',
+  'R 30',
+  'R 60',
+  'R 100',
+  'D',
   'Democratic',
+  'R',
   'Republican',
   'Biden',
   'Buttigieg',
@@ -258,15 +307,17 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
 
     const colorWheel = getColorWheel(colorScheme);
     const domNode = (
-      <a href={marketIds.length > 0 ? ms.marketsById[marketIds[0]].url : ""} target="_blank">
-        <div className="rickshawChartContainer">
-          <div className="rickshawChart" ref={chartRef} />
-          <div className="rickshawChart2" ref={chart2Ref} />
-          {!hideLegend && <div className="rickshawChartLegend">
-            {marketIds.map(id => <LegendItem key={id} market={ms.marketsById[id]} colorWheel={colorWheel} />)}
-          </div>}
-        </div>
-      </a>
+      <div className="rickshawChartContainer">
+        <div className="rickshawChart" ref={chartRef} />
+        <div className="rickshawChart2" ref={chart2Ref} />
+        {!hideLegend && <div className="rickshawChartLegend">
+          {marketIds.map(id =>
+            <a key={id} href={ms.marketsById[id].url} target="_blank">
+              <LegendItem market={ms.marketsById[id]} colorWheel={colorWheel} />
+            </a>
+          )}
+        </div>}
+      </div>
     );
 
     if (chartRef.current === null || chart2Ref.current === null) {
@@ -345,10 +396,10 @@ function useChart(ms: Markets, chartOptions: ChartOptions): Chart | undefined {
         // these are args for https://github.com/shutterstock/rickshaw/blob/master/src/js/Rickshaw.Color.Palette.js
         scheme: colorScheme,
       }, {
-          timeInterval: timeIntervalMillis,
-          maxDataPoints,
-          timeBase: Date.now() / 1000,
-        })
+        timeInterval: timeIntervalMillis,
+        maxDataPoints,
+        timeBase: Date.now() / 1000,
+      })
     }, getChartElementWidthAndHeight()));
 
     const hoverDetail = new Rickshaw.Graph.HoverDetail({

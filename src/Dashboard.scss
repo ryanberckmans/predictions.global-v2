@@ -1,0 +1,22 @@
+.discord-button {
+    .discord-button-inner {
+        width: 30px;
+        height: 30px;
+
+        // horizontally center on mobile:
+        margin-left: auto;
+        margin-right: auto;
+    }
+    svg {
+        width: 30px;
+        height: 30px;
+        fill: #3273dc; // same color as other links in header
+        &:hover {
+            fill: #4a4a4a; // same hover color as other links in header
+        }
+    }
+}
+
+.font-size-larger {
+    font-size: 1.618em; // golden ratio
+}

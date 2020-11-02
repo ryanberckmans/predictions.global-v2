@@ -12,6 +12,7 @@ import { Dashboard } from './Dashboard';
 import { EmbeddedMarketCard } from './EmbeddedMarketCard';
 import FAQ from './FAQ';
 import { MarketsSummary } from "./generated/markets_pb";
+import HowDashboardWorks from './HowDashboardWorks';
 import { MarketDetailPage, marketDetailPageURLPrefix, URLParams } from './MarketDetailPage';
 import { makeMarketSortFunctions, MarketSortFunctions } from './MarketSort';
 import PublicEthereumNodes from './PublicEthereumNodes';
@@ -129,6 +130,10 @@ export class Routes extends React.Component<any, RoutesState> {
       ms={marketsSummary}
       currencySelectionObserver={this.state.currencySelectionObserverOwner.observer}
     />;
+    const renderHowDashboardWorks = () => <HowDashboardWorks
+      ms={marketsSummary}
+      currencySelectionObserver={this.state.currencySelectionObserverOwner.observer}
+    />;
     const renderMarketDetailPage = (props: RouteComponentProps<URLParams>) => <MarketDetailPage
       ms={marketsSummary}
       currencyObserver={this.state.currencySelectionObserverOwner.observer}
@@ -164,6 +169,7 @@ export class Routes extends React.Component<any, RoutesState> {
                 <Route exact={true} path="/augur-reporter-fee-window-rep-profit-calculator" render={renderAugurFeeWindows} />
                 <Route exact={true} path="/faq" render={renderFAQ} />
                 <Route exact={true} path="/dashboard" component={Dashboard} />
+                <Route exact={true} path="/how-2020-election-real-time-dashboard-works" render={renderHowDashboardWorks} />
                 <Route exact={true} path="/" render={renderHome} />
               </Switch>
             </VeilMarketsContext.Provider>
