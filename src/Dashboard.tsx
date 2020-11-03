@@ -452,7 +452,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
           content="Real-time dashboard for PredictIt and Augur Prediction Markets. PredictIt and Augur prediction market discusion, prices, trading volume, bid ask, and charts." />
       </Helmet>
       <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "0.8rem" }}>
-        <div className="column is-half">
+        <div className="column is-5">
           <Link to="/">
             <img width="230" className="logo" src="logo.png" />
           </Link>
@@ -463,7 +463,12 @@ export const Dashboard: React.SFC<{}> = (props) => {
           </a>
         </div>
         <div className="column is-narrow">
-          <Link to="/how-2020-election-real-time-dashboard-works">How this works</Link>
+          <a target="_blank" href="https://starspangledgamblers.com/">
+            <span>Star Spangled Gamblers</span>
+          </a>
+        </div>
+        <div className="column is-narrow">
+          <a href="/how-2020-election-real-time-dashboard-works" target="_blank">How this works</a>
         </div>
         <div className="column is-narrow discord-button">
           <div className="discord-button-inner">
