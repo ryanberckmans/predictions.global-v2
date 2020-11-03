@@ -161,6 +161,16 @@ export const Dashboard: React.SFC<{}> = (props) => {
           6573: {}, // Which party will win NM in 2020?
         },
       },
+      "NE-02": {
+        marketsAndOutcomes: {
+          6608: {}, // Which party will win NE-02?
+        },
+      },
+      "ME-02": {
+        marketsAndOutcomes: {
+          6190: {}, // Which party will win ME-02?
+        },
+      },
       "balanceOfPower": {
         marketsAndOutcomes: {
           4353: {}, // What-will-be-the-balance-of-power-in-Congress-after-the-2020-election

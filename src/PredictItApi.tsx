@@ -138,7 +138,7 @@ const demRegexp = new RegExp(/^Democratic$/);
 const repRegexp = new RegExp(/^Republican$/);
 
 function outcomeNameFixup(outcomeName: string): string {
-  return outcomeName    
+  return outcomeName
     .replace("160 mil. or more", "160M+")
     .replace("157 mil - 160 mil", "157-160M")
     .replace("154 mil - 157 mil", "154-157M")
@@ -176,6 +176,7 @@ const stateWinnerRegexp = new RegExp(/^Which party will win ([a-zA-Z]+) in 2020/
 
 function marketNameFixup(marketName: string): string {
   return marketName
+    .replace("Trump win popular vote in 2020", "Trump wins popular vote")
     .replace("November", "Nov")
     .replace("House seats won by Democrats in 2020", "Dem House seats won")
     .replace("margin of victory", "MOV")
@@ -188,9 +189,11 @@ function marketNameFixup(marketName: string): string {
     .replace("Will 2020 Dem VP nominee be a woman", "Dem VP nominee a woman")
     .replace("Balance of power after 2020 election", "Balance of power after 2020")
     .replace("after 2020", "")
-    .replace("MOV in 2020", "in 2020")
+    .replace("State with smallest MOV in 2020", "State with smallest MOV")
     .replace("jurisdiction in 2020", "")
+    .replace("in 2020", "")
     .replace("2020 ", "")
+    .replace("Which party will win ", "")
     .replace(" Dem primary winner", "")
     .replace(" Democratic caucus winner", "")
     .replace(" Democratic primary winner", "")
@@ -201,9 +204,8 @@ function marketNameFixup(marketName: string): string {
     .replace("Democratic VP nominee", "Dem VP nominee")
     .replace("Brokered Democratic convention", "Brokered convention")
     .replace("Will Hillary Clinton run in 2020", "Hillary Clinton runs")
-    .replace("Trump win popular vote in 2020", "Trump wins popular vote")
     .replace("Who will control the House after 2020", "Controls House after 2020")
-    .replace("Who will control the Senate after 2020", "Controls Senate after 2020")    
+    .replace("Who will control the Senate after 2020", "Controls Senate after 2020")
     .replace("Number of Democrats", "# of Dems")
     .replace("California primary margin of victory", "CA margin of victory")
     .replace("Washington primary margin of victory", "WA margin of victory")
