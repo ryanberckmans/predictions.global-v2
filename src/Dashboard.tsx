@@ -1,5 +1,4 @@
 import queryString from 'query-string';
-import { stringify } from 'querystring';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
@@ -61,7 +60,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
           6653: { // Electoral College margin of victory?
             outcomeIds: {
               22326: true, // Dems by 100 - 149
-              22346: true, // Dems by 150 - 209              
+              22346: true, // Dems by 150 - 209
               22348: true, // Dems by 210 - 279
               22317: true, // GOP by 30 - 59
               22319: true, // GOP by 60 - 99
@@ -396,7 +395,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
   interface MkChartOpts {
     desiredSecondsOfHistory: number;
     columnWidth: number;
-    key?: string; // JSX.Element key to use if this chart will be included in a React JSX array 
+    key?: string; // JSX.Element key to use if this chart will be included in a React JSX array
   }
 
   const defaultMkChartOpts: MkChartOpts = {
