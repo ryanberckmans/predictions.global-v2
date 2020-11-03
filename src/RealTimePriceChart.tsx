@@ -104,8 +104,8 @@ const LegendItem: React.SFC<LegendItemProps> = ({ market, colorWheel }) => {
       const outcome = market.outcomesById[outcomeId];
       return (<span key={outcomeId} style={{ display: "inline-block" }}>
         &nbsp;&nbsp;
-        <img src={outcome.imageUrl} />
-        &nbsp;
+        {/* <img src={outcome.imageUrl} />
+        &nbsp; */}
         <span style={{ color: colorWheel() }}>{outcome.name}</span>
       </span>);
     })}
