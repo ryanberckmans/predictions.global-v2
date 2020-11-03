@@ -446,8 +446,26 @@ export const Dashboard: React.SFC<{}> = (props) => {
     "display": "none",
   } : {});
 
-  const hideChat = () => setIsChatHidden(true);
-  const showChat = () => setIsChatHidden(false);
+  const hideChat = () => {
+    setIsChatHidden(true);
+    setTimeout(() => {
+      try { // hiding chat causes the charts to claim the space used by the chat; a resize event is required to re-render the charts at the new resolution
+        window.dispatchEvent(new Event('resize'));
+      } catch (e) {
+        console.error(e);
+      }
+    }, 5);
+  };
+  const showChat = () => {
+    setIsChatHidden(false);
+    setTimeout(() => {
+      try { // showing chat causes the charts to lose the space used by the chat; a resize event is required to re-render the charts at the new resolution
+        window.dispatchEvent(new Event('resize'));
+      } catch (e) {
+        console.error(e);
+      }
+    }, 5);
+  }
 
   return (
     <div className="dashboard" style={{ minHeight: "100vh" }}>
@@ -490,10 +508,13 @@ export const Dashboard: React.SFC<{}> = (props) => {
             <i className="fab fa-twitter" />
           </a>
         </div>
+        {isChatHidden && <div className="column is-narrow">
+          <a onClick={showChat}>show chat</a>
+        </div>}
       </div>
 
       <div className="columns is-marginless">
-        <div className="column is-9 is-paddingless">
+        <div className={`column is-${isChatHidden ? 12 : 9} is-paddingless`}>
           <div className="columns is-marginless is-multiline" style={{ position: "relative" }}>
             {/* <div className="column is-12">All election winner markets in one chart</div> */}
             {electionWinnerChart}
@@ -501,7 +522,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
             {autoCharts}
           </div>
         </div>
-        <div className="column is-3" style={{
+        {!isChatHidden && <div className="column is-3" style={{
           "position": "relative",
           "zIndex": 10,
           "padding": styleOuter.padding,
@@ -512,10 +533,10 @@ export const Dashboard: React.SFC<{}> = (props) => {
               <a target="_blank" href="0x56329ACd726a373177f8Bf2f94Ca601C0BB3C4FA.png">donate on ethereum: 0x56329ACd726a373177f8Bf2f94Ca601C0BB3C4FA</a>
             </div>
             <div className="column is-12">
-              <a onClick={isChatHidden ? showChat : hideChat} style={{ color: "#4a4a4a" /* hide chat is a config option so we'll make it less garish */ }}>{isChatHidden ? 'show' : 'hide'} chat</a>
+              <a onClick={isChatHidden ? showChat : hideChat} style={{ color: "#4a4a4a" /* hide chat is what we hope must users won't do, so we'll make its color less noticeable :> */ }}>{isChatHidden ? 'show' : 'hide'} chat</a>
             </div>
           </div>
-        </div>
+        </div>}
       </div>
     </div>
   );
