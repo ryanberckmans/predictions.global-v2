@@ -25,6 +25,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
     return typeof raw === 'string' && raw.length > 0;
   })();
 
+  const [isChatHidden, setIsChatHidden] = useState(false); // TODO url query param for config fields and also a config UI
   const [markets, setMarkets] = useState(undefined as undefined | Markets);
   const [marketsForOneChartByChartName, setMarketsForOneChartByChartName] = useState({} as { [chartName: string]: Markets });
   const [autoChartNames, setAutoChartNames] = useState([] as string[]);
@@ -372,7 +373,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
     const wipMarketsForOneChartByChartName: { [chartName: string]: Markets } = {};
 
     for (const chartName of Object.keys(marketsAndOutcomesForAllCharts)) {
-      const chartConfig = marketsAndOutcomesForAllCharts[chartName];    
+      const chartConfig = marketsAndOutcomesForAllCharts[chartName];
       if (chartConfig.noAutoChart !== true) {
         wipAutoChartNames.push(chartName);
       }
@@ -442,6 +443,13 @@ export const Dashboard: React.SFC<{}> = (props) => {
   const electionWinnerChart = mk(["2020winner"], { columnWidth: 6 });
   const autoCharts = mk(autoChartNames);
 
+  const chatStyle = Object.assign({}, isChatHidden ? {
+    "display": "none",
+  } : {});
+
+  const hideChat = () => setIsChatHidden(true);
+  const showChat = () => setIsChatHidden(false);
+
   return (
     <div className="dashboard" style={{ minHeight: "100vh" }}>
       <ReactTooltip />
@@ -499,10 +507,13 @@ export const Dashboard: React.SFC<{}> = (props) => {
           "zIndex": 10,
           "padding": styleOuter.padding,
         }}>
-          <iframe className="chatIframe" src="/orbit-web/index.html" />
-          <div className="columns has-text-centered is-vcentered is-centered content" style={{ padding: "0.8rem" }}>
+          <iframe className="chatIframe" src="/orbit-web/index.html" style={chatStyle} />
+          <div className="columns has-text-centered is-vcentered is-centered is-multiline content" style={{ padding: "0.8rem" }}>
             <div className="column is-12">
               <a target="_blank" href="0x56329ACd726a373177f8Bf2f94Ca601C0BB3C4FA.png">donate on ethereum: 0x56329ACd726a373177f8Bf2f94Ca601C0BB3C4FA</a>
+            </div>
+            <div className="column is-12">
+              <a onClick={isChatHidden ? showChat : hideChat} style={{ color: "#4a4a4a" /* hide chat is a config option so we'll make it less garish */ }}>{isChatHidden ? 'show' : 'hide'} chat</a>
             </div>
           </div>
         </div>
