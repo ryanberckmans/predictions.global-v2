@@ -522,11 +522,13 @@ export const Dashboard: React.SFC<{}> = (props) => {
             {autoCharts}
           </div>
         </div>
-        {!isChatHidden && <div className="column is-3" style={{
+        <div className="column is-3" style={Object.assign({
           "position": "relative",
           "zIndex": 10,
           "padding": styleOuter.padding,
-        }}>
+        }, isChatHidden ? {
+          "display": "none",
+        } : {})}>
           <iframe className="chatIframe" src="/orbit-web/index.html" style={chatStyle} />
           <div className="columns has-text-centered is-vcentered is-centered is-multiline content" style={{ padding: "0.8rem" }}>
             <div className="column is-12">
@@ -536,7 +538,7 @@ export const Dashboard: React.SFC<{}> = (props) => {
               <a onClick={isChatHidden ? showChat : hideChat} style={{ color: "#4a4a4a" /* hide chat is what we hope must users won't do, so we'll make its color less noticeable :> */ }}>{isChatHidden ? 'show' : 'hide'} chat</a>
             </div>
           </div>
-        </div>}
+        </div>
       </div>
     </div>
   );
