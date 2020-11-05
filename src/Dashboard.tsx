@@ -91,11 +91,11 @@ export const Dashboard: React.SFC<{}> = (props) => {
           },
         },
       },
-      "FL": {
-        marketsAndOutcomes: {
-          5544: {}, // Which party will win FL in 2020?
-        },
-      },
+      // "FL": {
+      //   marketsAndOutcomes: {
+      //     5544: {}, // Which party will win FL in 2020?
+      //   },
+      // },
       "MI": {
         marketsAndOutcomes: {
           5545: {}, // Which party will win MI in 2020?
@@ -106,16 +106,16 @@ export const Dashboard: React.SFC<{}> = (props) => {
           5543: {}, // Which party will win PA in 2020?
         },
       },
-      "MN": {
-        marketsAndOutcomes: {
-          5597: {}, // Which party will win MN in 2020?
-        },
-      },
-      "TX": {
-        marketsAndOutcomes: {
-          5798: {}, // Which party will win TX in 2020?
-        },
-      },
+      // "MN": {
+      //   marketsAndOutcomes: {
+      //     5597: {}, // Which party will win MN in 2020?
+      //   },
+      // },
+      // "TX": {
+      //   marketsAndOutcomes: {
+      //     5798: {}, // Which party will win TX in 2020?
+      //   },
+      // },
       "WI": {
         marketsAndOutcomes: {
           5542: {}, // Which party will win WI in 2020?
@@ -136,41 +136,41 @@ export const Dashboard: React.SFC<{}> = (props) => {
           5604: {}, // Which party will win GA in 2020?
         },
       },
-      "OH": {
-        marketsAndOutcomes: {
-          5600: {}, // Which party will win OH in 2020?
-        },
-      },
+      // "OH": {
+      //   marketsAndOutcomes: {
+      //     5600: {}, // Which party will win OH in 2020?
+      //   },
+      // },
       "NV": {
         marketsAndOutcomes: {
           5601: {}, // Which party will win NV in 2020?
         },
       },
-      "NH": {
-        marketsAndOutcomes: {
-          5598: {}, // Which party will win NH in 2020?
-        },
-      },
-      "IA": {
-        marketsAndOutcomes: {
-          5603: {}, // Which party will win IA in 2020?
-        },
-      },
-      "NM": {
-        marketsAndOutcomes: {
-          6573: {}, // Which party will win NM in 2020?
-        },
-      },
-      "NE-02": {
-        marketsAndOutcomes: {
-          6608: {}, // Which party will win NE-02?
-        },
-      },
-      "ME-02": {
-        marketsAndOutcomes: {
-          6190: {}, // Which party will win ME-02?
-        },
-      },
+      // "NH": {
+      //   marketsAndOutcomes: {
+      //     5598: {}, // Which party will win NH in 2020?
+      //   },
+      // },
+      // "IA": {
+      //   marketsAndOutcomes: {
+      //     5603: {}, // Which party will win IA in 2020?
+      //   },
+      // },
+      // "NM": {
+      //   marketsAndOutcomes: {
+      //     6573: {}, // Which party will win NM in 2020?
+      //   },
+      // },
+      // "NE-02": {
+      //   marketsAndOutcomes: {
+      //     6608: {}, // Which party will win NE-02?
+      //   },
+      // },
+      // "ME-02": {
+      //   marketsAndOutcomes: {
+      //     6190: {}, // Which party will win ME-02?
+      //   },
+      // },
       "balanceOfPower": {
         marketsAndOutcomes: {
           4353: {}, // What-will-be-the-balance-of-power-in-Congress-after-the-2020-election
@@ -233,20 +233,20 @@ export const Dashboard: React.SFC<{}> = (props) => {
           },
         },
       },
-      "OHmargin": {
-        marketsAndOutcomes: {
-          6915: { // What-will-be-the-margin-in-the-presidential-election-in-Ohio
-            outcomeIds: {
-              23828: true, // R 3.5%+
-              23832: true, // D 3.5%+
-              23830: true, // D 0.5%
-              23824: true, // R 0.5%
-              23826: true, // D 1.5%
-              23836: true, // D 2.5%
-            },
-          },
-        },
-      },
+      // "OHmargin": {
+      //   marketsAndOutcomes: {
+      //     6915: { // What-will-be-the-margin-in-the-presidential-election-in-Ohio
+      //       outcomeIds: {
+      //         23828: true, // R 3.5%+
+      //         23832: true, // D 3.5%+
+      //         23830: true, // D 0.5%
+      //         23824: true, // R 0.5%
+      //         23826: true, // D 1.5%
+      //         23836: true, // D 2.5%
+      //       },
+      //     },
+      //   },
+      // },
       "smallestMargin": {
         marketsAndOutcomes: {
           6687: { // Which-state-will-be-won-by-the-smallest-margin-in-the-presidential-election
@@ -316,66 +316,66 @@ export const Dashboard: React.SFC<{}> = (props) => {
           },
         },
       },
-      "trumpWinsPopularVote": {
-        marketsAndOutcomes: {
-          5554: {}, // Will-Donald-Trump-win-the-popular-vote-in-2020
-        },
-      },
+      // "trumpWinsPopularVote": {
+      //   marketsAndOutcomes: {
+      //     5554: {}, // Will-Donald-Trump-win-the-popular-vote-in-2020
+      //   },
+      // },
       "popularVoteWinnerAlsoWinsElectoralCollege": {
         marketsAndOutcomes: {
           6642: {}, // Will-the-winner-of-the-popular-vote-also-win-the-Electoral-College
         },
       },
-      "trumpLoseAny2016StateHeWon": {
-        marketsAndOutcomes: {
-          6727: {}, // Will-Donald-Trump-lose-any-state-he-won-in-2016
-        },
-      },
+      // "trumpLoseAny2016StateHeWon": {
+      //   marketsAndOutcomes: {
+      //     6727: {}, // Will-Donald-Trump-lose-any-state-he-won-in-2016
+      //   },
+      // },
       "trumpWinAny2016StateHeLost": {
         marketsAndOutcomes: {
           6724: {}, // Will-Donald-Trump-win-any-state-he-lost-in-2016
         },
       },
-      "trumpWinningDayAfterElection": {
-        marketsAndOutcomes: {
-          6920: {}, // Will-Donald-Trump-be-winning-at-6-am-(ET)-the-day-after-the-election
-        },
-      },
+      // "trumpWinningDayAfterElection": {
+      //   marketsAndOutcomes: {
+      //     6920: {}, // Will-Donald-Trump-be-winning-at-6-am-(ET)-the-day-after-the-election
+      //   },
+      // },
       "trumpCompleteFirstTerm": {
         marketsAndOutcomes: {
           5158: {}, // Will-Donald-Trump-complete-his-first-term
         },
       },
-      "CO": {
-        marketsAndOutcomes: {
-          5605: {}, // Which party will win CO in 2020?
-        },
-      },
-      "VA": {
-        marketsAndOutcomes: {
-          5602: {}, // Which party will win VA in 2020?
-        },
-      },
-      "AK": {
-        marketsAndOutcomes: {
-          6591: {}, // Which party will win AK in 2020?
-        },
-      },
-      "OR": {
-        marketsAndOutcomes: {
-          6582: {}, // Which party will win OR in 2020?
-        },
-      },
-      "ME": {
-        marketsAndOutcomes: {
-          6571: {}, // Which party will win ME in 2020?
-        },
-      },
-      "MO": {
-        marketsAndOutcomes: {
-          6581: {}, // Which party will win MO in 2020?
-        },
-      },
+      // "CO": {
+      //   marketsAndOutcomes: {
+      //     5605: {}, // Which party will win CO in 2020?
+      //   },
+      // },
+      // "VA": {
+      //   marketsAndOutcomes: {
+      //     5602: {}, // Which party will win VA in 2020?
+      //   },
+      // },
+      // "AK": {
+      //   marketsAndOutcomes: {
+      //     6591: {}, // Which party will win AK in 2020?
+      //   },
+      // },
+      // "OR": {
+      //   marketsAndOutcomes: {
+      //     6582: {}, // Which party will win OR in 2020?
+      //   },
+      // },
+      // "ME": {
+      //   marketsAndOutcomes: {
+      //     6571: {}, // Which party will win ME in 2020?
+      //   },
+      // },
+      // "MO": {
+      //   marketsAndOutcomes: {
+      //     6581: {}, // Which party will win MO in 2020?
+      //   },
+      // },
     };
 
     const wipAutoChartNames: string[] = [];
