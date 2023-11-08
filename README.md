@@ -4,4 +4,4 @@ This site allows users to browse current and past Augur markets, using a cached 
 
 ## Credits
 
-Built by [Ryan Berckmans](https://github.com/ryanberckmans) and [Jorge Olivero](https://github.com/olibearo).
+Built by [Ryan Berckmans](https://github.com/ryanberckmans) and Jorge Olivero.
