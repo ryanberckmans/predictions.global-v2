@@ -10,3 +10,5 @@ It was designed by world-class prediction market traders, and shows real-time pr
 
 Screenshot:
 <img src="public/real-time-price-chart.png"/>
+
+[Chart code][src/RealTimePriceChart.tsx]
